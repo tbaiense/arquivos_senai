@@ -169,6 +169,8 @@ programa
 		}
 
 		qnt_carros_cliente = QNT_INICIAL_CARROS_CLIENTE
+		
+		ordenar(carros_cliente, CLIENTE_POSSUI)
 	}
 	funcao vazio sortear_carros_empresa() {
 		inteiro marca_escolhida, modelo_escolhido
@@ -978,6 +980,81 @@ programa
 		} enquanto (entradaInvalida)
 		retorne entradaTrat
 	}
+	funcao vazio ordenar(inteiro matriz[][], inteiro infoMatriz) {
+	/* Ordena a matriz especificada com as constantes CARROS_CLIENTE_POSSUI, EMPRESA, CLIENTE_ALUGADOS, ALUGUEL, CLIENTE_VENDER.
+	 *  Primeiro, ordena agrupando carros de marcas iguais em linhas próximas
+	 *  Segundo, ordena os grupos de carros da mesma marca em ordem crescente de número de modelo
+	 */
+		
+		inteiro qntCarros = 0//Responsável por controlar laços de repetição de ordenação
+		inteiro posMenor, copia[3] //Variáveis de ordenação
+		//Determina o valor para variável `qntCarros`
+		escolha (infoMatriz) {
+			caso ALUGUEL:
+			caso EMPRESA:
+				qntCarros = qnt_carros_empresa
+				pare
+			caso CLIENTE_VENDER:
+			caso CLIENTE_POSSUI:
+				qntCarros = qnt_carros_cliente
+				pare
+			caso CLIENTE_ALUGADOS:
+				qntCarros = qnt_carros_alugados_cliente
+				pare	
+			caso contrario:
+				escreva("ERRO MATRIZ INVÁLIDA DE ORDENAÇÃO")
+				retorne
+		}
+		//Ordenação e agrupamento de marcas na matriz
+		para (inteiro posAtual=0; posAtual < qntCarros-1; posAtual++) {
+			posMenor = posAtual
+			para (inteiro posVerificar = posAtual+1; posVerificar < qntCarros; posVerificar++) {
+				se (matriz[posVerificar][COLUNA_MARCA] < matriz[posMenor][COLUNA_MARCA]) {
+					posMenor = posVerificar
+				}
+			}
+			//Transfere os carros de linha na matriz caso seja encontrado um de número menor
+			se (posMenor != posAtual) {
+				escolha (infoMatriz) {
+					caso ALUGUEL:
+					caso CLIENTE_ALUGADOS:
+						copia[COLUNA_MARCA] = matriz[posAtual][COLUNA_MARCA]
+						copia[COLUNA_MODELO] = matriz[posAtual][COLUNA_MODELO]
+						copia[COLUNA_DIAS_ALUGUEL] = matriz[posAtual][COLUNA_DIAS_ALUGUEL]
+						
+						matriz[posAtual][COLUNA_MARCA] = matriz[posMenor][COLUNA_MARCA]
+						matriz[posAtual][COLUNA_MODELO] = matriz[posMenor][COLUNA_MODELO]
+						matriz[posAtual][COLUNA_DIAS_ALUGUEL] = matriz[posMenor][COLUNA_DIAS_ALUGUEL]
+						
+						matriz[posMenor][COLUNA_MARCA] = copia[COLUNA_MARCA]
+						matriz[posMenor][COLUNA_MODELO] = copia[COLUNA_MODELO]
+						matriz[posMenor][COLUNA_DIAS_ALUGUEL] = copia[COLUNA_DIAS_ALUGUEL]									
+						pare
+					caso EMPRESA:
+					caso CLIENTE_VENDER:
+					caso CLIENTE_POSSUI:
+						copia[COLUNA_MARCA] = matriz[posAtual][COLUNA_MARCA]
+						copia[COLUNA_MODELO] = matriz[posAtual][COLUNA_MODELO]
+						copia[COLUNA_ESTOQUE] = matriz[posAtual][COLUNA_ESTOQUE]
+						
+						matriz[posAtual][COLUNA_MARCA] = matriz[posMenor][COLUNA_MARCA]
+						matriz[posAtual][COLUNA_MODELO] = matriz[posMenor][COLUNA_MODELO]
+						matriz[posAtual][COLUNA_ESTOQUE] = matriz[posMenor][COLUNA_DIAS_ALUGUEL]
+						
+						matriz[posMenor][COLUNA_MARCA] = copia[COLUNA_MARCA]
+						matriz[posMenor][COLUNA_MODELO] = copia[COLUNA_MODELO]
+						matriz[posMenor][COLUNA_ESTOQUE] = copia[COLUNA_ESTOQUE]	
+						pare
+					caso contrario:
+						escreva("ERRO MATRIZ INVÁLIDA DE ORDENAÇÃO")
+						retorne
+				}
+			}
+		}
+
+		//Ordenação de modelos por número de coluna na tabela fipe
+		
+	}
 	
 	funcao vazio tela_inicio () {
 		//Concatela a cadeia com os carros que o cliente possui. Se o cliente possuir carros alugados, eles são exibidos
@@ -1283,8 +1360,8 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 5299; 
- * @DOBRAMENTO-CODIGO = [136, 172, 208, 289, 370, 377, 385, 428, 488, 571, 630, 685, 733, 786, 866, 911, 922, 981, 1010, 1096, 1179];
+ * @POSICAO-CURSOR = 39417; 
+ * @DOBRAMENTO-CODIGO = [174, 210, 291, 372, 379, 387, 430, 490, 573, 632, 687, 735, 788, 868, 913, 924, 1016, 1058, 1087, 1173, 1256];
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
