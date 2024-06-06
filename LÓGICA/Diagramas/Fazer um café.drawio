@@ -1,0 +1,67 @@
+<mxfile host="app.diagrams.net" modified="2024-02-20T00:38:05.372Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36" etag="XU5XZEmqWVlzTM5vS5IL" version="23.1.5" type="device">
+  <diagram name="Página-1" id="rXhOk4q6K_t4kW_fynV6">
+    <mxGraphModel dx="1434" dy="780" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="U881wSUHdD6qgDWPL5tZ-9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="U881wSUHdD6qgDWPL5tZ-5" target="U881wSUHdD6qgDWPL5tZ-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="U881wSUHdD6qgDWPL5tZ-5" value="Esquentar água" style="rounded=0;whiteSpace=wrap;html=1;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="190" y="80" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="U881wSUHdD6qgDWPL5tZ-14" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="U881wSUHdD6qgDWPL5tZ-8" target="U881wSUHdD6qgDWPL5tZ-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="U881wSUHdD6qgDWPL5tZ-8" value="Por açúcar na água" style="whiteSpace=wrap;html=1;fontSize=19;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="360" y="80" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="U881wSUHdD6qgDWPL5tZ-16" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="U881wSUHdD6qgDWPL5tZ-13" target="U881wSUHdD6qgDWPL5tZ-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="U881wSUHdD6qgDWPL5tZ-13" value="Por o filtro na garrafa" style="whiteSpace=wrap;html=1;fontSize=19;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="560" y="80" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="U881wSUHdD6qgDWPL5tZ-18" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="U881wSUHdD6qgDWPL5tZ-15" target="U881wSUHdD6qgDWPL5tZ-17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="U881wSUHdD6qgDWPL5tZ-15" value="Despejar pó de café no filtro" style="whiteSpace=wrap;html=1;fontSize=16;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="560" y="220" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="U881wSUHdD6qgDWPL5tZ-20" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="U881wSUHdD6qgDWPL5tZ-17" target="U881wSUHdD6qgDWPL5tZ-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="U881wSUHdD6qgDWPL5tZ-22" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="U881wSUHdD6qgDWPL5tZ-17" target="U881wSUHdD6qgDWPL5tZ-21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="U881wSUHdD6qgDWPL5tZ-17" value="Despeja a água acima do copo" style="whiteSpace=wrap;html=1;fontSize=16;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="360" y="220" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="U881wSUHdD6qgDWPL5tZ-19" value="Beber" style="whiteSpace=wrap;html=1;fontSize=16;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="160" y="220" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="U881wSUHdD6qgDWPL5tZ-27" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="U881wSUHdD6qgDWPL5tZ-21" target="U881wSUHdD6qgDWPL5tZ-23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="U881wSUHdD6qgDWPL5tZ-28" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="U881wSUHdD6qgDWPL5tZ-21" target="U881wSUHdD6qgDWPL5tZ-25">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="U881wSUHdD6qgDWPL5tZ-21" value="Fogo ligado?" style="rhombus;whiteSpace=wrap;html=1;fontSize=16;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="380" y="350" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="U881wSUHdD6qgDWPL5tZ-23" value="Desliga o fogo" style="whiteSpace=wrap;html=1;fontSize=16;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="520" y="360" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="U881wSUHdD6qgDWPL5tZ-25" value="Deixa desligado" style="whiteSpace=wrap;html=1;fontSize=16;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="200" y="360" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="U881wSUHdD6qgDWPL5tZ-29" value="Se sim" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="460" y="360" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="U881wSUHdD6qgDWPL5tZ-30" value="Se não" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="320" y="360" width="60" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

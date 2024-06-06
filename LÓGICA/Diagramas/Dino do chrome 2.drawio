@@ -1,0 +1,86 @@
+<mxfile host="Electron" modified="2024-02-22T17:55:43.764Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/23.1.5 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="wlVf6A7Bt3rVOmWxcUr0" version="23.1.5" type="device">
+  <diagram name="Página-1" id="zj8Ko3mWW6lhT419Zd0M">
+    <mxGraphModel dx="880" dy="532" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="AMpqICvgTkHq3QN6xcf_-28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="AMpqICvgTkHq3QN6xcf_-1" target="AMpqICvgTkHq3QN6xcf_-26">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="AMpqICvgTkHq3QN6xcf_-1" value="Início" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="364" y="20" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="AMpqICvgTkHq3QN6xcf_-2" value="Movimentar pedra em direção ao dino" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="346" y="460" width="136" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="AMpqICvgTkHq3QN6xcf_-44" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="AMpqICvgTkHq3QN6xcf_-7" target="AMpqICvgTkHq3QN6xcf_-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="AMpqICvgTkHq3QN6xcf_-45" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="AMpqICvgTkHq3QN6xcf_-7" target="AMpqICvgTkHq3QN6xcf_-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="AMpqICvgTkHq3QN6xcf_-7" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.flowchart.or;" vertex="1" parent="1">
+          <mxGeometry x="394" y="360" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="AMpqICvgTkHq3QN6xcf_-32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="AMpqICvgTkHq3QN6xcf_-10" target="AMpqICvgTkHq3QN6xcf_-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="AMpqICvgTkHq3QN6xcf_-10" value="Dino encostou&lt;br&gt;na pedra?" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="349" y="560" width="129" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="AMpqICvgTkHq3QN6xcf_-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="AMpqICvgTkHq3QN6xcf_-2" target="AMpqICvgTkHq3QN6xcf_-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="AMpqICvgTkHq3QN6xcf_-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="AMpqICvgTkHq3QN6xcf_-12" target="AMpqICvgTkHq3QN6xcf_-10">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="290" y="590" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="AMpqICvgTkHq3QN6xcf_-12" value="&lt;font style=&quot;font-size: 13px;&quot;&gt;Incrementar 1 ponto ao contador de pontuação a cada segundo&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="200" y="340" width="130" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="AMpqICvgTkHq3QN6xcf_-20" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="AMpqICvgTkHq3QN6xcf_-18" target="AMpqICvgTkHq3QN6xcf_-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="AMpqICvgTkHq3QN6xcf_-18" value="Parar pedra e dino" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="346" y="690" width="136" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="AMpqICvgTkHq3QN6xcf_-19" value="Parar de incrementar pontuação" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="346" y="790" width="136" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="AMpqICvgTkHq3QN6xcf_-24" value="Sim" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="414" y="640" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="AMpqICvgTkHq3QN6xcf_-25" value="Não" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="460" y="570" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="AMpqICvgTkHq3QN6xcf_-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="AMpqICvgTkHq3QN6xcf_-26" target="AMpqICvgTkHq3QN6xcf_-27">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="AMpqICvgTkHq3QN6xcf_-26" value="Resetar posição do dino&lt;br&gt;e pedra" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="346" y="110" width="136" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="AMpqICvgTkHq3QN6xcf_-27" value="Resetar pontuação" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="346" y="240" width="136" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="AMpqICvgTkHq3QN6xcf_-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="AMpqICvgTkHq3QN6xcf_-25" target="AMpqICvgTkHq3QN6xcf_-7">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="630" y="600" />
+              <mxPoint x="630" y="380" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="AMpqICvgTkHq3QN6xcf_-33" value="FIM" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="364" y="890" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="AMpqICvgTkHq3QN6xcf_-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="AMpqICvgTkHq3QN6xcf_-19" target="AMpqICvgTkHq3QN6xcf_-33">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="AMpqICvgTkHq3QN6xcf_-42" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="AMpqICvgTkHq3QN6xcf_-27" target="AMpqICvgTkHq3QN6xcf_-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

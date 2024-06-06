@@ -1,0 +1,5 @@
+https://github.com/EbookFoundation/free-programming-books/tree/main
+https://github.com/sindresorhus/awesome
+https://pt.wikibooks.org/wiki/Wikilivros:Biblioteca#Computa%C3%A7%C3%A3o_e_Engenharias
+https://www.guiafoca.org/
+https://git-scm.com/book/en/v2
