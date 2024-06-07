@@ -2,7 +2,7 @@
  * Sistema de gestão de concessionária
  * Autor: Thiago Moura Baiense
  * Turma: DDS-1-19
- * Versão 0.5.7
+ * Versão 0.5.8
  * Data: 3 maio, 2024
  * 
  * Descrição:
@@ -35,9 +35,9 @@ programa
 	const inteiro MSG_SUCESSO = 0, ERRO_LIMITE_EXCEDIDO = -1, ERRO_CARRO_INEXISTENTE = -2, ERRO_MARCA_INEXISTENTE = -1, ERRO_MODELO_INEXISTENTE= -2, ERRO_DINHEIRO_INSUFICIENTE = -3
 
 	//Variáveis do cliente
-	const inteiro QNT_INICIAL_CARROS_CLIENTE = 12
-	const inteiro QNT_MAX_CARROS_CLIENTE = 20
-	const inteiro QNT_MAX_ALUGADOS = 4
+	const inteiro QNT_INICIAL_CARROS_CLIENTE = 4
+	const inteiro QNT_MAX_CARROS_CLIENTE = 56
+	const inteiro QNT_MAX_ALUGADOS = 40
 	real dinheiro_cliente = tp.inteiro_para_real(u.sorteia(100000, 1200000))
 	inteiro carros_cliente[QNT_MAX_CARROS_CLIENTE][3] //Carros dos cliente, sendo a primeira coluna a marca (linha da tabela fipe), a segunda coluna o modelo do carro (coluna na tabela fipe)
 	inteiro carros_alugados[QNT_MAX_ALUGADOS][3] //Carros alugados pelo cliente, sendo a primeira coluna representando a marca (linha da tabela fipe), a segunda coluna representando o modelo do carro (coluna na tabela fipe), e a terceira quantos dias restam de aluguel
@@ -63,7 +63,7 @@ programa
 
 	//Variáveis da empresa
 	const inteiro QNT_MAX_CARROS_EMPRESA = 56
-	const inteiro QNT_INICIAL_CARROS_EMPRESA = 56
+	const inteiro QNT_INICIAL_CARROS_EMPRESA = 40
 	inteiro carros_empresa[QNT_MAX_CARROS_EMPRESA][3] //Armazena os carros disponíveis da empresa |COLUNA_MARCA|POS_MODELO|POS_ESTOQUE
 	inteiro qnt_carros_empresa = 0
 
@@ -80,10 +80,10 @@ programa
 		//Inicialização das informações cruciais
 		popular_carros()
 		popular_precos()
-		sortear_carros_cliente()
 		sortear_carros_empresa()
+		sortear_carros_cliente()
 		inicializar_carros_alugados()
-
+		ordenar_modelo(carros_empresa, EMPRESA)
 		//Exibição da tela inicial
 		tela_inicio()
 		//Algoritmo de transição entre telas
@@ -170,7 +170,7 @@ programa
 
 		qnt_carros_cliente = QNT_INICIAL_CARROS_CLIENTE
 		
-		ordenar(carros_cliente, CLIENTE_POSSUI)
+		ordenar_marca(carros_cliente, CLIENTE_POSSUI)
 	}
 	funcao vazio sortear_carros_empresa() {
 		inteiro marca_escolhida, modelo_escolhido
@@ -207,6 +207,7 @@ programa
 		}
 
 		qnt_carros_empresa = QNT_INICIAL_CARROS_EMPRESA
+		ordenar_marca(carros_empresa, EMPRESA)
 	}
 	funcao vazio popular_carros() {
 	//Responsável por popular a tabela fipe com os modelos dos carros.
@@ -980,7 +981,7 @@ programa
 		} enquanto (entradaInvalida)
 		retorne entradaTrat
 	}
-	funcao vazio ordenar(inteiro matriz[][], inteiro infoMatriz) {
+	funcao vazio ordenar_marca(inteiro &matriz[][], inteiro infoMatriz) {
 	/* Ordena a matriz especificada com as constantes CARROS_CLIENTE_POSSUI, EMPRESA, CLIENTE_ALUGADOS, ALUGUEL, CLIENTE_VENDER.
 	 *  Primeiro, ordena agrupando carros de marcas iguais em linhas próximas
 	 *  Segundo, ordena os grupos de carros da mesma marca em ordem crescente de número de modelo
@@ -988,13 +989,18 @@ programa
 		
 		inteiro qntCarros = 0//Responsável por controlar laços de repetição de ordenação
 		inteiro posMenor, copia[3] //Variáveis de ordenação
+		inteiro linhaInicial= 0, linhaFinal= 0
 		//Determina o valor para variável `qntCarros`
 		escolha (infoMatriz) {
 			caso ALUGUEL:
+				qntCarros = qnt_carros_empresa
+				pare
 			caso EMPRESA:
 				qntCarros = qnt_carros_empresa
 				pare
 			caso CLIENTE_VENDER:
+				qntCarros = qnt_carros_cliente
+				pare	
 			caso CLIENTE_POSSUI:
 				qntCarros = qnt_carros_cliente
 				pare
@@ -1017,6 +1023,18 @@ programa
 			se (posMenor != posAtual) {
 				escolha (infoMatriz) {
 					caso ALUGUEL:
+						copia[COLUNA_MARCA] = matriz[posAtual][COLUNA_MARCA]
+						copia[COLUNA_MODELO] = matriz[posAtual][COLUNA_MODELO]
+						copia[COLUNA_DIAS_ALUGUEL] = matriz[posAtual][COLUNA_DIAS_ALUGUEL]
+						
+						matriz[posAtual][COLUNA_MARCA] = matriz[posMenor][COLUNA_MARCA]
+						matriz[posAtual][COLUNA_MODELO] = matriz[posMenor][COLUNA_MODELO]
+						matriz[posAtual][COLUNA_DIAS_ALUGUEL] = matriz[posMenor][COLUNA_DIAS_ALUGUEL]
+						
+						matriz[posMenor][COLUNA_MARCA] = copia[COLUNA_MARCA]
+						matriz[posMenor][COLUNA_MODELO] = copia[COLUNA_MODELO]
+						matriz[posMenor][COLUNA_DIAS_ALUGUEL] = copia[COLUNA_DIAS_ALUGUEL]									
+						pare
 					caso CLIENTE_ALUGADOS:
 						copia[COLUNA_MARCA] = matriz[posAtual][COLUNA_MARCA]
 						copia[COLUNA_MODELO] = matriz[posAtual][COLUNA_MODELO]
@@ -1031,7 +1049,31 @@ programa
 						matriz[posMenor][COLUNA_DIAS_ALUGUEL] = copia[COLUNA_DIAS_ALUGUEL]									
 						pare
 					caso EMPRESA:
+						copia[COLUNA_MARCA] = matriz[posAtual][COLUNA_MARCA]
+						copia[COLUNA_MODELO] = matriz[posAtual][COLUNA_MODELO]
+						copia[COLUNA_ESTOQUE] = matriz[posAtual][COLUNA_ESTOQUE]
+						
+						matriz[posAtual][COLUNA_MARCA] = matriz[posMenor][COLUNA_MARCA]
+						matriz[posAtual][COLUNA_MODELO] = matriz[posMenor][COLUNA_MODELO]
+						matriz[posAtual][COLUNA_ESTOQUE] = matriz[posMenor][COLUNA_DIAS_ALUGUEL]
+						
+						matriz[posMenor][COLUNA_MARCA] = copia[COLUNA_MARCA]
+						matriz[posMenor][COLUNA_MODELO] = copia[COLUNA_MODELO]
+						matriz[posMenor][COLUNA_ESTOQUE] = copia[COLUNA_ESTOQUE]	
+						pare					
 					caso CLIENTE_VENDER:
+						copia[COLUNA_MARCA] = matriz[posAtual][COLUNA_MARCA]
+						copia[COLUNA_MODELO] = matriz[posAtual][COLUNA_MODELO]
+						copia[COLUNA_ESTOQUE] = matriz[posAtual][COLUNA_ESTOQUE]
+						
+						matriz[posAtual][COLUNA_MARCA] = matriz[posMenor][COLUNA_MARCA]
+						matriz[posAtual][COLUNA_MODELO] = matriz[posMenor][COLUNA_MODELO]
+						matriz[posAtual][COLUNA_ESTOQUE] = matriz[posMenor][COLUNA_DIAS_ALUGUEL]
+						
+						matriz[posMenor][COLUNA_MARCA] = copia[COLUNA_MARCA]
+						matriz[posMenor][COLUNA_MODELO] = copia[COLUNA_MODELO]
+						matriz[posMenor][COLUNA_ESTOQUE] = copia[COLUNA_ESTOQUE]	
+						pare
 					caso CLIENTE_POSSUI:
 						copia[COLUNA_MARCA] = matriz[posAtual][COLUNA_MARCA]
 						copia[COLUNA_MODELO] = matriz[posAtual][COLUNA_MODELO]
@@ -1051,14 +1093,99 @@ programa
 				}
 			}
 		}
-
+	}
+	funcao vazio ordenar_modelo(inteiro &matriz[][], inteiro infoMatriz) {
+		inteiro qntCarros = 0//Responsável por controlar laços de repetição de ordenação
+		inteiro posMenor, copia[3] //Variáveis de ordenação
+		inteiro linhaInicial= 0, linhaFinal= 0
+		//Determina o valor para variável `qntCarros`
+		escolha (infoMatriz) {
+			caso ALUGUEL:
+				qntCarros = qnt_carros_empresa
+				pare
+			caso EMPRESA:
+				qntCarros = qnt_carros_empresa
+				pare
+			caso CLIENTE_VENDER:
+				qntCarros = qnt_carros_cliente
+				pare	
+			caso CLIENTE_POSSUI:
+				qntCarros = qnt_carros_cliente
+				pare
+			caso CLIENTE_ALUGADOS:
+				qntCarros = qnt_carros_alugados_cliente
+				pare	
+			caso contrario:
+				escreva("ERRO MATRIZ INVÁLIDA DE ORDENAÇÃO")
+				retorne
+		}
 		//Ordenação de modelos por número de coluna na tabela fipe
-		
+		para (inteiro comeco = 0; comeco < qntCarros; comeco+=0) {
+			linhaInicial = comeco
+			linhaFinal = comeco
+			//Encontra a faixa de linhas onde a marca está inserida
+			para (inteiro linhaVerificar=comeco+1; linhaVerificar < qntCarros; linhaVerificar++) {
+				se (matriz[linhaVerificar][COLUNA_MARCA] == matriz[comeco][COLUNA_MARCA]) {
+					linhaFinal = linhaVerificar
+				} senao {
+					pare
+				}
+			}
+			
+			se (linhaFinal != linhaInicial) {
+				//Selection Sort
+				para (inteiro linhaOrdenar = linhaInicial; linhaOrdenar < linhaFinal; linhaOrdenar++) {
+					posMenor = linhaOrdenar
+					para (inteiro linhaVerificar = linhaInicial+1; linhaVerificar <= linhaFinal; linhaVerificar++) {
+						se (matriz[posMenor][COLUNA_MODELO] > matriz[linhaVerificar][COLUNA_MODELO]) {
+							posMenor = linhaVerificar
+						}
+					}
+					se (posMenor != linhaOrdenar) {
+						copia[1] = matriz[linhaOrdenar][1]
+						copia[2] = matriz[linhaOrdenar][2]
+
+						matriz[linhaOrdenar][1] = matriz[posMenor][1]
+						matriz[linhaOrdenar][2] = matriz[posMenor][2]
+						matriz[posMenor][1] = copia[1]
+						matriz[posMenor][2] = copia[2]
+					}
+				}
+			}
+			
+			comeco = linhaFinal+1 //Determina que a próxima procura de marcas continue a partir da linha seguinte do grupo de marcas anterior
+			
+		}
+	}
+
+	funcao vazio escrever_matriz(inteiro matriz[][], inteiro infoMatriz) {
+		inteiro qntCarros = 0
+		//Determina o valor para variável `qntCarros`
+		escolha (infoMatriz) {
+			caso ALUGUEL:
+				qntCarros = qnt_carros_empresa
+				pare
+			caso EMPRESA:
+				qntCarros = qnt_carros_empresa
+				pare
+			caso CLIENTE_VENDER:
+				qntCarros = qnt_carros_cliente
+				pare	
+			caso CLIENTE_POSSUI:
+				qntCarros = qnt_carros_cliente
+				pare
+			caso CLIENTE_ALUGADOS:
+				qntCarros = qnt_carros_alugados_cliente
+				pare	
+			caso contrario:
+				escreva("ERRO MATRIZ INVÁLIDA DE ORDENAÇÃO")
+				retorne
+		}
 	}
 	
 	funcao vazio tela_inicio () {
 		//Concatela a cadeia com os carros que o cliente possui. Se o cliente possuir carros alugados, eles são exibidos
-		cadeia textoTela = (carros(CLIENTE_POSSUI))
+		cadeia textoTela = carros(CLIENTE_POSSUI) + carros(EMPRESA)
 		se (qnt_carros_alugados_cliente >= 1) {
 			textoTela += (carros(CLIENTE_ALUGADOS))
 		}
@@ -1360,10 +1487,10 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 39417; 
- * @DOBRAMENTO-CODIGO = [174, 210, 291, 372, 379, 387, 430, 490, 573, 632, 687, 735, 788, 868, 913, 924, 1016, 1058, 1087, 1173, 1256];
+ * @POSICAO-CURSOR = 45796; 
+ * @DOBRAMENTO-CODIGO = [211, 292, 373, 380, 388, 431, 491, 574, 633, 688, 736, 789, 869, 914, 925, 1023, 1214, 1300, 1383];
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = ;
+ * @SIMBOLOS-INSPECIONADOS = {carros_empresa, 67, 9, 14}-{matriz, 1097, 38, 6}-{infoMatriz, 1097, 58, 10}-{qntCarros, 1098, 10, 9}-{posMenor, 1099, 10, 8}-{copia, 1099, 20, 5}-{linhaInicial, 1100, 10, 12}-{linhaFinal, 1100, 27, 10}-{comeco, 1123, 16, 6}-{linhaVerificar, 1127, 17, 14}-{linhaOrdenar, 1137, 18, 12};
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */
