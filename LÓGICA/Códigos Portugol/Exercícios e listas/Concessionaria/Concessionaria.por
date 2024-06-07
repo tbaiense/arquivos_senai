@@ -22,6 +22,7 @@ programa
 	inclua biblioteca Tipos --> tp
 	inclua biblioteca Util --> u
 	inclua biblioteca Texto --> txt
+	inclua biblioteca Matematica --> m
 
 	//Constantes de modo de acesso para o arquivo de operações
 	const inteiro MODO_LEITURA = 0, MODO_ESCRITA = 1, MODO_ACRESCENTAR = 2 
@@ -35,9 +36,9 @@ programa
 	const inteiro MSG_SUCESSO = 0, ERRO_LIMITE_EXCEDIDO = -1, ERRO_CARRO_INEXISTENTE = -2, ERRO_MARCA_INEXISTENTE = -1, ERRO_MODELO_INEXISTENTE= -2, ERRO_DINHEIRO_INSUFICIENTE = -3
 
 	//Variáveis do cliente
-	const inteiro QNT_INICIAL_CARROS_CLIENTE = 4
+	const inteiro QNT_INICIAL_CARROS_CLIENTE = 10
 	const inteiro QNT_MAX_CARROS_CLIENTE = 56
-	const inteiro QNT_MAX_ALUGADOS = 40
+	const inteiro QNT_MAX_ALUGADOS = 5
 	real dinheiro_cliente = tp.inteiro_para_real(u.sorteia(100000, 1200000))
 	inteiro carros_cliente[QNT_MAX_CARROS_CLIENTE][3] //Carros dos cliente, sendo a primeira coluna a marca (linha da tabela fipe), a segunda coluna o modelo do carro (coluna na tabela fipe)
 	inteiro carros_alugados[QNT_MAX_ALUGADOS][3] //Carros alugados pelo cliente, sendo a primeira coluna representando a marca (linha da tabela fipe), a segunda coluna representando o modelo do carro (coluna na tabela fipe), e a terceira quantos dias restam de aluguel
@@ -63,7 +64,7 @@ programa
 
 	//Variáveis da empresa
 	const inteiro QNT_MAX_CARROS_EMPRESA = 56
-	const inteiro QNT_INICIAL_CARROS_EMPRESA = 40
+	const inteiro QNT_INICIAL_CARROS_EMPRESA = 56
 	inteiro carros_empresa[QNT_MAX_CARROS_EMPRESA][3] //Armazena os carros disponíveis da empresa |COLUNA_MARCA|POS_MODELO|POS_ESTOQUE
 	inteiro qnt_carros_empresa = 0
 
@@ -80,10 +81,9 @@ programa
 		//Inicialização das informações cruciais
 		popular_carros()
 		popular_precos()
-		sortear_carros_empresa()
 		sortear_carros_cliente()
+		sortear_carros_empresa()
 		inicializar_carros_alugados()
-		ordenar_modelo(carros_empresa, EMPRESA)
 		//Exibição da tela inicial
 		tela_inicio()
 		//Algoritmo de transição entre telas
@@ -171,6 +171,7 @@ programa
 		qnt_carros_cliente = QNT_INICIAL_CARROS_CLIENTE
 		
 		ordenar_marca(carros_cliente, CLIENTE_POSSUI)
+		ordenar_modelo(carros_cliente, CLIENTE_POSSUI)
 	}
 	funcao vazio sortear_carros_empresa() {
 		inteiro marca_escolhida, modelo_escolhido
@@ -208,6 +209,7 @@ programa
 
 		qnt_carros_empresa = QNT_INICIAL_CARROS_EMPRESA
 		ordenar_marca(carros_empresa, EMPRESA)
+		ordenar_modelo(carros_empresa, EMPRESA)
 	}
 	funcao vazio popular_carros() {
 	//Responsável por popular a tabela fipe com os modelos dos carros.
@@ -225,19 +227,19 @@ programa
 		tabela_carros[1][3] = "COBALT LTZ 1.4"
 		tabela_carros[1][4] = "CRUZE  LT 1.8"
 
-		//Ferrari
-		tabela_carros[2][0] = "FF F1 6.3"
-		tabela_carros[2][1] = "F430 4.3"
-		tabela_carros[2][2] = "PORTOFINO M 3.9"
-		tabela_carros[2][3] = "SF 90 SPIDER 4.0"
-		tabela_carros[2][4] = "F458 Italia F1 4.5"
+				//Ferrari
+		tabela_carros[2][0] = "F430 4.3"
+		tabela_carros[2][1] = "F458 Italia F1 4.5"
+		tabela_carros[2][2] = "FF F1 6.3"
+		tabela_carros[2][3] = "PORTOFINO M 3.9"
+		tabela_carros[2][4] = "SF 90 SPIDER 4.0"
 
-		//Fiat
+				//Fiat
 		tabela_carros[3][0] = "ARGO PRECISION"
 		tabela_carros[3][1] = "CRONOS DRIVE 1.8"
-		tabela_carros[3][2] = "Strada Trekking 1.8"
-		tabela_carros[3][3] = "Toro Volcano 2.4"
-		tabela_carros[3][4] = "Siena ELX 1.8"
+		tabela_carros[3][2] = "Siena ELX 1.8"
+		tabela_carros[3][3] = "Strada Trekking 1.8"
+		tabela_carros[3][4] = "Toro Volcano 2.4"
 
 		//Ford
 		tabela_carros[4][0] = "Maverick Lariat Hybrid 2.5 Aut."
@@ -253,46 +255,45 @@ programa
 		tabela_carros[5][3] = "HR-V EXL 1.5"
 		tabela_carros[5][4] = "NSX 3.0"
 
-		//Hyundai
-		tabela_carros[6][0] = "Creta Ultimate 2.0"
-		tabela_carros[6][1] = "HB20S Platinum Plus 1.0"
-		tabela_carros[6][2] = "Tucson GLS 1.6"
+				//Hyundai
+		tabela_carros[6][0] = "AZERA GLS 3.3"
+		tabela_carros[6][1] = "Creta Ultimate 2.0"
+		tabela_carros[6][2] = "HB20S Platinum Plus 1.0"
 		tabela_carros[6][3] = "IONIQ 1.6"
-		tabela_carros[6][4] = "AZERA GLS 3.3"
+		tabela_carros[6][4] = "Tucson GLS 1.6"
 		
-
-		//Jeep
+				//Jeep
 		tabela_carros[7][0] = "Commander Longitude T270 1.3"
-		tabela_carros[7][1] = "Renegade S T270 1.3"
+		tabela_carros[7][1] = "Commander Overland T270 1.3"
 		tabela_carros[7][2] = "COMPASS SPORT T270 1.3"
-		tabela_carros[7][3] = "Commander Overland T270 1.3"
-		tabela_carros[7][4] = "Gladiator Rubicon 3.6"
+		tabela_carros[7][3] = "Gladiator Rubicon 3.6"
+		tabela_carros[7][4] = "Renegade S T270 1.3"
 
-		//Nissan
+				//Nissan
 		tabela_carros[8][0] = "MARCH SV 1.6"
-		tabela_carros[8][1] = "KICKS Special Ed.1.6"
-		tabela_carros[8][2] = "GT-R 3.8 V6"
+		tabela_carros[8][1] = "GT-R 3.8 V6"
+		tabela_carros[8][2] = "KICKS Special Ed.1.6"
 		tabela_carros[8][3] = "Pathfinder SE 4.0"
 		tabela_carros[8][4] = "X-TRAIL LE 2.0"
 
-		//Toyota
-		tabela_carros[9][0] = "Hilux Chassi 4x4 2.8"
-		tabela_carros[9][1] = "ETIOS X Plus 1.5"
-		tabela_carros[9][2] = "Corolla XEi 1.8"
-		tabela_carros[9][3] = "Hilux SW4 SRX 4x4 2.8"
-		tabela_carros[9][4] = "COROLLA CROSS 2.0"
+				//Toyota
+		tabela_carros[9][0] = "COROLLA CROSS 2.0"
+		tabela_carros[9][1] = "Corolla XEi 1.8"
+		tabela_carros[9][2] = "ETIOS X Plus 1.5"
+		tabela_carros[9][3] = "Hilux Chassi 4x4 2.8"
+		tabela_carros[9][4] = "Hilux SW4 SRX 4x4 2.8"
 
-		//VolksWagen
-		tabela_carros[10][0] = "Gol 1.0 Flex 12V"
-		tabela_carros[10][1] = "Polo 1.0 TSI"
-		tabela_carros[10][2] = "AMAROK Highline CD 3.0"
-		tabela_carros[10][3] = "Saveiro Trendline 1.6"
-		tabela_carros[10][4] = "VIRTUS Highline 200 TSI 1.0"
-		tabela_carros[10][5] = "JETTA GLI 350 TSI 2.0"
+				//VolksWagen
+		tabela_carros[10][0] = "AMAROK Highline CD 3.0"
+		tabela_carros[10][1] = "Gol 1.0 Flex 12V"
+		tabela_carros[10][2] = "JETTA GLI 350 TSI 2.0"
+		tabela_carros[10][3] = "Polo 1.0 TSI"
+		tabela_carros[10][4] = "Saveiro Trendline 1.6"
+		tabela_carros[10][5] = "VIRTUS Highline 200 TSI 1.0"
 	}
 	funcao vazio popular_precos() {
 	//Responsável por popular a tabela fipe de preços dos carros. Ao inserir um novo preço, é necessário alterar as constantes relacionada para garantir o funcionamento do programa
-		//linhaCarroEmpresa == ERRO_CARRO_INEXISTENTE
+		//BMW
 		tabela_precos[0][0] = 675000.00
 		tabela_precos[0][1] = 125780.00
 		tabela_precos[0][2] = 219689.00
@@ -307,18 +308,18 @@ programa
 		tabela_precos[1][4] = 57895.00
 
 		//Ferrari
-		tabela_precos[2][0] = 3025090.00
-		tabela_precos[2][1] = 1299900.00
-		tabela_precos[2][2] = 3394500.00
-		tabela_precos[2][3] = 6594430.00
-		tabela_precos[2][4] = 252370.00
+		tabela_precos[2][0] = 1299900.00
+		tabela_precos[2][1] = 2523700.00
+		tabela_precos[2][2] = 3025090.00
+		tabela_precos[2][3] = 3394500.00
+		tabela_precos[2][4] = 6594430.00
 
 		//Fiat
 		tabela_precos[3][0] = 67743.00
 		tabela_precos[3][1] = 78017.00
-		tabela_precos[3][2] = 37891.00
-		tabela_precos[3][3] = 125353.00
-		tabela_precos[3][4] = 16219.00
+		tabela_precos[3][2] = 16219.00
+		tabela_precos[3][3] = 37891.00
+		tabela_precos[3][4] = 125353.00
 
 		//Ford
 		tabela_precos[4][0] = 231030.00
@@ -335,40 +336,40 @@ programa
 		tabela_precos[5][4] = 300000.00
 
 		//Hyundai
-		tabela_precos[6][0] = 184690.00
-		tabela_precos[6][1] = 104681.00
-		tabela_precos[6][2] = 166380.00
+		tabela_precos[6][0] = 44252.00
+		tabela_precos[6][1] = 184690.00
+		tabela_precos[6][2] = 104681.00
 		tabela_precos[6][3] = 144230.00
-		tabela_precos[6][4] = 44252.00
+		tabela_precos[6][4] = 166380.00
 
 		//Jeep
 		tabela_precos[7][0] = 223140.00
-		tabela_precos[7][1] = 150437.00
+		tabela_precos[7][1] = 223477.00
 		tabela_precos[7][2] = 137745.00
-		tabela_precos[7][3] = 223477.00
-		tabela_precos[7][4] = 396201.00
+		tabela_precos[7][3] = 396201.00
+		tabela_precos[7][4] = 150437.00
 
 		//Nissan
 		tabela_precos[8][0] = 41250.00
-		tabela_precos[8][1] = 82871.00
-		tabela_precos[8][2] = 1206570.00
+		tabela_precos[8][1] = 1206570.00
+		tabela_precos[8][2] = 82871.00
 		tabela_precos[8][3] = 63653.00
 		tabela_precos[8][4] = 45162.00
 
 		//Toyota
-		tabela_precos[9][0] = 202937.00
-		tabela_precos[9][1] = 71629.00
-		tabela_precos[9][2] = 50476.00
-		tabela_precos[9][3] = 346544.00
-		tabela_precos[9][4] = 176696.00
+		tabela_precos[9][0] = 176696.00
+		tabela_precos[9][1] = 50476.00
+		tabela_precos[9][2] = 71629.00
+		tabela_precos[9][3] = 202937.00
+		tabela_precos[9][4] = 346544.00
 
 		//VolksWagen
-		tabela_precos[10][0] = 76388.00
-		tabela_precos[10][1] = 88515.00
-		tabela_precos[10][2] = 238613.00
-		tabela_precos[10][3] = 95546.00
-		tabela_precos[10][4] = 125386.00
-		tabela_precos[10][5] = 224148.00
+		tabela_precos[10][0] = 238613.00
+		tabela_precos[10][1] = 76388.00
+		tabela_precos[10][2] = 224148.00
+		tabela_precos[10][3] = 88515.00
+		tabela_precos[10][4] = 95546.00
+		tabela_precos[10][5] = 125386.00
 
 	}
 	funcao vazio inicializar_carros_alugados() {
@@ -578,8 +579,11 @@ programa
 		inteiro linhaCarroCliente = 0
 		real precoFinal = 0.0
 		
+		//Procura o carro na tabela do cliente para saber se ele já está adicionado ou não
+		linhaCarroCliente = procurar_carro(marca, modelo, CLIENTE_POSSUI)
+		
 		//Verifica se o número máximo de carros do cliente não foi excedido
-		se (qnt_carros_cliente >= QNT_MAX_CARROS_CLIENTE) {
+		se (qnt_carros_cliente >= QNT_MAX_CARROS_CLIENTE e linhaCarroCliente == ERRO_CARRO_INEXISTENTE) {
 			retorne ERRO_LIMITE_EXCEDIDO //Código de erro para limite excedido
 		} senao {
 			//Retorna a linha do carro na matriz da empresa caso encontre. Se não o valor será ERRO_CARRO_INEXISTENTE (-2) 
@@ -600,7 +604,6 @@ programa
 				
 				dinheiro_cliente -= precoFinal
 				escrever_log(LOG_COMPRA, marca, modelo, precoFinal, 0)
-				linhaCarroCliente = procurar_carro(marca, modelo, CLIENTE_POSSUI)
 				
 				//Situação em que o carro não existe na matriz do cliente e deve ser adicionado
 				se (linhaCarroCliente == ERRO_CARRO_INEXISTENTE) {
@@ -612,13 +615,13 @@ programa
 					carros_cliente[linhaCarroCliente][COLUNA_MODELO] = carros_empresa[linhaCarroEmpresa][COLUNA_MODELO]
 
 					qnt_carros_cliente++
-					
+					ordenar_marca(carros_cliente, CLIENTE_POSSUI)
+					ordenar_modelo(carros_cliente, CLIENTE_POSSUI)
 				//Carro existe na matriz do cliente e o estoque deve ser incrementado
 				} senao { 
 				 	carros_cliente[linhaCarroCliente][COLUNA_ESTOQUE]++
 				}
-				
-				
+
 				//Verifica se o carro no estoque da empresa é o ultimo ou nao para decrementar ou retirá-lo da lista
 				se (carros_empresa[linhaCarroEmpresa][COLUNA_ESTOQUE] <= 1) {
 					remover_carro(linhaCarroEmpresa, EMPRESA)
@@ -667,12 +670,12 @@ programa
 					carros_empresa[linhaCarroEmpresa][COLUNA_MODELO] = carros_cliente[linhaCarroCliente][COLUNA_MODELO]
 
 					qnt_carros_empresa++
-					
+					ordenar_marca(carros_empresa, EMPRESA)
+					ordenar_modelo(carros_empresa, EMPRESA)
 				//Carro existe na matriz da empresa e o estoque deve ser incrementado
 				} senao { 
 				 	carros_empresa[linhaCarroEmpresa][COLUNA_ESTOQUE]++
 				}
-				
 				
 				//Verifica se o carro no estoque do cliente é o ultimo ou nao para decrementar ou retirá-lo da lista
 				se (carros_cliente[linhaCarroCliente][COLUNA_ESTOQUE] <= 1) {
@@ -721,7 +724,8 @@ programa
 					carros_alugados[linhaCarroAluguel][COLUNA_DIAS_ALUGUEL] = dias
 
 					qnt_carros_alugados_cliente++
-				
+					ordenar_marca(carros_cliente, CLIENTE_POSSUI)
+					ordenar_modelo(carros_cliente, CLIENTE_POSSUI)
 				//Verifica se o carro no estoque da empresa é o ultimo ou nao para decrementar ou retirá-lo da lista
 				se (carros_empresa[linhaCarroEmpresa][COLUNA_ESTOQUE] <= 1) {
 					remover_carro(linhaCarroEmpresa, EMPRESA)
@@ -1021,83 +1025,24 @@ programa
 			}
 			//Transfere os carros de linha na matriz caso seja encontrado um de número menor
 			se (posMenor != posAtual) {
-				escolha (infoMatriz) {
-					caso ALUGUEL:
-						copia[COLUNA_MARCA] = matriz[posAtual][COLUNA_MARCA]
-						copia[COLUNA_MODELO] = matriz[posAtual][COLUNA_MODELO]
-						copia[COLUNA_DIAS_ALUGUEL] = matriz[posAtual][COLUNA_DIAS_ALUGUEL]
+				copia[COLUNA_MARCA] = matriz[posAtual][COLUNA_MARCA]
+				copia[COLUNA_MODELO] = matriz[posAtual][COLUNA_MODELO]
+				copia[2] = matriz[posAtual][COLUNA_ESTOQUE]
 						
-						matriz[posAtual][COLUNA_MARCA] = matriz[posMenor][COLUNA_MARCA]
-						matriz[posAtual][COLUNA_MODELO] = matriz[posMenor][COLUNA_MODELO]
-						matriz[posAtual][COLUNA_DIAS_ALUGUEL] = matriz[posMenor][COLUNA_DIAS_ALUGUEL]
-						
-						matriz[posMenor][COLUNA_MARCA] = copia[COLUNA_MARCA]
-						matriz[posMenor][COLUNA_MODELO] = copia[COLUNA_MODELO]
-						matriz[posMenor][COLUNA_DIAS_ALUGUEL] = copia[COLUNA_DIAS_ALUGUEL]									
-						pare
-					caso CLIENTE_ALUGADOS:
-						copia[COLUNA_MARCA] = matriz[posAtual][COLUNA_MARCA]
-						copia[COLUNA_MODELO] = matriz[posAtual][COLUNA_MODELO]
-						copia[COLUNA_DIAS_ALUGUEL] = matriz[posAtual][COLUNA_DIAS_ALUGUEL]
-						
-						matriz[posAtual][COLUNA_MARCA] = matriz[posMenor][COLUNA_MARCA]
-						matriz[posAtual][COLUNA_MODELO] = matriz[posMenor][COLUNA_MODELO]
-						matriz[posAtual][COLUNA_DIAS_ALUGUEL] = matriz[posMenor][COLUNA_DIAS_ALUGUEL]
-						
-						matriz[posMenor][COLUNA_MARCA] = copia[COLUNA_MARCA]
-						matriz[posMenor][COLUNA_MODELO] = copia[COLUNA_MODELO]
-						matriz[posMenor][COLUNA_DIAS_ALUGUEL] = copia[COLUNA_DIAS_ALUGUEL]									
-						pare
-					caso EMPRESA:
-						copia[COLUNA_MARCA] = matriz[posAtual][COLUNA_MARCA]
-						copia[COLUNA_MODELO] = matriz[posAtual][COLUNA_MODELO]
-						copia[COLUNA_ESTOQUE] = matriz[posAtual][COLUNA_ESTOQUE]
-						
-						matriz[posAtual][COLUNA_MARCA] = matriz[posMenor][COLUNA_MARCA]
-						matriz[posAtual][COLUNA_MODELO] = matriz[posMenor][COLUNA_MODELO]
-						matriz[posAtual][COLUNA_ESTOQUE] = matriz[posMenor][COLUNA_DIAS_ALUGUEL]
-						
-						matriz[posMenor][COLUNA_MARCA] = copia[COLUNA_MARCA]
-						matriz[posMenor][COLUNA_MODELO] = copia[COLUNA_MODELO]
-						matriz[posMenor][COLUNA_ESTOQUE] = copia[COLUNA_ESTOQUE]	
-						pare					
-					caso CLIENTE_VENDER:
-						copia[COLUNA_MARCA] = matriz[posAtual][COLUNA_MARCA]
-						copia[COLUNA_MODELO] = matriz[posAtual][COLUNA_MODELO]
-						copia[COLUNA_ESTOQUE] = matriz[posAtual][COLUNA_ESTOQUE]
-						
-						matriz[posAtual][COLUNA_MARCA] = matriz[posMenor][COLUNA_MARCA]
-						matriz[posAtual][COLUNA_MODELO] = matriz[posMenor][COLUNA_MODELO]
-						matriz[posAtual][COLUNA_ESTOQUE] = matriz[posMenor][COLUNA_DIAS_ALUGUEL]
-						
-						matriz[posMenor][COLUNA_MARCA] = copia[COLUNA_MARCA]
-						matriz[posMenor][COLUNA_MODELO] = copia[COLUNA_MODELO]
-						matriz[posMenor][COLUNA_ESTOQUE] = copia[COLUNA_ESTOQUE]	
-						pare
-					caso CLIENTE_POSSUI:
-						copia[COLUNA_MARCA] = matriz[posAtual][COLUNA_MARCA]
-						copia[COLUNA_MODELO] = matriz[posAtual][COLUNA_MODELO]
-						copia[COLUNA_ESTOQUE] = matriz[posAtual][COLUNA_ESTOQUE]
-						
-						matriz[posAtual][COLUNA_MARCA] = matriz[posMenor][COLUNA_MARCA]
-						matriz[posAtual][COLUNA_MODELO] = matriz[posMenor][COLUNA_MODELO]
-						matriz[posAtual][COLUNA_ESTOQUE] = matriz[posMenor][COLUNA_DIAS_ALUGUEL]
-						
-						matriz[posMenor][COLUNA_MARCA] = copia[COLUNA_MARCA]
-						matriz[posMenor][COLUNA_MODELO] = copia[COLUNA_MODELO]
-						matriz[posMenor][COLUNA_ESTOQUE] = copia[COLUNA_ESTOQUE]	
-						pare
-					caso contrario:
-						escreva("ERRO MATRIZ INVÁLIDA DE ORDENAÇÃO")
-						retorne
-				}
+				matriz[posAtual][COLUNA_MARCA] = matriz[posMenor][COLUNA_MARCA]
+				matriz[posAtual][COLUNA_MODELO] = matriz[posMenor][COLUNA_MODELO]
+				matriz[posAtual][2] = matriz[posMenor][2]
+				
+				matriz[posMenor][COLUNA_MARCA] = copia[COLUNA_MARCA]
+				matriz[posMenor][COLUNA_MODELO] = copia[COLUNA_MODELO]
+				matriz[posMenor][2] = copia[2]	
 			}
 		}
 	}
 	funcao vazio ordenar_modelo(inteiro &matriz[][], inteiro infoMatriz) {
 		inteiro qntCarros = 0//Responsável por controlar laços de repetição de ordenação
-		inteiro posMenor, copia[3] //Variáveis de ordenação
-		inteiro linhaInicial= 0, linhaFinal= 0
+		inteiro posMenor, copia[2] //Variáveis de ordenação
+		inteiro linhaFinal= 0
 		//Determina o valor para variável `qntCarros`
 		escolha (infoMatriz) {
 			caso ALUGUEL:
@@ -1120,12 +1065,11 @@ programa
 				retorne
 		}
 		//Ordenação de modelos por número de coluna na tabela fipe
-		para (inteiro comeco = 0; comeco < qntCarros; comeco+=0) {
-			linhaInicial = comeco
-			linhaFinal = comeco
-			//Encontra a faixa de linhas onde a marca está inserida
-			para (inteiro linhaVerificar=comeco+1; linhaVerificar < qntCarros; linhaVerificar++) {
-				se (matriz[linhaVerificar][COLUNA_MARCA] == matriz[comeco][COLUNA_MARCA]) {
+		para (inteiro linhaInicial = 0; linhaInicial < qntCarros; linhaInicial+=0) {
+			linhaFinal = linhaInicial
+			//Determina até qual linha da matriz a mesma marca se estende, para ordenar somente o intevalo da mesma marca
+			para (inteiro linhaVerificar=linhaInicial+1; linhaVerificar < qntCarros; linhaVerificar++) {
+				se (matriz[linhaVerificar][COLUNA_MARCA] == matriz[linhaInicial][COLUNA_MARCA]) {
 					linhaFinal = linhaVerificar
 				} senao {
 					pare
@@ -1136,61 +1080,36 @@ programa
 				//Selection Sort
 				para (inteiro linhaOrdenar = linhaInicial; linhaOrdenar < linhaFinal; linhaOrdenar++) {
 					posMenor = linhaOrdenar
-					para (inteiro linhaVerificar = linhaInicial+1; linhaVerificar <= linhaFinal; linhaVerificar++) {
+					para (inteiro linhaVerificar = linhaOrdenar+1; linhaVerificar <= linhaFinal; linhaVerificar++) {
 						se (matriz[posMenor][COLUNA_MODELO] > matriz[linhaVerificar][COLUNA_MODELO]) {
 							posMenor = linhaVerificar
 						}
 					}
 					se (posMenor != linhaOrdenar) {
-						copia[1] = matriz[linhaOrdenar][1]
-						copia[2] = matriz[linhaOrdenar][2]
+						copia[0] = matriz[linhaOrdenar][1]
+						copia[1] = matriz[linhaOrdenar][2]
 
 						matriz[linhaOrdenar][1] = matriz[posMenor][1]
 						matriz[linhaOrdenar][2] = matriz[posMenor][2]
-						matriz[posMenor][1] = copia[1]
-						matriz[posMenor][2] = copia[2]
+						matriz[posMenor][1] = copia[0]
+						matriz[posMenor][2] = copia[1]
 					}
 				}
 			}
 			
-			comeco = linhaFinal+1 //Determina que a próxima procura de marcas continue a partir da linha seguinte do grupo de marcas anterior
+			linhaInicial = linhaFinal+1 //Determina que a próxima procura de marcas continue a partir da linha seguinte do grupo de marcas anterior
 			
 		}
 	}
 
-	funcao vazio escrever_matriz(inteiro matriz[][], inteiro infoMatriz) {
-		inteiro qntCarros = 0
-		//Determina o valor para variável `qntCarros`
-		escolha (infoMatriz) {
-			caso ALUGUEL:
-				qntCarros = qnt_carros_empresa
-				pare
-			caso EMPRESA:
-				qntCarros = qnt_carros_empresa
-				pare
-			caso CLIENTE_VENDER:
-				qntCarros = qnt_carros_cliente
-				pare	
-			caso CLIENTE_POSSUI:
-				qntCarros = qnt_carros_cliente
-				pare
-			caso CLIENTE_ALUGADOS:
-				qntCarros = qnt_carros_alugados_cliente
-				pare	
-			caso contrario:
-				escreva("ERRO MATRIZ INVÁLIDA DE ORDENAÇÃO")
-				retorne
-		}
-	}
-	
 	funcao vazio tela_inicio () {
 		//Concatela a cadeia com os carros que o cliente possui. Se o cliente possuir carros alugados, eles são exibidos
-		cadeia textoTela = carros(CLIENTE_POSSUI) + carros(EMPRESA)
+		cadeia textoTela = carros(CLIENTE_POSSUI)
 		se (qnt_carros_alugados_cliente >= 1) {
 			textoTela += (carros(CLIENTE_ALUGADOS))
 		}
 
-		textoTela += "Ola, escreva o que deseja fazer:\n1- Comprar\n2- Vender\n3- Alugar\n\n[V- VOLTAR/SAIR]\n\n>>> "
+		textoTela += "\nO que deseja fazer?\n\n1- Comprar\n2- Vender\n3- Alugar\n\n[V- VOLTAR/SAIR]\n\n>>> "
 		inteiro entrada = receber_entrada(1, 3, textoTela)
 		//Sistema de gerenciamento de telas
 		escolha (entrada) {
@@ -1232,7 +1151,7 @@ programa
 		
 		limpa()
 		textoTela = carros_marca(marcaComprar, EMPRESA) //Concatena a cadeia com a lista dos carros da empresa relacionados à marca selecionada
-		textoTela += "\n\n| Dinheiro: R$ " + dinheiro_cliente + " |"
+		textoTela += "\n\n| Dinheiro: R$ " + m.arredondar(dinheiro_cliente, 2) + " |"
 		textoTela += "\nInforme número do modelo que deseja comprar. [V- VOLTAR/SAIR]\n\n>>> "
 
 		faca {
@@ -1257,7 +1176,7 @@ programa
 		} enquanto (linha == ERRO_CARRO_INEXISTENTE)
 		
 		textoTela = "Carro selecionado:\n" + "~~> "+ nome_marca(marcaComprar) + " " + tabela_carros[marcaComprar][modeloComprar]+ "\n\n"
-		textoTela += "VALOR DE COMPRA: R$ " + tabela_precos[marcaComprar][modeloComprar] * ACRESCIMO_COMPRA + "\n\n"
+		textoTela += "VALOR DE COMPRA: R$ " +  m.arredondar((tabela_precos[marcaComprar][modeloComprar] * ACRESCIMO_COMPRA), 2) + "\n\n"
 		textoTela += "Deseja prosseguir com a compra?\n[S - SIM] [V - RECUSAR/VOLTAR]\n\n>>> "
 		inteiro retAceitar = receber_entrada(0,0, textoTela) //Recebe entrada de aceitar ou recusar a oferta
 		limpa()
@@ -1344,7 +1263,7 @@ programa
 		
 		limpa()
 		textoTela = "Carro selecionado:\n" + "~~> "+ nome_marca(marcaVender) + " " + tabela_carros[marcaVender][modeloVender]+ "\n\n"
-		textoTela += "VALOR DE VENDA: R$ " + tabela_precos[marcaVender][modeloVender] * DECRESCIMO_VENDA + "\n\n"
+		textoTela += "VALOR DE VENDA: R$ " +  m.arredondar((tabela_precos[marcaVender][modeloVender] * DECRESCIMO_VENDA), 2) + "\n\n"
 		textoTela += "Deseja prosseguir com a venda?\n[S - SIM] [V - RECUSAR/VOLTAR]\n\n>>> "
 		inteiro retAceitar = receber_entrada(0,0, textoTela) //Recebe entrada de aceitar ou recusar a oferta
 		limpa()
@@ -1401,7 +1320,7 @@ programa
 		
 		limpa()
 		textoTela = carros_marca(marcaAlugar, ALUGUEL)
-		textoTela += "\n\n| Dinheiro: R$ " + dinheiro_cliente + " |"
+		textoTela += "\n\n| Dinheiro: R$ " + m.arredondar(dinheiro_cliente, 2) + " |"
 		textoTela += "\nInforme número do modelo que deseja alugar. [V- VOLTAR/SAIR]\n\n>>> "
 		faca {
 			modeloAlugar = receber_entrada(1, QNT_MAX_CARROS_COLUNA_MARCA, textoTela)
@@ -1487,10 +1406,10 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 45796; 
- * @DOBRAMENTO-CODIGO = [211, 292, 373, 380, 388, 431, 491, 574, 633, 688, 736, 789, 869, 914, 925, 1023, 1214, 1300, 1383];
+ * @POSICAO-CURSOR = 1598; 
+ * @DOBRAMENTO-CODIGO = [89, 77, 136, 175, 213, 293, 374, 381, 389, 432, 492, 575, 636, 691, 740, 793, 873, 918, 929, 987, 1041, 1104, 1133, 1219, 1302];
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = {carros_empresa, 67, 9, 14}-{matriz, 1097, 38, 6}-{infoMatriz, 1097, 58, 10}-{qntCarros, 1098, 10, 9}-{posMenor, 1099, 10, 8}-{copia, 1099, 20, 5}-{linhaInicial, 1100, 10, 12}-{linhaFinal, 1100, 27, 10}-{comeco, 1123, 16, 6}-{linhaVerificar, 1127, 17, 14}-{linhaOrdenar, 1137, 18, 12};
+ * @SIMBOLOS-INSPECIONADOS = {carros_empresa, 68, 9, 14};
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */
