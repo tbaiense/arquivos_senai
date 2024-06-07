@@ -1,8 +1,13 @@
 programa
-{	
+{	
+	/*
+	Algoritmo de busca binária - considera uma array ordenada crescentemente e procura o número
+	perguntando de forma mais rápida (usando uma faixa de valores inicial e final)
+	*/
+	
 	inclua biblioteca Util
 	inclua biblioteca Tipos
-	const inteiro tam = 10
+	const inteiro tam = 10
 	funcao inicio()
 	{
 		inteiro vetor[tam], buscado, posMenor, copia
@@ -59,9 +64,9 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 791; 
+ * @POSICAO-CURSOR = 188; 
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = {vetor, 8, 10, 5}-{meio, 9, 26, 4};
+ * @SIMBOLOS-INSPECIONADOS = {vetor, 13, 10, 5}-{meio, 14, 26, 4};
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */
