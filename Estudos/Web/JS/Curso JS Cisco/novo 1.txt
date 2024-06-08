@@ -1,5 +1,7 @@
 primitivos:
 - number, bigint, string, boolean, unspecified, null, symbol
+- number >> precisão de 53 bits (2^53-1)
+- bigint >> precisão absurdamente grande (NAO ACEITA FLOATING POINT)
 
 complexos:
 - objetos, arrays --> possuem propriedades e metodos
@@ -22,6 +24,7 @@ metodos comuns de array:
 - minhaArray.concat(array) --> concatena as arrays
 - minhaArray.forEach(callback);
 - minhaArray.map(callbackFn) --> executa o callback em uma cópia da array que é retornada
+- minhaArray.join("separator") --> concatena elementos string de uma array, adicionando o separador especificado
 
 funcoes:
 - parametros opcionais : (param=1) => (param === 1) ? "SUCCESS": "FAILED";
@@ -43,3 +46,9 @@ metodos comuns de string:
 - str.charAt(index)
 - str.toUpperCase(string)
 - str.toLowerCase(string)
+
+modificar HTML com JS:
+- let elem = document.querySelector(REFERENCIA AO ELEMENTO>> ID, CLASS)
+
+regEx:
+- /[abcd]/ >> matches any of the enclosed characters
