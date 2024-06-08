@@ -22,16 +22,16 @@ metodos comuns de array:
 - minhaArray.unshift(VALOR) --> insere o valor na primeira posição da array
 - minhaArray[1].length --> se o elemento for uma string, retorna a quantidade caracteres contidos no elemento
 - minhaArray.concat(array) --> concatena as arrays
-- minhaArray.forEach(callback);
+- minhaArray.forEach(callback); >> executa a callback em todos os elementos preenchidos da array. em uma array esparça, os elementos vazios são desconsiderados
 - minhaArray.map(callbackFn) --> executa o callback em uma cópia da array que é retornada
 - minhaArray.join("separator") --> concatena elementos string de uma array, adicionando o separador especificado
 
 funcoes:
 - parametros opcionais : (param=1) => (param === 1) ? "SUCCESS": "FAILED";
 
-funcoes for..in for..of
+*funcoes for..in for..of
 - for..in --> itera sobre as propriedades de um objeto
-- for..of --> itera sobre os elementos de uma array
+- for..of --> itera sobre todos os elementos de uma array, se for uma array esparça, os elementos vazios serão contabilizados
 
 operadores:
 - VARIAVEL instanceof CLASSE
@@ -52,3 +52,6 @@ modificar HTML com JS:
 
 regEx:
 - /[abcd]/ >> matches any of the enclosed characters
+
+Math Object:
+- Math.random() >> 0-1 em float, sendo 1 exclusive e zero inclusive

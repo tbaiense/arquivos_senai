@@ -1,0 +1,40 @@
+definições iniciais:
+- git config --system core.editor {emacs | vim | nano}
+- git config {--system | --global} user.name "Meu nome"
+- git config {--system | --global} user.email "meu@mail.com"
+- git config {--system | --global} init.defaultBranch {main | master}
+- git config --list --show-origin
+
+comandos comuns:
+- git init {-b <branch_name> | --initial-branch <branch_name>}
+- git add
+- git commit -m "Initial version"
+- git status
+- git diff >> modificações que ainda não foram staged | compara o diretório de trabalho com a area de stage
+- git diff {--staged | --cached}>> compara area de stage com o commit anterior
+- git rm --cached >> remove o arquivo da staging area sem remover do disco
+- git log {-p | --patch} >> histórico de commits 
+- git log --stat >> histórico de commits com resumo das mudanças
+- git log -- <path/to/file> >>> mostra o historico de commits que mudaram o arquivo em questão
+- git commit --amend >> altera o ultimo commit
+- git reset HEAD <file> >> tira o arquivo do stage
+- git restore <file> | git checkout -- <file> >> descarta as mudanças feitas e restora o arquivo para o último commit
+- git restore --staged <file> >> tirar o arquivo da area de stage
+- git remote add <shortname> <url>
+- git fetch <short> | baixa os arquivos do remote para que não possui
+- git remote >> mostra os remotes configurados
+- git remote -v >> mostra os remotes com as urls
+- git remote show <shortname> >> mostra as urls e informações sobre o remote
+- git remote remove <shortname>
+- git remote rename <shortname> <new_shortname>
+- git tag -a <tagname> -m <message> <commit hash>
+- git branch <new_branchname> >> cria uma nova branch, que é baseada no último commit da branch que estou, ou seja no commit da branch que o HEAD aponta
+- git checkout <branchToSwitch> >> muda o HEAD para a branch especificada (branchToSwitch pode ser uma tag, um commit hash ou nome de branch)
+- git checkout -b <newBranchName> >> cria uma nova branch baseada no commit do HEAD e muda o HEAD para a nova branch
+- git switch -c <newBracnh name> >> mesma coisa do comando anterior
+- git switch - >> muda o HEAD para a branch anterior
+- git checkout -b <newBranchName> <tag> >> cria uma branch baseada na tag e muda o HEAD para ela
+- git branch >> lista as branches
+- git branch -v >> lista as branches com os respectivos ultimos commits
+- git branch -vv >> lsita as branchs com informações adicionais sobre os remotes
+- git log <branch1>..<branch2> >> mostra a diferença de commits entre as duas branches, comparando o que está em 'branch2' com o que não está em 'branch1'
