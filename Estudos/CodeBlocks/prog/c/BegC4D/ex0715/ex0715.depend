@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1703467583 source:/media/MeusArquivos/CodeBlocks/prog/c/BegC4D/ex0715/main.c
+	<stdio.h>
+	<stdlib.h>
+

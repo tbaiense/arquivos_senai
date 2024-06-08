@@ -1,12 +1,27 @@
-<html lang="en">
+<html lang="pt_BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Revisão JS</title>
-    <link rel="stylesheet" href="./style.css" />
-    <link rel="icon" href="" />
+    <link rel="stylesheet" href="./style.css">
+    <script src="main.js"></script>
 </head>
 <body>
-    
+    <h1>Revisão do conteúdo aprendido durante o curso de Javascript realizado na SkillsForAll:</h1>
+    <hr>
+    <input type="text" value="inicial" class="textBox" id="textBox">
+    <h2>Sobre variáveis:</h2>
+    <ul>
+        <li>Podem ser declaradas com <pre class="il">var</pre> e <pre class="il">let</pre></li>
+        <li>Sofrem o efeito <em>hoisting</em>, que move as declarações das variáveis <pre class="il">let</pre> para o início do escopo</li>
+        <li>Podem sofrer <em>ghosting</em>, quando são declaradas dentro de um <em>program block</em> usando <pre class="il">let</pre>.<br>
+            Ou seja, redeclarações de variáveis <pre class="il">let</pre> em escopos aninhados criam uma variável local, mantendo a outra intacta no processo.</li>
+    </ul>
+    <h2>Sobre arrays:</h2>
+    <ul>
+        <li>Podem ser passadas como argumentos para funções</li>
+        <li>Não precisam ter seu tamanho especificado durante a declaração</li>
+        <li><strong>São considerados instâncias do tipo <pre class="il">Object</pre>, portanto possuem propriedades e <em>keys</em> próprias</strong></li>
+    </ul>
 </body>
 </html>
