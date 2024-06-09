@@ -1,0 +1,2 @@
+scanf >> util para ler palavras ou entradas de apenas um tipo, sem um limite definido
+fgets >> util para ler texto, sem descartar caracteres adicionais e ou de controle
