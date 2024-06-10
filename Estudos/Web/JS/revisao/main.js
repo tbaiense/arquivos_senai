@@ -1,16 +1,14 @@
 "use strict";
-
-function rand (min = 0, max= 100) {
-    max = Math.floor(max);
-    min = Math.ceil(min);
-    return Math.floor(Math.random() * (max-min) + min);
+const TAM = 10;
+var arrayExt = new Array(TAM);
+function rand(max=10) {
+    max = Math.floor(max)+1;
+    return Math.floor(Math.random() * max);
 }
 
-let array = Array(1000)
-for (let i=0; i<array.length; i++) {
-    array[i] = rand(0.2, array.length*10);
+function fill(array=0, max=10) {
+    for(let i=0; i<array.length; i++) {
+        array[i] = rand(max);
+    }
+    return arrayExt;
 }
-
-let p = document.querySelector("#parag");
-p.textContent = array.join(' ');
-
