@@ -1,0 +1,5 @@
+strings:
+- print("""...""") >> mantém o formato do texto, com linhas puladas e mais
+- r"" >> raw strings, não mantém caracteres especiais iniciados com \
+- len(arg) >> recebe uma string ou array e retorna o tamanho
+- array[2:3] ou string[:4] >> slicing funciona direto no index
