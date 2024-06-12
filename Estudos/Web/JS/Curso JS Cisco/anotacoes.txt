@@ -1,0 +1,62 @@
+primitivos:
+- number, bigint, string, boolean, unspecified, null, symbol
+- number >> precisão de 53 bits (2^53-1)
+- bigint >> precisão absurdamente grande (NAO ACEITA FLOATING POINT)
+
+complexos:
+- objetos, arrays --> possuem propriedades e metodos
+
+tipos de conversão:
+- implicita --> let a = 10 + "10" >> javascript vai preferir transformar o resultado em string
+			--> let b = 40 - "10" >> javascript vai preferir transformar o resultado em number
+			
+- usando construtores --> Number(), BigInt(), String(), Boolean()
+- usando operador unário --> +"10", -"10"
+
+metodos comuns de array:
+- minhaArray.slice(param1, param2) --> retorna uma array contendo os elementos selecionados
+- minhaArray.length --> retorna a quantidade de elementos contido na array, incluindo posições vazias
+- minhaArray.pop() --> remove o último elemento da array e retorna
+- minhaArray.shift() --> remove o primeiro elemento da array e o retorna
+- minhaArray.push(VALOR) --> insere o valor na última posição da array
+- minhaArray.unshift(VALOR) --> insere o valor na primeira posição da array
+- minhaArray[1].length --> se o elemento for uma string, retorna a quantidade caracteres contidos no elemento
+- minhaArray.concat(array) --> concatena as arrays
+- minhaArray.forEach(callback); >> executa a callback em todos os elementos preenchidos da array. em uma array esparça, os elementos vazios são desconsiderados
+- minhaArray.map(callbackFn) --> executa o callback em uma cópia da array que é retornada
+- minhaArray.join("separator") --> concatena elementos string de uma array, adicionando o separador especificado
+
+funcoes:
+- parametros opcionais : (param=1) => (param === 1) ? "SUCCESS": "FAILED";
+
+*funcoes for..in for..of
+- for..in --> itera sobre as propriedades de um objeto
+- for..of --> itera sobre todos os elementos de uma array, se for uma array esparça, os elementos vazios serão contabilizados
+
+operadores:
+- VARIAVEL instanceof CLASSE
+- typeof VARIAVEL
+- delete meuObjeto.meuField --> o field meuField será removido do objetos
+
+metodos comuns de string:
+- str.slice(start, end)
+- str.split(separator, limit)
+- str.indexOf("substring");
+- str.length
+- str.charAt(index)
+- str.toUpperCase(string)
+- str.toLowerCase(string)
+
+modificar HTML com JS:
+- let elem = document.querySelector(REFERENCIA AO ELEMENTO>> ID, CLASS)
+
+regEx:
+- /[abcd]/ >> matches any of the enclosed characters
+
+Math Object:
+- Math.random() >> 0-1 em float, sendo 1 exclusive e zero inclusive
+
+
+Objetos:
+- instantiated objects >> created using a class
+- object literals >> created directly. useful when sending requests to servers

@@ -1,0 +1,36 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes" target="_blank">REFERÊNCIA</a>
+    </p>
+</body>
+<script>
+    const personPrototype = {
+        greet: function () {
+            console.log(`Meu nome é ${this.name}`);
+        },
+        myAge: function () {
+            console.log(`Eu, ${this.name}, tenho ${this.age} anos de idade.`);
+        },
+    };
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    Object.assign(Person.prototype, personPrototype);
+    /*
+    Person.prototype.greet = personPrototype.greet;
+    Person.prototype.myAge = personPrototype.myAge;
+    */
+    let me = new Person('Thiago', 22);
+    console.log(me);    
+
+
+    //Carro
+</script>
+</html>

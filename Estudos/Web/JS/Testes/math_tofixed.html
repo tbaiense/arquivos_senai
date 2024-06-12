@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Teste do metodo Number.prototype.toFixed()</title>
+    </head>
+    <body>
+        <script>
+            let altura;
+            do {
+                altura = window.prompt('Qual a sua altura em metros?', '1.70');
+                {
+                    let x = Number.isNaN(+altura) //Checa se a conversão para número falha
+                    if (x) {
+                        let y = altura.replace(/,/,'.');
+                        if (Number.isNaN(+y)) {
+                            window.alert("Número inválido!");
+                            altura = undefined;
+                        } else {
+                            altura = +(y);
+                        }
+                    } else {
+                        altura = +altura;
+                    }
+                }
+                if (altura)
+                    (window.confirm(`A sua altura é válida (${altura.toFixed(2)}m).\n\nDeseja checar outra altura?`)) ? altura = undefined : window.alert("Finalizado!");
+            } while (altura === undefined)
+        </script>
+    </body>
+</html>
