@@ -9,5 +9,8 @@
 		{
 			"path": "../tbaiense.github.io"
 		}
-	]
+	],
+	"settings": {
+		"files.autoSave": "afterDelay"
+	}
 }
