@@ -12,5 +12,8 @@
 		{
 			"path": "Estudos/Web/HTML Forms"
 		}
-	]
+	],
+	"settings": {
+		"files.autoSave": "afterDelay"
+	}
 }
