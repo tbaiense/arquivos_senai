@@ -1,0 +1,117 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revisão dos elementos básicos FORM</title>
+    <style>
+        h2 pre {
+            display: inline;
+            background-color: gray;
+            color: white;
+            font-style: italic;
+            font-size: 0.8em;
+            font-weight: lighter;
+            border-radius: 0.3em;
+            padding: 0.1em 0.5em;
+        }
+        form li {
+            list-style: none;
+            text-align: left
+        }
+        form ul {
+            padding-left: 10px;
+            font-family: sans-serif;
+            
+        }
+        fieldset legend {
+            text-align: center;
+            font-size: 1.5em;
+        }
+        select{
+            min-width: 100px;
+            padding: 0.1em;
+        }
+
+        button {
+            padding: 0.2em 0.5em;
+        }
+        textarea {
+            min-height: 3em;
+            min-width: 800px;
+            margin: 10px 0 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <h1>Revisão dos elementos básicos form</h1>
+        <hr>
+        <h2>Widgets do tipo <pre>radio</pre> e <pre>checkbox</pre>:</h2>
+        <p>Os <em>widgets</em> marcados com <span arial-label="obrigatório>" style="color:red; font-style: strong">*</span> devem ser preenchidos.</p>
+            <form action="/my-form-handling-page" method="post">
+                <p>
+                    <label for="tipo_pipoca">
+                        <span>Tipo da pipoca<span arial-label="obrigatório>" style="color:red; font-style: strong">*</span>:</span>
+                        <select id="tipo_pipoca" name="tipo_pipoca">
+                            <option value="doce">Doce</option>
+                            <option value="salgada">Salgada</option>
+                        </select>
+                    </label>
+                </p>
+                <fieldset>   
+                    <legend>Tamanho</legend>
+                    <ul>
+                        <li>
+                            <label for="pipoca_large">
+                                <input type="radio" id="pipoca_large" name="pipoca_size" value="large" checked>
+                                <span>Grande</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label for="pipoca_medium">
+                                <input type="radio" id="pipoca_medium" name="pipoca_size" value="medium">
+                                <span>Média</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label for="pipoca_small">
+                                <input type="radio" id="pipoca_small" name="pipoca_size" value="small" >
+                                <span>Pequena</span>
+                            </label>
+                        </li>
+                    </ul>
+                </fieldset>
+                <fieldset>
+                    <legend>Adicional</legend>
+                    <ul>
+                        <li>
+                            <label for="manteiga">
+                                <input type="checkbox" id="manteiga" name="pipoca_adicional_1" value="manteiga">
+                                <span>Manteiga</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label for="queijo_derretido">
+                                <input type="checkbox" id="queijo_derretido" name="pipoca_adicional_2" value="queijo_derretido">
+                                <span>Queijo derretido</span>
+                            </label>
+                        </li>
+                    </ul>
+                </fieldset>
+                <ul>
+                    <li>
+                        <label for="comentario">
+                            <span>Caso tenha para acrescentar, insira seu comentário:</span>
+                        </label>
+                    </li>
+                    <li>
+                        <textarea id="comentario" name="comentario" placeholder="Insira aqui suas sugestões, críticas ou informações adicionais..."></textarea>
+                    </li>
+                </ul>
+                <p>
+                    <button type="submit">Adicionar pipoca</button>
+                </p>
+            </form>
+    </section>
+</body>
+</html>
