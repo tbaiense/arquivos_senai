@@ -1,0 +1,97 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <input type="color" id="picker" name="color">
+        <input type="file" multiple accept="image/*;capture=camera" name="imgs" id="send_img">
+        
+        <p>
+            <!--Os elementos input do tipo number convertem . para virgula e vice-versa automaticamente!! -->
+            <input type="number" min="1" max="10" id="num_field" name="num_field" placeholder="1.45">
+            <input type="range" min="1" max="120" step="0.5" value="5" id="slider" name="slider_value" list="goodvalues">
+            <datalist id="goodvalues">
+                <option>60</option>
+                <option>80</option>
+            </datalist>
+            <output class="range_value" for="slider"></output>
+        </p>
+        
+        <input type="date" min="2012-12-01" max="2012-12-31">
+        <input type="datetime-local">
+        <p>
+            <label for="mytext"><span>Texto de no máximo 30 caracteres:</span></label>
+            <textarea id="mytext" maxlength="30" cols="30" rows="4" wrap="soft">hgfdhgfhfgd</textarea>
+            <label for="num_carac">
+                <span id="textlimit_span">limite de caracteres:</span>
+                <meter id="num_carac" min="0" max="30" low="10" high="20" optimum="0"></meter>
+            </label>
+        </p>
+        <select id="comestiveis" name="comida">
+            <optgroup label="frutas">
+                <option value="maca">Maçã</option>
+                <option value="abacaxi">Abacaxi</option>
+                <option value="morango">Morango</option>
+            </optgroup>
+            <optgroup label="fastfood">
+                <option value="hamburger" selected>Hambúrger</option>
+                <option value="fritas">Batata-frita</option>
+            </optgroup>
+        </select>
+        <section>
+            <label for="username">
+                <span>Username: </span>
+                <input type="text" id="username" name="usr_name" list="name_list">
+            </label>
+            <datalist id="name_list">
+                <label for="alt_usr_name"> or select one from your previously used ones: </label>
+                <select id="alt_usr_name" name="alt_usr_name">
+                    <option value="matador123">Matador123</option>
+                    <option value="marujo">Marujo</option>
+                </select>
+            </datalist>
+        </section>
+        <p>
+            <label for="cap">Meter element</label>
+            <meter id="cap" min="0" max="100" low="60" high="80" value="25" optimum="0">25% da capacidade utilizada</meter>
+        </p>
+        <p>
+            <label for="prog">Progress element</label>
+            <progress max="100" value="75">75 de 100.</progress>
+        </p>
+    </form>
+</body>
+<style>
+    #mytext {
+        display: block;
+        resize: none;
+    }
+</style>
+<script>
+    const slid = document.querySelector("#slider");
+    const out = document.querySelector(".range_value");
+    const field = document.querySelector("#num_field");
+    const met = document.querySelector('#cap');
+
+    field.value = met.value = out.textContent = slid.value;
+    met.textContent = `${met.value}% da capacidade utiliazada`;
+    slid.addEventListener("input", () => {
+        field.value = met.value = out.textContent = slid.value;
+        met.textContent = `${met.value}% da capacidade utiliazada`;
+    });
+
+    const met_text = document.querySelector('#num_carac');
+    const text = document.querySelector('#mytext');
+    const textlimit_span = document.querySelector('#textlimit_span');
+    
+    met_text.value = text.textLength;
+    textlimit_span.textContent = `${text.textLength} de 30 caracteres utilizados.`;
+    text.addEventListener("input", () => {
+        met_text.value = text.textLength;
+        textlimit_span.textContent = `${text.textLength} de 30 caracteres utilizados.`;
+    });
+</script>
+</html>

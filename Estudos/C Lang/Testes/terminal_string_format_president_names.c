@@ -9,14 +9,16 @@ int main(int argc, char *argv[]) {
     const int rowsPres = sizeof(pres) / sizeof(pres[0]);
     //Encontra o tamanho do maior nome
     int maxFirst = strlen(pres[0][0]) + 2;
+    int thisFirst;
     for (short r = 1; r < rowsPres; r++) {
-        int thisFirst = (strlen(pres[r][0]) > maxFirst);
+        thisFirst = (strlen(pres[r][0]) > maxFirst);
         maxFirst =  (thisFirst > maxFirst) ? thisFirst : maxFirst;
     }
     //Encontra o tamanho do maior sobrenome
     int maxLast = strlen(pres[0][1]) + 2;
+    int thisLast;
     for (short r = 1; r < rowsPres; r++) {
-        int thisLast = (strlen(pres[r][1]) > maxLast);
+        thisLast = (strlen(pres[r][1]) > maxLast);
         maxFirst =  (thisLast > maxFirst) ? thisLast : maxFirst;
     }
     for (int r = 0; r < rowsPres; r++) {

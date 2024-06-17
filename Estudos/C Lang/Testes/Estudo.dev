@@ -29,7 +29,7 @@ IncludeVersionInfo=0
 SupportXPThemes=0
 CompilerSet=0
 CompilerSettings=0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;4;0;0;0
-UnitCount=3
+UnitCount=8
 
 [VersionInfo]
 Major=1
@@ -71,6 +71,26 @@ OverrideBuildCmd=0
 BuildCmd=$(CC) -c terminal_string_format_president_names.c -o terminal_string_format_president_names.o $(CFLAGS)
 
 [Unit3]
+FileName=14-2_struct_xbox.c
+CompileCpp=0
+Folder=
+Compile=0
+Link=0
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=$(CC) -c 14-2_struct_xbox.c -o 14-2_struct_xbox.o $(CFLAGS)
+
+[Unit4]
+FileName=14-1_struct_xbox.c
+CompileCpp=0
+Folder=
+Compile=0
+Link=0
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=$(CC) -c 14-1_struct_xbox.c -o 14-1_struct_xbox.o $(CFLAGS)
+
+[Unit5]
 FileName=main.c
 CompileCpp=0
 Folder=
@@ -79,4 +99,34 @@ Link=1
 Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
+
+[Unit6]
+FileName=14-3_struct_xbox.c
+CompileCpp=0
+Folder=
+Compile=0
+Link=0
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=$(CC) -c 14-3_struct_xbox.c -o 14-3_struct_xbox.o $(CFLAGS)
+
+[Unit7]
+FileName=14-7_struct_array_ordered.c
+CompileCpp=0
+Folder=
+Compile=0
+Link=0
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=$(CC) -c 14-7_struct_array_ordered.c -o 14-7_struct_array_ordered.o $(CFLAGS)
+
+[Unit8]
+FileName=14-9_struct_aninhado.c
+CompileCpp=0
+Folder=
+Compile=0
+Link=0
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=$(CC) -c 14-9_struct_aninhado.c -o 14-9_struct_aninhado.o $(CFLAGS)
 
