@@ -1,0 +1,30 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/my_form_handling_page" method="post">
+        <ul>
+            <li>
+                <label for="food">Pick your favorite food: </label>
+                <input id="food" name="food" list="menu">
+                    <datalist id="menu">
+                        <option>Salad</option>
+                        <option>Curry</option>
+                        <option>Pizza</option>
+                        <option>Fajitas</option>
+                        <option selected>Biscuits</option>
+                        <option>Crisps</option>
+                        <option>Fruit</option>
+                        <option>Breadsticks</option>
+                    </datalist>
+                </input>
+            </li>
+            <li><button type="submit">Submit choice</button></li>
+        </ul>
+
+    </form>
+</body>
+</html>

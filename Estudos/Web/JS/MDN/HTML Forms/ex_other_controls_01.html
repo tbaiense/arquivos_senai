@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test your skills: Other controls</title>
+    <style>
+        form li {
+            list-style: none;
+        }
+
+        textarea {
+            resize: none;
+        }
+        label, input {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <form action="/comment_handling_page" method="post">
+        <h2>Enter your comment</h2>
+        <ul>
+            <li>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Josh, Maria...">
+            </li>
+            <li>
+                <label for="comment">Comment:</label>
+                <textarea id="comment" name="comment" rows="10" cols="35" maxlength="100" wrap="soft" placeholder="Please type your comments in here."></textarea>
+            </li>
+            <li>
+                <button type="submit">Submit comment</button>
+            </li>
+        </ul>
+    </form>
+</body>
+</html>
