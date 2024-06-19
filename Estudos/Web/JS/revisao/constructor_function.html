@@ -1,0 +1,53 @@
+<html lang="pt_BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constructor function</title>
+</head>
+<body>
+    <p></p>
+</body>
+<script>
+    //Object literal declaration
+    let obj = {
+        key1: 'value1',
+        key2: 'value2',
+        method() {
+            console.log('hello world');
+        },
+    };
+
+    //Object function
+    function myObject() {
+        return {
+            key1: 'value1',
+            key2: 'value2',
+            method() {
+                console.log('hello world');
+            },
+        };
+    }
+
+    //Vehicle prototype
+    function Vehicle(wheels, rideable) {
+        this.wheels = wheels;
+        this.rideable = rideable;
+    }
+
+    //Car prototype
+    const carPrototype = {
+        paint: function (color) {
+            this.color = typeof color == 'string' ? color : undefined;
+        },
+    };
+
+    //Constructor function
+    function Car(make=undefined, model=undefined, color='undefined') {
+        this.make = make;
+        this.model = model;
+        this.color = color;
+    }
+
+    Object.assign(Car.prototype, carPrototype);
+</script>
+</html>

@@ -46,15 +46,25 @@
 - typeof VARIAVEL
 - delete meuObjeto.meuField --> o field meuField será removido do objetos
 
+
 # metodos comuns de string:
 - str.slice(start, end)
 - str.split(separator, limit)
-- str.indexOf("substring");
-- str.length
 - str.charAt(index)
 - str.toUpperCase(string)
 - str.toLowerCase(string)
+- str.replace('substring', 'new_str')
 - str.replaceAll(pattern, replacement) >> retorna string modificada
+## retorno de Number
+- str.indexOf("substring");
+- str.lastIndexOf('substring')
+- str.length
+
+## booleanos
+- str.startsWith('substring')
+- str.endsWith('substring')
+- str.includes('strings')
+
 
 # modificar HTML com JS:
 - let elem = document.querySelector(REFERENCIA AO ELEMENTO>> ID, CLASS)
