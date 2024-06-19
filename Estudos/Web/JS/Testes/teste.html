@@ -9,8 +9,16 @@
 </body>
 <script>
     "use strict";
-    let a = [1, 2, 3, 4, 5, 6];
-    console.log(a.splice(1,2,"2 e 3"));
+    let a = [
+        'Version 5',
+        'Name:Thiago',
+        'Age:22',
+        2
+    ];
+    let data = (a.filter((n) => {
+        return String(n).indexOf(':') !== -1;
+    }));
+
     
 </script>
 </html>
