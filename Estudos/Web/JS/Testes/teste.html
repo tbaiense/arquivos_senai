@@ -5,20 +5,69 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <h1>Interface 'SubmitEvent':</h1>
+    <p>Testes para entender o funcionamento do evento <span class="code">submit</span>, ao apertar a tecla 'Enter' dentro de um <span class="code">input type="text"</span> de um formulário.</p>
+    <h2>Formulário com <pre>&lt;button type="submit"&gt;</pre></h2>
+    <form action="/sucess" method="post" id="f1" >
+        <label for="in1">
+            Entrada de texto:<br>
+            <input type="text" id="in1" placeholder="type me!" autofocus></label>
+        <button type="submit">Enviar</button>
+    </form>
+    <hr>
+    <h2>Formulário com <pre>&lt;button type="button"&gt;</pre></h2>
+    <form action="/sucess" method="post" id="f2" >
+        <label for="in2">
+            Entrada de texto:<br>
+            <input type="text" id="in2" placeholder="type me!" autofocus></label>
+        <button type="button">Enviar</button>
+    </form>
+    <hr>
+    <h2>Explicação</h2>
+    <p>Se houver algum botão do tipo 'submit' dentro de um formulário e o usuário apertar a tecla 'Enter', mesmo que com um 'input' focado, o formulário receberá um evento do tipo SubmitEvent.<br>
+        É possível alterar esse comportamento por meio do <span class="code">Event.preventDefault()</span>
+    </p>
 </body>
+
 <script>
     "use strict";
-    let a = [
-        'Version 5',
-        'Name:Thiago',
-        'Age:22',
-        2
-    ];
-    let data = (a.filter((n) => {
-        return String(n).indexOf(':') !== -1;
-    }));
+
+    //Verifica se existe o parágrafo de output no formulário e anexa as informações a ele
+    function getSubmitter(e) {
+        e.preventDefault();
+
+        let para = e.currentTarget.querySelector('.output');
+        if (para === null) {
+            para = document.createElement('p');
+            para.classList = 'output';
+            e.currentTarget.appendChild(para);
+        }
+        para.innerHTML = `submitter: ${e.submitter}`;
+        document.activeElement === e.currentTarget.querySelector('input') ? para.innerHTML += `<br><strong>Submit enviado por meio da tecla 'Enter'</strong>` : null;
+    }
+
+    //Adiciona os event handler functions que exibem os parágrafos e apagam eles quando o formulário correspondente for clicado
+    for (let form of document.querySelectorAll('form')) {
+        form.addEventListener('submit', getSubmitter);
+        form.addEventListener('click', (e) => {
+            const para = e.currentTarget.querySelector('.output');
+            if (para !== null) {
+                para.innerHTML = '';
+            }
+        });
+    }
 
     
 </script>
+<style>
+    :is(p, h1) span.code {
+        font-style: oblique;
+    }
+    .code::before {
+        content: '<';
+    }
+    .code::after {
+        content: '>'
+    }
+</style>
 </html>

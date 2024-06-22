@@ -62,6 +62,15 @@
             <label for="prog">Progress element</label>
             <progress max="100" value="75">75 de 100.</progress>
         </p>
+        <form>
+            <p class="p_input_enter">
+                <label for="input_enter">
+                    <span>Input Enter Test</span>
+                    <input id="input_enter">
+                </label>
+                <button type="button">clique</button>
+            </p>
+        </form>
     </form>
 </body>
 <style>
@@ -92,6 +101,12 @@
     text.addEventListener("input", () => {
         met_text.value = text.textLength;
         textlimit_span.textContent = `${text.textLength} de 30 caracteres utilizados.`;
+    });
+
+    const res = document.querySelector('.p_input_enter');
+    document.querySelector('#input_enter').addEventListener('click', (e) => {
+        res.innerHTML += '<br>Click!'
+        e.target.focus()
     });
 </script>
 </html>

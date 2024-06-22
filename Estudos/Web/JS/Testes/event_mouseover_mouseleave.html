@@ -1,0 +1,62 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="c">Container
+        <div class="d d1">div 1
+            <div class="d d2">div 2</div>
+            <h2>Teste de h1</h2>
+            <div class="d d3">div 3</div>
+        </div>
+    </div>
+</body>
+<script>
+    "use strict";
+    const divs = document.querySelector('.c');
+    /*
+    const divs = document.querySelectorAll('div');
+    for (const div of divs) {
+        div.addEventListener('dblclick', (e) => {
+            e.target.style.borderColor = 'pink';
+            console.log(e);
+            e.stopPropagation();
+        });
+        div.addEventListener('mouseout', (e) => {
+            e.target.style.borderColor = 'black';
+            console.log(e);
+            e.stopPropagation();
+        });
+    }
+    */
+    let affected = [];
+    let b = (e) => {
+        if (affected.indexOf(e.target) === -1) {
+            affected.push(e.target);
+            e.target.style.borderColor = 'pink';
+            console.log(affected);
+        }
+    }
+    divs.addEventListener('mouseover', b);
+    divs.addEventListener('mouseleave', (e) => {
+        for (let a of affected) {
+            a.style.borderColor = 'black';
+        }
+        affected = [];
+    })
+</script>
+<style>
+    div {
+        border: 10px solid black;
+        margin: 30 auto;
+        padding: 10px;
+        box-sizing: border-box;
+        width: 90%;
+    }
+    div > div > div {
+        background-color: cadetblue;
+    }
+</style>
+</html>

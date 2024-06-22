@@ -74,3 +74,14 @@
 
 # Math Object:
 - Math.random() >> 0-1 em float, sendo 1 exclusive e zero inclusive
+
+# event handlers uteis
+- onchange >> select
+- onclick >> 
+
+# objetos html
+- object.style.propriety >> mudar css dentro do js
+
+# for loops :
+- continue
+- break

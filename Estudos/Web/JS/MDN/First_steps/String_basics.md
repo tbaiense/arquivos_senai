@@ -16,7 +16,7 @@ This is on a new line` >> suporta multiline e template. **Deve sempre ser usado 
 - .indexOf('substring')
 - .lastIndexOf('substring')
 
-# retornam string
+# retornam string sem modificar a original
 - .charAt(index) >> se nao existir, retorna ''
 - .slice(start, end)
 - .replace('substring', 'newStr')
