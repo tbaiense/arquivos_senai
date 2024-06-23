@@ -28,7 +28,7 @@
 
 # EventTarget
 ## Métodos
-- EventTarget.addEventListener('type', eventHandlerFunction (evt))
+- EventTarget.addEventListener('type', eventHandlerFunction (evt)) >> options signal (AbortSignal, AbortController), capture
 - EventTarget.removeEventListener('type', eventHandlerFunction (evt))
 
 # Event
