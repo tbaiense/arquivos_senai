@@ -9,7 +9,72 @@
 </body>
 <script>
     "use strict";
+    class Empresa {
+        dono;
+        anoFundacao
+        local;
 
+        constructor(dono, ano, local) {
+            this.dono = dono;
+            this.anoFundacao = ano;
+            this.local = local;
+        }
+
+        falir() {
+            delete this;
+        }
+    }
+
+    class Carro {
+        fabricante;
+        modelo;
+        cor;
+        preco;
+        ano;
+        condicao;
+
+        constructor(fabricante, modelo, cor, preco, ano, condicao) {
+            this.fabricante = fabricante;
+            this.modelo = modelo;
+            this.cor = cor;
+            this.preco = preco;
+            this.ano = ano;
+            this.condicao = condicao;
+        }
+    }
+
+    class Concessionaria extends Empresa {
+        carros;
+        numeroVendidos;
+        #numeroCadastrados;
+        segmento;
+
+        constructor(dono, ano, local, segmento) {
+            super(dono, ano, local);
+            this.carros = {};
+            this.numeroVendidos = 0;
+            this.#numeroCadastrados = 0;
+            this.segmento = segmento;
+        }
+
+        vender(carroVender) {
+            for (let carro in this.carros) {
+                if (carro == carroVender) {
+                    delete this.carros[carro];
+                    return ++this.numeroVendidos;
+                }
+            }
+            console.log('ERRO: CARRO NÃO ENCONTRADO!');
+        }
+
+        cadastrarCarro(fabricante, modelo, cor, preco, ano, condicao) {
+            const novoCarro = new Carro(fabricante, modelo, cor, preco, ano, condicao);
+            if (novoCarro.condicao === this.segmento) {
+                this.carros[`n${this.#numeroCadastrados++}`] = novoCarro;
+                console.log("carro cadastrado\n\n", novoCarro, this.carros);
+            }
+        }
+    }
 </script>
 <style>
 
