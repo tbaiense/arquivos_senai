@@ -1,3 +1,8 @@
+# spread syntax
+Distribui coisas de acordo com o contexto:
+- let objeto = {...arrayDeNumeros} >> obj {0: 1, 1: 10, 2: 4} >> as propriedades são nomeadas pelo índice
+- let array = [[Object.keys()],[]]
+
 # objetos:
 - buscam propriedades dentro deles primeiramente e em seu protótipo (e seus sub-protótipos) recursivamente
 - é possivel atribuir propriedades que existam no protótipo, mas no objeto principal, causando shadowing
