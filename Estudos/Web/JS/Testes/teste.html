@@ -3,80 +3,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="./biblioteca.js" defer></script>
 </head>
 <body>
-
+  <h1>Biblioteca</h1>
+  <section>
+    <h2>Para visualizar um livro selecione:</h2>
+    <ul>
+      <li>
+        <label for="estante">Estante</label>
+        <select id="estante" name="estante">
+          <!--Preenchimento pelo JavaScript-->
+        </select>
+      </li>
+      <li>
+        <label for="prateleira">Prateleira</label>
+        <select id="prateleira" name="prateleira">
+          <!--Preenchimento pelo JavaScript-->
+        </select>
+      </li>
+      <li>
+        <label for="livro">Livro</label>
+        <select id="livro" name="livro">
+          <!--Preenchimento pelo JavaScript-->
+        </select>
+      </li>
+      <li><button type="button" id="procurar">Procurar</button></li>
+    </ul>
+  </section>
+  <section>
+    <h3>Livro:</h3>
+    <ul>
+      <li>Autor: <output id="autorLivro"></output></li>
+      <li>Título: <output id="tituloLivro"></output></li>
+      <li>Ano de publicação: <output id="anoLivro"></output></li>
+      <li>Edição: <output id="edicaoLivro"></output></li>
+    </ul>
+  </section>
 </body>
-<script>
-    "use strict";
-    class Empresa {
-        dono;
-        anoFundacao
-        local;
-
-        constructor(dono, ano, local) {
-            this.dono = dono;
-            this.anoFundacao = ano;
-            this.local = local;
-        }
-
-        falir() {
-            delete this;
-        }
-    }
-
-    class Carro {
-        fabricante;
-        modelo;
-        cor;
-        preco;
-        ano;
-        condicao;
-
-        constructor(fabricante, modelo, cor, preco, ano, condicao) {
-            this.fabricante = fabricante;
-            this.modelo = modelo;
-            this.cor = cor;
-            this.preco = preco;
-            this.ano = ano;
-            this.condicao = condicao;
-        }
-    }
-
-    class Concessionaria extends Empresa {
-        carros;
-        numeroVendidos;
-        #numeroCadastrados;
-        segmento;
-
-        constructor(dono, ano, local, segmento) {
-            super(dono, ano, local);
-            this.carros = {};
-            this.numeroVendidos = 0;
-            this.#numeroCadastrados = 0;
-            this.segmento = segmento;
-        }
-
-        vender(carroVender) {
-            for (let carro in this.carros) {
-                if (carro == carroVender) {
-                    delete this.carros[carro];
-                    return ++this.numeroVendidos;
-                }
-            }
-            console.log('ERRO: CARRO NÃO ENCONTRADO!');
-        }
-
-        cadastrarCarro(fabricante, modelo, cor, preco, ano, condicao) {
-            const novoCarro = new Carro(fabricante, modelo, cor, preco, ano, condicao);
-            if (novoCarro.condicao === this.segmento) {
-                this.carros[`n${this.#numeroCadastrados++}`] = novoCarro;
-                console.log("carro cadastrado\n\n", novoCarro, this.carros);
-            }
-        }
-    }
-</script>
 <style>
+ul {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+  margin: 10px 0;
+}
+label {
+  width: 100px;
+  display: inline-block;
+}
+input,
+button,
+select {
+  width: 150px;
+}
 
 </style>
 </html>

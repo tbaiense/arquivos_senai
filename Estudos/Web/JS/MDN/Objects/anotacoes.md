@@ -5,6 +5,7 @@
 - São delegativas >> executam métodos nos protótipos e permitem mudar os protótipos at-runtime
 
 ## Classes
+- Anexam as propriedades diretamente em suas instâncias e seus métodos dentro do protótipo de suas intâncias
 Anexam as propriedades e métodos de super classes **dentro do próprio objeto**, ao invés de mantê-la no prototype.
     class MinhaClasse {
         prop1;
