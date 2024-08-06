@@ -1,0 +1,1880 @@
+
+<!DOCTYPE HTML>
+<html lang="en-us">
+<head>
+    
+    
+    
+    
+    
+    
+    
+    <meta charset="UTF-8"/>
+    <meta name="languageCode" content="en"/>
+    <meta name="countryCode" content="us"/>
+    <meta name="searchTitle" content="What Is Data Modeling?"/>
+    <meta name="focusArea" content="Cloud - Automation - All"/>
+    <title>What Is Data Modeling? | IBM</title>
+    <script>
+window.RUM_BASE = window.location.origin;
+window.hlx = window.hlx || {};
+function sampleRUM(checkpoint, data) {
+  const timeShift = () => (window.performance ? window.performance.now() : Date.now() - window.hlx.rum.firstReadTime);
+  try {
+    window.hlx = window.hlx || {};
+    if (!window.hlx.rum) {
+      const weight = new URLSearchParams(window.location.search).get('rum') === 'on' ? 1 : 100;
+      const id = Math.random().toString(36).slice(-4);
+      const isSelected = (Math.random() * weight < 1);
+      window.hlx.rum = { weight, id, isSelected, firstReadTime: window.performance ? window.performance.timeOrigin : Date.now(), sampleRUM, queue: [], collector: (...args) => window.hlx.rum.queue.push(args) };
+      if (isSelected) {
+        ['error', 'unhandledrejection'].forEach((event) => {
+          window.addEventListener(event, ({ reason, error }) => {
+            const errData = { source: 'undefined error' };
+            try {
+              errData.target = (reason || error).toString();
+              errData.source = (reason || error).stack.split('\n')
+                .filter((line) => line.match(/https?:\/\//)).shift()
+                .replace(/at ([^ ]+) \((.+)\)/, '$1@$2')
+                .trim();
+            } catch (err) { /* error structure was not as expected */ }
+            sampleRUM('error', errData);
+          });
+        });
+        sampleRUM.baseURL = sampleRUM.baseURL || new URL(window.RUM_BASE || '/', new URL('https://rum.hlx.page'));
+        sampleRUM.collectBaseURL = sampleRUM.collectBaseURL || sampleRUM.baseURL;
+        const body = JSON.stringify({ weight, id, referer: window.location.href, checkpoint: 'top', t: timeShift(), target: document.visibilityState });
+        const url = new URL(`.rum/${weight}`, sampleRUM.baseURL).href;
+        navigator.sendBeacon(url, body);
+        const loadEnhancer = () => {
+          const script = document.createElement('script');
+          script.src = new URL('.rum/@adobe/helix-rum-enhancer@^2/src/index.js', sampleRUM.baseURL).href;
+          document.head.appendChild(script);
+        };
+        if (window.performance && window.performance.getEntriesByType('navigation').every((e) => e.loadEventEnd)) {
+          loadEnhancer();
+        } else {
+          window.addEventListener('load', loadEnhancer);
+        }
+      }
+    }
+    if (window.hlx.rum && window.hlx.rum.isSelected && checkpoint) {
+      window.hlx.rum.collector(checkpoint, data, timeShift());
+    }
+    document.dispatchEvent(new CustomEvent('rum', { detail: { checkpoint, data } }));
+  } catch (error) {
+  }
+}
+window.hlx.sampleRUM = sampleRUM;
+
+  sampleRUM();
+</script><link rel="icon" href="/content/dam/adobe-cms/default-images/favicon.svg"/>
+    <meta name="keywords" content="Data modeling"/>
+    <meta name="description" content="Data modeling is the process of creating a visual representation of an information system to communicate connections between data points and structures. "/>
+    <meta name="template" content="learn"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="robots" content="index, follow"/>
+    
+      
+          <meta name="ibm.com.search.appid" content="thinkhub"/>
+          <meta name="ibm.com.search.scopes" content="thinkhub"/>
+          <meta name="dcterms.date" content="2021-09-29T00:00:00.000"/>
+          <meta name="ibm.search.facet.field_hierarchy_01" content="taxonomy : Topics / Analytics / Data science / Data modeling"/>
+          <meta name="ibm.search.facet.field_hierarchy_02"/>
+          <meta name="ibm.search.facet.field_hierarchy_03" content="taxonomy : Content Format / Article"/>
+          <meta name="ibm.search.facet.field_hierarchy_04" content="taxonomy : Content Type / Explainer"/>
+          <meta name="ibm.search.facet.field_keyword_01" content="Data modeling"/>
+          <meta name="ibm.search.facet.field_keyword_09" content="https://prod-cloud-publish.aem.ibm.net/content/dam/connectedassets-adobe-cms/worldwide-content/creative-assets/s-migr/ul/g/ec/12/data-modeling-leadspace.component.crop-thumbnail-16-by-9-retina.ts=0.png/content/adobe-cms/us/en/topics/data-modeling/jcr:content/root/leadspace"/>
+          <meta name="ibm.search.facet.field_keyword_14"/>
+          <meta name="ibm.search.facet.field_text_01" content="29 September 2021"/>
+          <meta name="ibm.search.facet.field_text_03" content="Explainer"/>
+      
+      
+    <link rel="canonical" href="https://www.ibm.com/topics/data-modeling"/>
+    <style id="anti-flicker-style">
+        :not(:defined) {
+          visibility: hidden;
+        }
+    </style>
+    <!--<script type="text/javascript" id="anti-flicker-script">
+        (async () => {
+          await customElements.whenDefined('dds-masthead-container');
+          document.getElementById('anti-flicker-style').remove();
+          document.getElementById('anti-flicker-script').remove();
+        })()
+    </script>-->
+    
+
+    <script type="text/javascript">
+        window.searchKey = {
+            templateName: 'learn',
+            taxonomylist: 'taxonomy : Topics \/ Analytics \/ Data science \/ Data modeling',
+            L0Tag: 'Topics,Brands,Industries,Geography,Compliance Entities,Products,Events,Computer Languages,Content Format,Series,Content Type,CMaaS Focus Areas',
+        }
+    </script>
+
+    
+        <link rel="alternate" hreflang="it-it" href="https://www.ibm.com/it-it/topics/data-modeling"/>
+    
+        <link rel="alternate" hreflang="de-de" href="https://www.ibm.com/de-de/topics/data-modeling"/>
+    
+        <link rel="alternate" hreflang="en-us" href="https://www.ibm.com/topics/data-modeling"/>
+    
+        <link rel="alternate" hreflang="ko-kr" href="https://www.ibm.com/kr-ko/topics/data-modeling"/>
+    
+        <link rel="alternate" hreflang="pt-br" href="https://www.ibm.com/br-pt/topics/data-modeling"/>
+    
+        <link rel="alternate" hreflang="es-es" href="https://www.ibm.com/es-es/topics/data-modeling"/>
+    
+        <link rel="alternate" hreflang="fr-fr" href="https://www.ibm.com/fr-fr/topics/data-modeling"/>
+    
+        <link rel="alternate" hreflang="zh-cn" href="https://www.ibm.com/cn-zh/topics/data-modeling"/>
+    
+        <link rel="alternate" hreflang="es-mx" href="https://www.ibm.com/mx-es/topics/data-modeling"/>
+    
+        <link rel="alternate" hreflang="ja-jp" href="https://www.ibm.com/jp-ja/topics/data-modeling"/>
+    
+    <script type="text/javascript">
+        window.antiFlicker = {
+            active: true,
+            timeout: 3000
+        }
+    </script>
+    <script type="text/javascript">
+        var languageCode = document.getElementsByName('languageCode')[0].content;
+        var countryCode = document.getElementsByName('countryCode')[0].content;
+        var focusArea = document.getElementsByName('focusArea')[0].content;
+        /* Define digital data object based on _appInfo object */
+        window.digitalData = {
+            page: {
+                category: {
+                    primaryCategory: '',
+                },
+                pageInfo: {
+                    language: languageCode + '-' + countryCode,
+                    ibm: {
+                        siteID: 'MarketingAEM',
+                        country: countryCode,
+                        messaging: {
+                            routing: {
+                                focusArea: focusArea,
+                                languageCode: languageCode,
+                                regionCode: countryCode
+                            },
+                            translation: {
+                                languageCode: languageCode,
+                                regionCode: countryCode
+                            }
+                        },
+                        sections: 0,
+                        patterns: 0,
+                    },
+                    carbon: {
+                        '@carbon/web-components': 'v1.41.0\u002Drc.0',
+                        '@carbon/ibmdotcom-web-components': 'v1.45.0\u002Drc.1',
+                        'carbon-for-aem': 'v0.14.0',
+                    },
+                },
+            },
+        };
+    </script>
+    
+    
+        <meta property="og:url" content="https://www.ibm.com/topics/data-modeling"/>
+    
+        <meta property="og:type" content="website"/>
+    
+        <meta property="og:title" content="What Is Data Modeling? | IBM"/>
+    
+        <meta property="og:description" content="Data modeling is the process of creating a visual representation of an information system to communicate connections between data points and structures. "/>
+    
+        <meta property="og:image" content="https://www.ibm.com/content/dam/connectedassets-adobe-cms/worldwide-content/creative-assets/s-migr/ul/g/ec/12/data-modeling-leadspace.png/_jcr_content/renditions/cq5dam.web.1280.1280.png"/>
+    
+        
+    
+
+    <script src="https://1.www.s81c.com/common/stats/ibm-common.js" type="text/javascript" async="async"></script>
+    <script src="https://hybrid-cloud-widgets-production.s3.us.cloud-object-storage.appdomain.cloud/loader.js" type="application/javascript"></script>
+    
+    
+        
+    
+<link rel="stylesheet" href="/etc.clientlibs/adobe-cms/clientlibs/clientlib-idlStylesCarbon.lc-4bcd71d5119ddf067401538b806d7bbb-lc.min.css" type="text/css">
+<link rel="stylesheet" href="/etc.clientlibs/adobe-cms/clientlibs/clientlib-idlStyles.lc-3f39c0cbd1ee640b47190aa213db9354-lc.min.css" type="text/css">
+
+
+
+        
+        
+        <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/plex.css"/>
+        <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/plex/sans.css"/>
+        
+        
+    
+    
+    
+    
+    
+
+    
+
+    
+
+
+
+    
+    
+    
+
+
+
+    
+
+    
+
+
+</head>
+<body class="learn-page content-page page basicpage publish" id="learn-page-19e36ece2f">
+
+
+
+    
+
+
+
+
+    
+
+
+
+    
+<div class="root container responsivegrid">
+
+    
+    
+    
+    <div id="container-e9b80bd4f1" class="cmp-container">
+        
+        <div class="masthead">
+
+
+
+
+
+
+
+<dds-masthead-container data-endpoint="/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2.1" auth-method="profile-api" has-contact="true"></dds-masthead-container>
+<script src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/2.0.0.alpha.9164247689/masthead.min.js" type="module"></script>
+
+
+
+<script>
+    var json = "{\x22title\x22:\x22Think\x22,\x22url\x22:\x22https:\/\/www.ibm.com\/think\x22,\x22menuItems\x22:[{\x22title\x22:\x22Think 2024\x22,\x22submenu\x22:{\x22columns\x22:1,\x22menuSections\x22:[{\x22span\x22:1,\x22items\x22:[{\x22title\x22:\x22Overview\x22,\x22url\x22:\x22https:\/\/www.ibm.com\/events\/think\x22},{\x22title\x22:\x22Experience\x22,\x22url\x22:\x22https:\/\/www.ibm.com\/events\/think\/experience\x22},{\x22title\x22:\x22Agenda\x22,\x22url\x22:\x22https:\/\/www.ibm.com\/events\/think\/agenda\x22},{\x22title\x22:\x22Partner Day\x22,\x22url\x22:\x22https:\/\/www.ibm.com\/events\/think\/partners\x22},{\x22title\x22:\x22Think on Tour\x22,\x22url\x22:\x22https:\/\/www.ibm.com\/events\/think\/on\u002Dtour\x22},{\x22title\x22:\x22FAQ\x22,\x22url\x22:\x22https:\/\/www.ibm.com\/events\/think\/faq\x22}]}]}},{\x22title\x22:\x22Artificial intelligence\x22,\x22url\x22:\x22https:\/\/www.ibm.com\/think\/artificial\u002Dintelligence\x22},{\x22title\x22:\x22Cloud\x22,\x22url\x22:\x22https:\/\/www.ibm.com\/think\/cloud\x22},{\x22title\x22:\x22Security\x22,\x22url\x22:\x22https:\/\/www.ibm.com\/think\/security\x22},{\x22title\x22:\x22Sustainability\x22,\x22url\x22:\x22https:\/\/www.ibm.com\/think\/sustainability\x22},{\x22title\x22:\x22Blog\x22,\x22submenu\x22:{\x22columns\x22:2,\x22footer\x22:{\x22title\x22:\x22View all blog posts\x22,\x22url\x22:\x22https:\/\/www.ibm.com\/blog\/\x22},\x22menuSections\x22:[{\x22span\x22:1,\x22heading\x22:{\x22headingLevel\x22:2,\x22title\x22:\x22Categories\x22},\x22items\x22:[{\x22title\x22:\x22Analytics\x22,\x22url\x22:\x22https:\/\/www.ibm.com\/blog\/category\/analytics\/\x22},{\x22title\x22:\x22Artificial intelligence\x22,\x22url\x22:\x22https:\/\/www.ibm.com\/blog\/category\/artificial\u002Dintelligence\/\x22},{\x22title\x22:\x22Automation\x22,\x22url\x22:\x22https:\/\/www.ibm.com\/blog\/category\/automation\/\x22},{\x22title\x22:\x22Business transformation\x22,\x22url\x22:\x22https:\/\/www.ibm.com\/blog\/category\/business\u002Dtransformation\/\x22},{\x22title\x22:\x22Cloud\x22,\x22url\x22:\x22https:\/\/www.ibm.com\/blog\/category\/cloud\/\x22},{\x22title\x22:\x22Security\x22,\x22url\x22:\x22https:\/\/www.ibm.com\/blog\/category\/security\/\x22},{\x22title\x22:\x22Social impact\x22,\x22url\x22:\x22https:\/\/www.ibm.com\/blog\/category\/social\u002Dimpact\/\x22},{\x22title\x22:\x22Supply chain\x22,\x22url\x22:\x22https:\/\/www.ibm.com\/blog\/category\/supply\u002Dchain\/\x22},{\x22title\x22:\x22Sustainability\x22,\x22url\x22:\x22https:\/\/www.ibm.com\/blog\/category\/sustainability\/\x22}]},{\x22span\x22:1,\x22heading\x22:{\x22headingLevel\x22:2,\x22title\x22:\x22Industries\x22},\x22items\x22:[{\x22title\x22:\x22Energy and utilities\x22,\x22url\x22:\x22https:\/\/www.ibm.com\/blog\/category\/energy\u002Dand\u002Dutilities\/\x22},{\x22title\x22:\x22Financial services\x22,\x22url\x22:\x22https:\/\/www.ibm.com\/blog\/category\/financial\u002Dservices\/\x22},{\x22title\x22:\x22Government\x22,\x22url\x22:\x22https:\/\/www.ibm.com\/blog\/category\/government\/\x22},{\x22title\x22:\x22Healthcare\x22,\x22url\x22:\x22https:\/\/www.ibm.com\/blog\/category\/healthcare\/\x22},{\x22title\x22:\x22Manufacturing\x22,\x22url\x22:\x22https:\/\/www.ibm.com\/blog\/category\/manufacturing\/\x22},{\x22title\x22:\x22Media and entertainment\x22,\x22url\x22:\x22https:\/\/www.ibm.com\/blog\/category\/media\u002Dand\u002Dentertainment\/\x22},{\x22title\x22:\x22Mining and extraction\x22,\x22url\x22:\x22https:\/\/www.ibm.com\/blog\/category\/mining\u002Dand\u002Dextraction\/\x22},{\x22title\x22:\x22Technology\x22,\x22url\x22:\x22https:\/\/www.ibm.com\/blog\/category\/technology\/\x22},{\x22title\x22:\x22Telecommunications\x22,\x22url\x22:\x22https:\/\/www.ibm.com\/blog\/category\/telecommunications\/\x22},{\x22title\x22:\x22Transportation\x22,\x22url\x22:\x22https:\/\/www.ibm.com\/blog\/category\/transportation\/\x22}]}]}},{\x22title\x22:\x22Videos\x22,\x22submenu\x22:{\x22columns\x22:1,\x22menuSections\x22:[{\x22span\x22:1,\x22items\x22:[{\x22title\x22:\x22Overview\x22,\x22url\x22:\x22https:\/\/www.ibm.com\/think\/videos\x22},{\x22title\x22:\x22AI Academy\x22,\x22url\x22:\x22https:\/\/www.ibm.com\/think\/videos\/series\/ai\u002Dacademy\x22},{\x22title\x22:\x22Rethink use cases\x22,\x22url\x22:\x22https:\/\/www.ibm.com\/think\/videos\/series\/rethink\x22},{\x22title\x22:\x22Think 2024 on demand\x22,\x22url\x22:\x22https:\/\/www.ibm.com\/think\/videos\/series\/think\u002Dkeynotes\x22}]}]}},{\x22title\x22:\x22Events\x22,\x22submenu\x22:{\x22columns\x22:1,\x22menuSections\x22:[{\x22span\x22:1,\x22items\x22:[{\x22title\x22:\x22Think 2024\x22,\x22url\x22:\x22https:\/\/www.ibm.com\/events\/think\x22},{\x22title\x22:\x22Think on Tour\x22,\x22url\x22:\x22https:\/\/www.ibm.com\/events\/think\/on\u002Dtour\x22},{\x22title\x22:\x22TechXchange\x22,\x22url\x22:\x22https:\/\/www.ibm.com\/community\/ibm\u002Dtechxchange\u002Dconference\/\x22}]}]}},{\x22title\x22:\x22More\x22,\x22submenu\x22:{\x22columns\x22:2,\x22menuSections\x22:[{\x22span\x22:1,\x22heading\x22:{\x22headingLevel\x22:2,\x22title\x22:\x22Topics\x22},\x22items\x22:[{\x22title\x22:\x22Analytics\x22,\x22url\x22:\x22https:\/\/www.ibm.com\/think\/analytics\x22},{\x22title\x22:\x22Asset management\x22,\x22url\x22:\x22https:\/\/www.ibm.com\/think\/asset\u002Dmanagement\x22},{\x22title\x22:\x22Business automation\x22,\x22url\x22:\x22https:\/\/www.ibm.com\/think\/business\u002Dautomation\x22},{\x22title\x22:\x22Business operations\x22,\x22url\x22:\x22https:\/\/www.ibm.com\/think\/business\u002Doperations\x22},{\x22title\x22:\x22Compute and servers\x22,\x22url\x22:\x22https:\/\/www.ibm.com\/think\/compute\x22},{\x22title\x22:\x22DevOps\x22,\x22url\x22:\x22https:\/\/www.ibm.com\/think\/devops\x22},{\x22title\x22:\x22IT automation\x22,\x22url\x22:\x22https:\/\/www.ibm.com\/think\/it\u002Dautomation\x22},{\x22title\x22:\x22IT infrastructure\x22,\x22url\x22:\x22https:\/\/www.ibm.com\/think\/it\u002Dinfrastructure\x22},{\x22title\x22:\x22Middleware\x22,\x22url\x22:\x22https:\/\/www.ibm.com\/think\/middleware\x22},{\x22title\x22:\x22Network\x22,\x22url\x22:\x22https:\/\/www.ibm.com\/think\/network\x22},{\x22title\x22:\x22Quantum\x22,\x22url\x22:\x22https:\/\/www.ibm.com\/think\/quantum\x22},{\x22title\x22:\x22Storage\x22,\x22url\x22:\x22https:\/\/www.ibm.com\/think\/storage\x22}]},{\x22span\x22:1,\x22heading\x22:{\x22headingLevel\x22:2,\x22title\x22:\x22Content types\x22},\x22items\x22:[{\x22title\x22:\x22Explainers\x22,\x22url\x22:\x22https:\/\/www.ibm.com\/topics\x22},{\x22title\x22:\x22Newsletters\x22,\x22url\x22:\x22https:\/\/www.ibm.com\/subscribe\x22},{\x22title\x22:\x22Podcasts\x22,\x22url\x22:\x22https:\/\/www.ibm.com\/think\/podcasts\x22},{\x22title\x22:\x22Reference architectures\x22,\x22url\x22:\x22https:\/\/www.ibm.com\/architectures\x22}]}]}},{\x22title\x22:\x22View all\x22,\x22url\x22:\x22https:\/\/www.ibm.com\/think\/search\x22}],\x22actions\x22:{\x22login\x22:null,\x22cta\x22:{\x22title\x22:\x22Subscribe\x22,\x22url\x22:\x22https:\/\/www.ibm.com\/account\/reg\/signup?formid=news\u002Durx\u002D52954\x22}},\x22linkOrContactModule\x22:false,\x22optinalCta\x22:true}";
+    document.querySelector('dds-masthead-container').l1Data = JSON.parse(json);
+    document.querySelector('.masthead').classList.add("hasNavigation");
+    document.documentElement.style.setProperty('--anker-navigation-spacing', '-6rem');
+</script>
+
+
+<script type="text/javascript">
+    if(window.location.href.includes("/careers")){
+       document.querySelector('dds-masthead-container').setAttribute("has-search","false");
+       document.querySelector('dds-masthead-container').setAttribute("has-profile","false");
+    } 
+</script></div>
+<div class="leadspace">
+    
+
+
+
+
+
+
+
+
+    
+    
+        <div class="bx--grid bx--no-gutter ">
+            <dds-leadspace type="left" size="medium" loadinganimation gradient-style-scheme>
+                
+                
+
+    <bx-breadcrumb slot="navigation">
+        <bx-breadcrumb-item>
+            <bx-breadcrumb-link href="/">
+                <caem-paragraph size="normal" type-style="body-short-01">Home</caem-paragraph>
+            </bx-breadcrumb-link>
+        </bx-breadcrumb-item>
+    
+        <bx-breadcrumb-item>
+            <bx-breadcrumb-link href="/topics">
+                <caem-paragraph size="normal" type-style="body-short-01">Topics</caem-paragraph>
+            </bx-breadcrumb-link>
+        </bx-breadcrumb-item>
+    
+        <bx-breadcrumb-item class="no-trailing-slash">
+            
+                <caem-paragraph size="normal" type-style="body-short-01">What is Data Modeling?</caem-paragraph>
+            
+        </bx-breadcrumb-item>
+    </bx-breadcrumb>
+
+    
+    
+
+                <dds-leadspace-heading id="leadspaceSimpleTitle">
+                    
+
+
+
+  
+    What is data modeling?
+
+
+
+
+
+
+    
+
+
+                </dds-leadspace-heading>
+				
+                    <div class="leadspace__copy ">
+                        
+
+
+  
+  
+
+
+
+
+    
+
+
+                    </div>
+					
+                    
+                        <dds-video-cta-container slot="action">
+                            <dds-button-group>
+                                
+
+
+
+
+
+
+    
+    
+    
+    
+    
+    <dds-button-cta href="https://www.ibm.com/products/watsonx-ai" target="_self" kind="primary" aria-label="Optional Primary Option" cta-type="local" data-aem-autoid="aem--leadspace_cta-0">
+        <span>Explore IBM&#39;s data modeling solution</span>
+        
+        
+    </dds-button-cta>
+    
+    
+
+
+    
+    
+    
+    
+    
+    <dds-button-cta href="https://www.ibm.com/account/reg/signup?formid=news-urx-52120" target="_blank" kind="tertiary" aria-label="Optional Secondary Option" cta-type="local" data-aem-autoid="aem--leadspace_cta-1">
+        <span>Subscribe for AI updates</span>
+        
+        
+    </dds-button-cta>
+    
+    
+
+
+
+ 
+ 
+                            </dds-button-group>
+                        </dds-video-cta-container>
+                    
+                
+                <dds-background-media mobile-position="bottom" opacity="100" gradient-hidden>
+                    
+                        
+    
+    <div class="bx--image ">
+        <picture>
+            
+            
+            
+                
+                    
+    <source media="(min-width: 1312px) and (min-resolution: 192dpi)" srcset="/content/dam/connectedassets-adobe-cms/worldwide-content/creative-assets/s-migr/ul/g/ec/12/data-modeling-leadspace.component.xl-retina.ts=1715369062456.png/content/adobe-cms/us/en/topics/data-modeling/jcr:content/root/leadspace"/>
+    <source media="(min-width: 1312px)" srcset="/content/dam/connectedassets-adobe-cms/worldwide-content/creative-assets/s-migr/ul/g/ec/12/data-modeling-leadspace.component.xl.ts=1715369062456.png/content/adobe-cms/us/en/topics/data-modeling/jcr:content/root/leadspace"/>
+    <source media="(min-width: 1056px) and (min-resolution: 192dpi)" srcset="/content/dam/connectedassets-adobe-cms/worldwide-content/creative-assets/s-migr/ul/g/ec/12/data-modeling-leadspace.component.l-retina.ts=1715369062456.png/content/adobe-cms/us/en/topics/data-modeling/jcr:content/root/leadspace"/>
+    <source media="(min-width: 1056px)" srcset="/content/dam/connectedassets-adobe-cms/worldwide-content/creative-assets/s-migr/ul/g/ec/12/data-modeling-leadspace.component.l.ts=1715369062456.png/content/adobe-cms/us/en/topics/data-modeling/jcr:content/root/leadspace"/>
+    <source media="(min-width: 672px) and (min-resolution: 192dpi)" srcset="/content/dam/connectedassets-adobe-cms/worldwide-content/creative-assets/s-migr/ul/g/ec/12/data-modeling-leadspace.component.m-retina.ts=1715369062456.png/content/adobe-cms/us/en/topics/data-modeling/jcr:content/root/leadspace"/>
+    <source media="(min-width: 672px)" srcset="/content/dam/connectedassets-adobe-cms/worldwide-content/creative-assets/s-migr/ul/g/ec/12/data-modeling-leadspace.component.m.ts=1715369062456.png/content/adobe-cms/us/en/topics/data-modeling/jcr:content/root/leadspace"/>
+    <source media="(min-width: 481px) and (min-resolution: 192dpi)" srcset="/content/dam/connectedassets-adobe-cms/worldwide-content/creative-assets/s-migr/ul/g/ec/12/data-modeling-leadspace.component.s-retina.ts=1715369062456.png/content/adobe-cms/us/en/topics/data-modeling/jcr:content/root/leadspace"/>
+    <source media="(min-width: 481px)" srcset="/content/dam/connectedassets-adobe-cms/worldwide-content/creative-assets/s-migr/ul/g/ec/12/data-modeling-leadspace.component.s.ts=1715369062456.png/content/adobe-cms/us/en/topics/data-modeling/jcr:content/root/leadspace"/>
+    <source media="(max-width: 480px) and (min-resolution: 192dpi)" srcset="/content/dam/connectedassets-adobe-cms/worldwide-content/creative-assets/s-migr/ul/g/ec/12/data-modeling-leadspace.component.xs-retina.ts=1715369062456.png/content/adobe-cms/us/en/topics/data-modeling/jcr:content/root/leadspace"/>
+    <source media="(max-width: 480px)" srcset="/content/dam/connectedassets-adobe-cms/worldwide-content/creative-assets/s-migr/ul/g/ec/12/data-modeling-leadspace.component.xs.ts=1715369062456.png/content/adobe-cms/us/en/topics/data-modeling/jcr:content/root/leadspace"/>
+
+                    
+                
+            
+            
+            <img id="image--59212736" class="bx--image__img" src="/content/dam/connectedassets-adobe-cms/worldwide-content/creative-assets/s-migr/ul/g/ec/12/data-modeling-leadspace.component.xl.ts=1715369062456.png/content/adobe-cms/us/en/topics/data-modeling/_jcr_content/root/leadspace" alt="Illustration of person at laptop pointing at flowchart"/>
+        </picture>
+        
+    </div>
+
+
+                    
+                    
+                </dds-background-media>
+            </dds-leadspace>
+        </div>
+    
+
+
+
+
+
+</div>
+<div class="table-of-contents container responsivegrid">
+<dds-table-of-contents data-cmp-is="table-of-contents" data-autoid="dds--table-of-contents" class="cmp-table-of-contents" stickyoffset="96">
+    
+    
+    <div id="table-of-contents-a992d8c875" class="cmp-table-of-contents">
+        
+        <div class="body container responsivegrid">
+
+    
+    
+    
+    <div id="body-067b86375c" class="cmp-container">
+        
+        <div class="content-section-styled content-section container responsivegrid">
+
+
+
+
+    
+        <div class="bx--grid">
+            <div class="bx--row">
+                <div class="bx--col-lg-16 bx--no-gutter">
+                    <div class="bx--content-section">
+                        
+                        
+                            
+
+    
+    
+    
+    <div id="container-ca913e515d" class="cmp-container">
+        
+        <div class="complex-narrative">
+<dds-content-block-segmented data-autoid="dds-content-block-segmented" no-image content-section-body>
+    <div slot="heading">
+        
+        
+  
+    <a data-title="What is data modeling?" name="What+is+data+modeling%3F"></a>
+  
+
+        <dds-content-block-heading data-autoid="dds--content-block__heading" role="heading">
+            
+                
+
+
+  
+    <a data-title="What is data modeling?" name="What+is+data+modeling%3F"></a>
+  
+
+
+
+    What is data modeling?
+
+
+
+
+
+    
+
+
+            
+        </dds-content-block-heading>
+    </div>
+    <dds-content-block-copy data-autoid="dds--content-block__copy" slot="copy">
+        <dds-content-block-paragraph>
+            <div class="cms-richtext" id="rich-text-c85c5fd49c" data-dynamic-inner-content="description">
+    <p>Data modeling is the process of creating a visual representation of either a whole information system or parts of it to communicate connections between data points and structures.</p>
+ 
+    
+    
+    
+    
+
+</div>
+        </dds-content-block-paragraph>
+    </dds-content-block-copy>
+    
+    
+    
+    
+
+    
+    
+    
+    
+
+  <dds-content-block-segmented-item>
+    
+    <dds-content-item-copy>
+      <div class="cms-richtext" id="rich-text-01fd1023dd" data-dynamic-inner-content="description">
+    <p>The goal of data modeling to illustrate the types of data used and stored within the system, the relationships among these data types, the ways the data can be grouped and organized and its formats and attributes.</p>
+<p>Data models are built around business needs. Rules and requirements are defined upfront through feedback from business stakeholders so they can be incorporated into the design of a new system or adapted in the iteration of an existing one.</p>
+<p>Data can be modeled at various levels of abstraction. The process begins by collecting information about business requirements from stakeholders and end users. These business rules are then translated into data structures to formulate a concrete database design. A data model can be compared to a roadmap, an architect’s blueprint or any formal diagram that facilitates a deeper understanding of what is being designed.</p>
+<p>Data modeling employs standardized schemas and formal techniques. This provides a common, consistent, and predictable way of defining and managing data resources across an organization, or even beyond.</p>
+<p>Ideally, data models are living documents that evolve along with changing business needs. They play an important role in supporting business processes and planning IT architecture and strategy. Data models can be shared with vendors, partners, and/or industry peers.</p>
+ 
+    
+    
+    
+    
+
+</div>
+    </dds-content-item-copy>
+    
+    
+    
+  </dds-content-block-segmented-item>
+
+
+
+    
+
+
+    
+    <div slot="complementary">
+        
+            <div class="aside-card">
+                
+    
+    
+    
+    
+        
+        <dds-card-cta href="https://www.ibm.com/account/reg/signup?formid=urx-51898" target="_blank" pictogram-placement="top" cta-type="local">
+            
+            <dds-card-eyebrow slot="eyebrow" aria-hidden="true">
+                Ebook
+            </dds-card-eyebrow>
+            <dds-card-heading role="heading" aria-level="3" slot="heading">
+                Build responsible AI workflows with AI governance
+            </dds-card-heading>
+            
+                <p>Learn the building blocks and best practices to help your teams accelerate responsible AI. </p>
+            
+            <dds-card-cta-footer icon-placement="right" href="https://www.ibm.com/account/reg/signup?formid=urx-51898" target="_blank" slot="footer" aria-hidden="true">
+                
+                    
+                    
+                
+                
+    
+    
+    
+    
+
+            </dds-card-cta-footer>
+        </dds-card-cta>
+    
+    
+    
+
+    
+
+
+
+            </div>
+            
+                
+    <dds-link-list type="default">
+        <dds-link-list-heading role="heading" aria-level="4" slot="heading">
+            
+
+
+  
+  
+      Related content
+  
+
+
+
+
+    
+
+
+        </dds-link-list-heading>
+        
+            
+            
+
+    
+    
+    
+    
+    
+        
+    
+        <dds-link-list-item-card cta-type="local" href="https://www.ibm.com/account/reg/signup?formid=urx-52639" target="_blank">
+            
+    
+
+
+
+    
+
+
+
+            <p>Read the guide for data leaders</p>
+            
+            <dds-card-cta-footer href="https://www.ibm.com/account/reg/signup?formid=urx-52639" target="_blank" cta-type="local">
+                
+            </dds-card-cta-footer>
+        </dds-link-list-item-card>
+    
+    
+    
+    
+
+        
+    
+    
+    
+
+
+    
+
+
+        
+    </dds-link-list>
+
+
+            
+        
+        
+        
+    </div>
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+
+
+</dds-content-block-segmented>
+<div horizontal-ruler>
+    
+    
+    
+    
+        <dds-hr></dds-hr>
+        
+    
+
+    
+    
+
+
+</div>
+
+</div>
+<div class="complex-narrative">
+<dds-content-block-segmented data-autoid="dds-content-block-segmented" class="complex-narrative-container" no-image no-aside content-section-body>
+    <div slot="heading">
+        
+        
+  
+    <a data-title="Types of data models" name="Types+of+data+models"></a>
+  
+
+        <dds-content-block-heading data-autoid="dds--content-block__heading" role="heading">
+            
+                
+
+
+  
+    <a data-title="Types of data models" name="Types+of+data+models"></a>
+  
+
+
+
+    Types of data models
+
+
+
+
+
+    
+
+
+            
+        </dds-content-block-heading>
+    </div>
+    <dds-content-block-copy data-autoid="dds--content-block__copy" slot="copy">
+        <dds-content-block-paragraph>
+            <div class="cms-richtext" id="rich-text-cb5077a17b" data-dynamic-inner-content="description">
+    <p>Like any design process, database and information system design begins at a high level of abstraction and becomes increasingly more concrete and specific. Data models can generally be divided into three categories, which vary according to their degree of abstraction. The process will start with a conceptual model, progress to a logical model and conclude with a physical model. Each type of data model is discussed in more detail in subsequent sections:</p>
+ 
+    
+    
+    
+    
+
+</div>
+        </dds-content-block-paragraph>
+    </dds-content-block-copy>
+    
+    
+    
+    
+
+    
+    
+    
+    
+
+  <dds-content-block-segmented-item>
+    <dds-content-group-heading>
+      
+
+
+
+  
+    Conceptual data models
+
+
+
+
+
+
+    
+
+
+    </dds-content-group-heading>
+    <dds-content-item-copy>
+      <div class="cms-richtext" id="rich-text-d54f251d73" data-dynamic-inner-content="description">
+    <p>They are also referred to as domain models and offer a big-picture view of what the system will contain, how it will be organized, and which business rules are involved. Conceptual models are usually created as part of the process of gathering initial project requirements. Typically, they include entity classes (defining the types of things that are important for the business to represent in the data model), their characteristics and constraints, the relationships between them and relevant security and data integrity requirements. Any notation is typically simple.</p>
+ 
+    
+    
+    
+    
+
+</div>
+    </dds-content-item-copy>
+    
+      
+    
+    
+    
+        
+        
+        
+        
+        <dds-image id="image--115587024" alt="Conceptual Data Modeling chart" slot="media" default-src="/content/dam/connectedassets-adobe-cms/worldwide-content/creative-assets/s-migr/ul/g/ae/c5/conceptual-data-modeling.png" class="">
+            
+            
+        </dds-image>
+    
+
+    
+    
+
+
+
+    
+    
+    
+  </dds-content-block-segmented-item>
+
+
+
+
+  <dds-content-block-segmented-item>
+    <dds-content-group-heading>
+      
+
+
+
+  
+    Logical data models
+
+
+
+
+
+
+    
+
+
+    </dds-content-group-heading>
+    <dds-content-item-copy>
+      <div class="cms-richtext" id="rich-text-ebfacc09b5" data-dynamic-inner-content="description">
+    <p>They are less abstract and provide greater detail about the concepts and relationships in the domain under consideration. One of several formal data modeling notation systems is followed. These indicate data attributes, such as data types and their corresponding lengths, and show the relationships among entities. Logical data models don’t specify any technical system requirements. This stage is frequently omitted in agile or <a href="https://www.ibm.com/topics/devops" target="_blank" rel="noopener noreferrer">DevOps</a> practices. Logical data models can be useful in highly procedural implementation environments, or for projects that are data-oriented by nature, such as <a href="https://www.ibm.com/topics/data-warehouse" target="_blank" rel="noopener noreferrer">data warehouse</a> design or reporting system development.</p>
+ 
+    
+    
+    
+    
+
+</div>
+    </dds-content-item-copy>
+    
+      
+    
+    
+    
+        
+        
+        
+        
+        <dds-image id="image-874781675" alt="Logical Data Modeling chart" slot="media" default-src="/content/dam/connectedassets-adobe-cms/worldwide-content/creative-assets/s-migr/ul/g/73/fd/logical-data-modeling.png" class="">
+            
+            
+        </dds-image>
+    
+
+    
+    
+
+
+
+    
+    
+    
+  </dds-content-block-segmented-item>
+
+
+
+
+  <dds-content-block-segmented-item>
+    <dds-content-group-heading>
+      
+
+
+
+  
+    Physical data models
+
+
+
+
+
+
+    
+
+
+    </dds-content-group-heading>
+    <dds-content-item-copy>
+      <div class="cms-richtext" id="rich-text-98853b5818" data-dynamic-inner-content="description">
+    <p>They provide a schema for how the data will be physically stored within a database. As such, they’re the least abstract of all. They offer a finalized design that can be implemented as a <a href="https://www.ibm.com/topics/relational-databases" target="_blank" rel="noopener noreferrer">relational database</a>, including associative tables that illustrate the relationships among entities as well as the primary keys and foreign keys that will be used to maintain those relationships. Physical data models can include database management system (DBMS)-specific properties, including performance tuning.</p>
+ 
+    
+    
+    
+    
+
+</div>
+    </dds-content-item-copy>
+    
+      
+    
+    
+    
+        
+        
+        
+        
+        <dds-image id="image--434706439" alt="Physical Data Modeling chart" slot="media" default-src="/content/dam/connectedassets-adobe-cms/worldwide-content/creative-assets/s-migr/ul/g/82/20/physical-data-modeling.png" class="">
+            
+            
+        </dds-image>
+    
+
+    
+    
+
+
+
+    
+    
+    
+  </dds-content-block-segmented-item>
+
+
+
+    
+
+
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+
+
+</dds-content-block-segmented>
+<div horizontal-ruler>
+    
+    
+    
+    
+        <dds-hr></dds-hr>
+        
+    
+
+    
+    
+
+
+</div>
+
+</div>
+<div class="simple-narrative">
+<dds-content-block-simple data-autoid="dds--content-block-simple" class="simple-narrative-container" no-aside content-section-body>
+    <div slot="heading">
+        
+        
+  
+    <a data-title="Data modeling process" name="Data+modeling+process"></a>
+  
+
+        <dds-content-block-heading data-autoid="dds--content-block__heading" role="heading">
+            
+                
+
+
+  
+    <a data-title="Data modeling process" name="Data+modeling+process"></a>
+  
+
+
+
+    Data modeling process
+
+
+
+
+
+    
+
+
+            
+        </dds-content-block-heading>
+    </div>
+    <dds-content-block-copy data-autoid="dds--content-block__copy" slot="copy" size="sm">
+        
+            <div class="cms-richtext" id="rich-text-6146093970" data-dynamic-inner-content="description">
+    <p>As a discipline, data modeling invites stakeholders to evaluate data processing and storage in painstaking detail. Data modeling techniques have different conventions that dictate which symbols are used to represent the data, how models are laid out, and how business requirements are conveyed. All approaches provide formalized workflows that include a sequence of tasks to be performed in an iterative manner. Those workflows generally look like this:</p>
+<ol><li><strong>Identify the entities.</strong> The process of data modeling begins with the identification of the things, events or concepts that are represented in the data set that is to be modeled. Each entity should be cohesive and logically discrete from all others.</li><li><strong>Identify key properties of each entity.</strong> Each entity type can be differentiated from all others because it has one or more unique properties, called attributes. For instance, an entity called “customer” might possess such attributes as a first name, last name, telephone number and salutation, while an entity called “address” might include a street name and number, a city, state, country and zip code.</li><li><strong>Identify relationships among entities. </strong>The earliest draft of a data model will specify the nature of the relationships each entity has with the others. In the above example, each customer “lives at” an address. If that model were expanded to include an entity called “orders,” each order would be shipped to and billed to an address as well. These relationships are usually documented via unified modeling language (UML).</li><li><strong>Map attributes to entities completely. </strong>This will ensure the model reflects how the business will use the data. Several formal data modeling patterns are in widespread use. Object-oriented developers often apply analysis patterns or design patterns, while stakeholders from other business domains may turn to other patterns.</li><li><strong>Assign keys as needed, and decide on a degree of normalization that balances the need to reduce redundancy with performance requirements.</strong> Normalization is a technique for organizing data models (and the databases they represent) in which numerical identifiers, called keys, are assigned to groups of data to represent relationships between them without repeating the data. For instance, if customers are each assigned a key, that key can be linked to both their address and their order history without having to repeat this information in the table of customer names. Normalization tends to reduce the amount of storage space a database will require, but it can at cost to query performance.</li><li><strong>Finalize and validate the data model.</strong> Data modeling is an iterative process that should be repeated and refined as business needs change.</li></ol>
+ 
+    
+    
+    
+    
+
+</div>
+        
+    </dds-content-block-copy>
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+
+
+</dds-content-block-simple>
+<div horizontal-ruler>
+    
+    
+    
+    
+        <dds-hr></dds-hr>
+        
+    
+
+    
+    
+
+
+</div>
+</div>
+<div class="simple-narrative">
+<dds-content-block-simple data-autoid="dds--content-block-simple" class="simple-narrative-container" no-aside content-section-body>
+    <div slot="heading">
+        
+        
+  
+    <a data-title="Types of data modeling" name="Types+of+data+modeling"></a>
+  
+
+        <dds-content-block-heading data-autoid="dds--content-block__heading" role="heading">
+            
+                
+
+
+  
+    <a data-title="Types of data modeling" name="Types+of+data+modeling"></a>
+  
+
+
+
+    Types of data modeling
+
+
+
+
+
+    
+
+
+            
+        </dds-content-block-heading>
+    </div>
+    <dds-content-block-copy data-autoid="dds--content-block__copy" slot="copy" size="sm">
+        
+            <div class="cms-richtext" id="rich-text-f024e03a72" data-dynamic-inner-content="description">
+    <p>Data modeling has evolved alongside database management systems, with model types increasing in complexity as businesses&#39; data storage needs have grown. Here are several model types:</p>
+<ul><li><strong>Hierarchical data models</strong> represent one-to-many relationships in a treelike format. In this type of model, each record has a single root or parent which maps to one or more child tables. This model was implemented in the IBM Information Management System (IMS), which was introduced in 1966 and rapidly found widespread use, especially in banking. Though this approach is less efficient than more recently developed database models, it’s still used in Extensible Markup Language (XML) systems and geographic information systems (GISs).</li><li><strong>Relational data models</strong> were initially proposed by IBM researcher E.F. Codd in 1970. They are still implemented today in the many different relational databases commonly used in enterprise computing. Relational data modeling doesn’t require a detailed understanding of the physical properties of the data storage being used. In it, data segments are explicitly joined through the use of tables, reducing database complexity.</li></ul>
+<p>Relational databases frequently employ structured query language (SQL) for data management. These databases work well for maintaining data integrity and minimizing redundancy. They’re often used in point-of-sale systems, as well as for other types of transaction processing.</p>
+<ul><li><strong>Entity-relationship (ER) data models </strong>use formal diagrams to represent the relationships between entities in a database. Several ER modeling tools are used by data architects to create visual maps that convey database design objectives.</li><li><strong>Object-oriented data models </strong>gained traction as object-oriented programming and it became popular in the mid-1990s. The “objects” involved are abstractions of real-world entities. Objects are grouped in class hierarchies, and have associated features. Object-oriented databases can incorporate tables, but can also support more complex data relationships. This approach is employed in multimedia and hypertext databases as well as other use cases.</li><li><strong>Dimensional data models </strong>were developed by Ralph Kimball, and they were designed to optimize data retrieval speeds for analytic purposes in a <a href="https://www.ibm.com/topics/data-warehouse" target="_blank" rel="noopener noreferrer">data warehouse</a>. While relational and ER models emphasize efficient storage, dimensional models increase redundancy in order to make it easier to locate information for reporting and retrieval. This modeling is typically used across <a href="https://www.ibm.com/topics/olap" target="_blank" rel="noopener noreferrer">OLAP</a> systems.</li></ul>
+<p>Two popular dimensional data models are the star schema, in which data is organized into facts (measurable items) and dimensions (reference information), where each fact is surrounded by its associated dimensions in a star-like pattern. The other is the snowflake schema, which resembles the star schema but includes additional layers of associated dimensions, making the branching pattern more complex.</p>
+ 
+    
+    
+    
+    
+
+</div>
+        
+    </dds-content-block-copy>
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+
+
+</dds-content-block-simple>
+<div horizontal-ruler>
+    
+    
+    
+    
+        <dds-hr></dds-hr>
+        
+    
+
+    
+    
+
+
+</div>
+</div>
+<div class="simple-narrative">
+<dds-content-block-simple data-autoid="dds--content-block-simple" class="simple-narrative-container" no-aside content-section-body>
+    <div slot="heading">
+        
+        
+  
+    <a data-title="Benefits of data modeling" name="Benefits+of+data+modeling"></a>
+  
+
+        <dds-content-block-heading data-autoid="dds--content-block__heading" role="heading">
+            
+                
+
+
+  
+    <a data-title="Benefits of data modeling" name="Benefits+of+data+modeling"></a>
+  
+
+
+
+    Benefits of data modeling
+
+
+
+
+
+    
+
+
+            
+        </dds-content-block-heading>
+    </div>
+    <dds-content-block-copy data-autoid="dds--content-block__copy" slot="copy" size="sm">
+        
+            <div class="cms-richtext" id="rich-text-17771486fb" data-dynamic-inner-content="description">
+    <p>Data modeling makes it easier for developers, data architects, business analysts, and other stakeholders to view and understand relationships among the data in a database or data warehouse. In addition, it can:</p>
+<ul><li>Reduce errors in software and database development.</li><li>Increase consistency in documentation and system design across the enterprise.</li><li>Improve application and database performance.</li><li>Ease data mapping throughout the organization.</li><li>Improve communication between developers and business intelligence teams.</li><li>Ease and speed the process of database design at the conceptual, logical and physical levels.</li></ul>
+<h3>Data modeling tools</h3>
+<p>Numerous commercial and open source computer-aided software engineering (CASE) solutions are widely used today, including multiple data modeling, diagramming and visualization tools. Here are several examples:</p>
+<ul><li><strong>erwin Data Modeler</strong> is a data modeling tool based on the Integration DEFinition for information modeling (IDEF1X) data modeling language that now supports other notation methodologies, including a dimensional approach.</li><li><strong>Enterprise Architect</strong> is a visual modeling and design tool that supports the modeling of enterprise information systems and architectures as well as software applications and databases. It’s based on object-oriented languages and standards.</li><li><strong>ER/Studio</strong> is database design software that’s compatible with several of today’s most popular database management systems. It supports both relational and dimensional data modeling.</li><li><strong>Free data modeling tools</strong> include open source solutions such as Open ModelSphere.</li></ul>
+ 
+    
+    
+    
+    
+
+</div>
+        
+    </dds-content-block-copy>
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+
+
+</dds-content-block-simple>
+<div horizontal-ruler>
+    
+    
+    
+    
+        <dds-hr></dds-hr>
+        
+    
+
+    
+    
+
+
+</div>
+</div>
+<div class="offering-group">
+
+
+    
+  
+    <a data-title="Related solutions" name="Related+solutions"></a>
+  
+
+    <dds-content-block-horizontal content-section-body>
+        <dds-content-block-heading role="heading" aria-level="2" data-autoid="dds--content-block__heading" slot="heading">
+            Related solutions
+        </dds-content-block-heading>
+        
+
+    
+    
+    
+    <div id="offering-group-items-container-de1bea96eb" class="cmp-container">
+        
+        
+        <div class="offering-item">
+
+
+
+    <dds-content-item-horizontal>
+        
+            
+            
+        
+        
+        <dds-content-item-heading>
+            
+
+
+
+  
+    Data Warehouse
+
+
+
+
+
+
+    
+
+
+        </dds-content-item-heading>
+        <dds-content-item-horizontal-copy>
+            <caem-paragraph size="normal">
+                <div class="cms-richtext" id="rich-text-ee4d3b1f03" data-dynamic-inner-content="description">
+    <p>A fully managed, elastic cloud data warehouse built for high-performance analytics and AI.</p>
+ 
+    
+    
+    
+    
+
+</div>
+            </caem-paragraph>
+        </dds-content-item-horizontal-copy>
+        <dds-link-list slot="footer" type="vertical">
+            
+    
+    
+        
+        
+        <dds-video-cta-container>
+            <dds-link-list-item-cta aria-label="Explore IBM Db2 Warehouse on Cloud" cta-type="local" href="https://www.ibm.com/products/db2/warehouse" icon-placement="right" role="listitem" target="_blank">
+                Explore IBM Db2 Warehouse on Cloud
+                
+            </dds-link-list-item-cta>
+        </dds-video-cta-container>
+    
+    
+    
+
+    
+    
+
+
+            
+        </dds-link-list>
+    </dds-content-item-horizontal>
+
+
+</div>
+<div class="offering-item">
+
+
+
+    <dds-content-item-horizontal>
+        
+            
+            
+        
+        
+        <dds-content-item-heading>
+            
+
+
+
+  
+    IBM Cloud Solutions
+
+
+
+
+
+
+    
+
+
+        </dds-content-item-heading>
+        <dds-content-item-horizontal-copy>
+            <caem-paragraph size="normal">
+                <div class="cms-richtext" id="rich-text-4040d652f2" data-dynamic-inner-content="description">
+    <p class="cmp-text__paragraph">Hybrid. Open. Resilient. Your platform and partner for digital transformation. </p>
+    
+    
+    
+    
+
+</div>
+            </caem-paragraph>
+        </dds-content-item-horizontal-copy>
+        <dds-link-list slot="footer" type="vertical">
+            
+    
+    
+        
+        
+        <dds-video-cta-container>
+            <dds-link-list-item-cta aria-label="Explore Cloud Solutions" cta-type="local" href="https://www.ibm.com/cloud" icon-placement="right" role="listitem" target="_blank">
+                Explore Cloud Solutions
+                
+            </dds-link-list-item-cta>
+        </dds-video-cta-container>
+    
+    
+    
+
+    
+    
+
+
+            
+        </dds-link-list>
+    </dds-content-item-horizontal>
+
+
+</div>
+<div class="offering-item">
+
+
+
+    <dds-content-item-horizontal>
+        
+            
+            
+        
+        
+        <dds-content-item-heading>
+            
+
+
+
+  
+    Cloud Pak Solutions
+
+
+
+
+
+
+    
+
+
+        </dds-content-item-heading>
+        <dds-content-item-horizontal-copy>
+            <caem-paragraph size="normal">
+                <div class="cms-richtext" id="rich-text-1edeffed57" data-dynamic-inner-content="description">
+    <p class="cmp-text__paragraph">AI-powered hybrid cloud software. </p>
+    
+    
+    
+    
+
+</div>
+            </caem-paragraph>
+        </dds-content-item-horizontal-copy>
+        <dds-link-list slot="footer" type="vertical">
+            
+    
+    
+        
+        
+        <dds-video-cta-container>
+            <dds-link-list-item-cta aria-label="Explore Cloud Pak Solutions" cta-type="local" href="https://www.ibm.com/cloud-paks" icon-placement="right" role="listitem" target="_blank">
+                Explore Cloud Pak Solutions
+                
+            </dds-link-list-item-cta>
+        </dds-video-cta-container>
+    
+    
+    
+
+    
+    
+
+
+            
+        </dds-link-list>
+    </dds-content-item-horizontal>
+
+
+</div>
+
+        
+    </div>
+
+
+    </dds-content-block-horizontal>
+
+</div>
+<div class="block-card-container container responsivegrid">
+    <dds-video-cta-container>
+        <dds-content-block-cards data-autoid="dds--content-block-cards" content-section-body>
+            
+                
+  
+    <a data-title="Resources" name="Resources" slot="heading"></a>
+  
+
+                <dds-content-block-heading slot="heading" data-autoid="dds--content-block__heading" role="heading">
+                    
+                        
+
+
+  
+    <a data-title="Resources" name="Resources"></a>
+  
+
+
+
+    Resources
+
+
+
+
+
+    
+
+
+                    
+                </dds-content-block-heading>
+            
+
+            
+
+            <dds-card-group cards-per-row="3">
+                    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dds-card-group-item href="https://www.ibm.com/blog/announcement/spss-185-ga/" target="_blank" pictogram-placement="top" cta-type="blog" no-poster="true">
+
+        
+        <dds-card-eyebrow slot="eyebrow" aria-hidden="true" class="bx--card__eyebrow">
+            Blog
+        </dds-card-eyebrow>
+        <dds-card-heading role="heading" aria-level="3" slot="heading" class="bx--card__heading">
+            What&#39;s new with IBM SPSS Modeler 18.5
+        </dds-card-heading>
+                    
+            <p>IBM® SPSS® Modeler is a robust data science software tailored for professional analysts and data scientists, capable of catering to both line-of-business predictive analysis and enterprise-scale implementation. </p>
+        
+        <dds-card-cta-footer icon-placement="right" cta-type="blog" href="https://www.ibm.com/blog/announcement/spss-185-ga/" slot="footer" aria-hidden="true" target="_blank" class="bx--card__footer-icon-size">
+            
+            
+    
+    
+    
+    
+
+        </dds-card-cta-footer>
+    </dds-card-group-item>
+    
+    
+
+    
+
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dds-card-group-item href="https://www.ibm.com/downloads/cas/2V5BZ5WM" target="_blank" pictogram-placement="top" cta-type="pdf" no-poster="true">
+
+        
+        <dds-card-eyebrow slot="eyebrow" aria-hidden="true" class="bx--card__eyebrow">
+            Datasheet 
+        </dds-card-eyebrow>
+        <dds-card-heading role="heading" aria-level="3" slot="heading" class="bx--card__heading">
+            Datasheet: SPSS Modeler
+        </dds-card-heading>
+                    
+            <p>Explore how SPSS Modeler helps customers accelerate time to value with visual data science and machine learning.</p>
+        
+        <dds-card-cta-footer icon-placement="right" cta-type="pdf" href="https://www.ibm.com/downloads/cas/2V5BZ5WM" slot="footer" aria-hidden="true" target="_blank" class="bx--card__footer-icon-size">
+            
+            
+    
+    
+    
+    
+
+        </dds-card-cta-footer>
+    </dds-card-group-item>
+    
+    
+
+    
+
+
+
+
+
+
+                </dds-card-group>
+            
+            
+    
+    
+    
+    
+
+    
+
+
+
+
+            
+        </dds-content-block-cards>
+    </dds-video-cta-container>
+    <div horizontal-ruler>
+        
+    
+    
+    
+        <dds-hr></dds-hr>
+        
+    
+
+    
+    
+
+
+    </div>
+
+
+
+</div>
+
+        
+    </div>
+
+
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    
+
+</div>
+<div class="experiencefragment">
+<div id="experiencefragment-232030320d" class="cmp-experiencefragment cmp-experiencefragment--watsonx-data">
+
+    
+
+
+
+<div class="xf-content-height">
+    <div class="root container responsivegrid">
+
+    
+    
+    
+    <div id="container-8ddea2ff59" class="cmp-container">
+        
+        <div class="next-steps container responsivegrid">
+
+    
+    
+    
+    <div id="next-steps-a1f46e6990" class="cmp-container">
+        
+        <div class="next-steps-container">
+
+<div data-cmp-is="next-steps-container" class="bx--next-steps-container">
+    <div class="bx--cta-section--g10 bx--cta-section--theme" data-dynamic-content-type="ADOBE_TARGET" data-component-name="next-steps" data-component-identifier="next-steps">
+        
+            
+                
+                
+
+                    
+
+                    
+                        <dds-cta-block no-border>
+                            <div role="heading" data-autoid="dds--content-block__heading" class="bx--content-block__heading" slot="heading">
+                                
+
+  
+    <a data-title="Take the next step" name="Take+the+next+step"></a>
+  
+
+<span class="enhanced-title">Take the next step</span>
+
+
+
+    
+
+                            </div>
+                            <dds-content-block-copy size="sm">
+                                <dds-content-block-paragraph>
+                                    <div class="cms-richtext" id="rich-text-16b183c616" data-dynamic-inner-content="description">
+    <p>Scale AI workloads for all your data, anywhere, with IBM watsonx.data, a fit-for-purpose data store built on an open data lakehouse architecture.</p>
+ 
+    
+    
+    
+    
+
+</div>
+                                </dds-content-block-paragraph>
+                            </dds-content-block-copy>
+                            
+                                
+
+
+    <dds-video-cta-container slot="action">
+        <dds-button-group>
+            
+    
+    
+    
+    
+    <dds-button-cta href="https://www.ibm.com/products/watsonx-data" target="_self" kind="primary" cta-type="local">
+        <span>Explore watsonx.data</span>
+        
+        
+    </dds-button-cta>
+    
+    
+
+
+            
+    
+    
+    
+    
+    <dds-button-cta href="https://www.ibm.com/account/reg/signup?formid=DEMO-dataaiwatsonxdata" target="_blank" kind="tertiary" cta-type="local">
+        <span>Book a live demo</span>
+        
+        
+    </dds-button-cta>
+    
+    
+
+
+        </dds-button-group>
+    </dds-video-cta-container>
+
+
+
+
+                            
+
+                            
+
+                            
+
+                            
+                        </dds-cta-block>
+                    
+                
+            
+        
+    </div>
+</div>
+</div>
+
+        
+    </div>
+
+</div>
+
+        
+    </div>
+
+</div>
+
+</div>
+</div>
+
+    
+</div>
+
+        
+    </div>
+
+</div>
+
+        
+    </div>
+
+</dds-table-of-contents>
+
+</div>
+<div class="container responsivegrid">
+
+    
+    
+    
+    <div id="container-45341d2485" class="cmp-container">
+        
+        
+        
+    </div>
+
+</div>
+<div class="footer">
+
+
+
+
+    <dds-footer-container data-cmp-is="footer" data-autoid="dds--footer" class="cmp-footer" data-children-count="0" size="tall"></dds-footer-container>
+
+
+</div>
+
+        
+    </div>
+
+</div>
+
+
+<dds-lightbox-video-player-container></dds-lightbox-video-player-container>
+
+    
+    
+    
+<script src="/etc.clientlibs/adobe-cms/clientlibs/clientlib-idlBundle.lc-fb47b8b531f83fcf850e1bf1b108d5b5-lc.min.js"></script>
+
+
+
+    
+
+    <script src="/etc.clientlibs/adobe-cms/clientlibs/clientlib-target-antiflicker.lc-36a1efb28e947b5873f4a28c2cf9d5eb-lc.min.js"></script>
+<script src="/etc.clientlibs/adobe-cms/clientlibs/clientlib-idlStyles.lc-cbcf977b1ac48999963b65f2ef61ae61-lc.min.js"></script>
+
+
+
+<script src="https://www.ibm.com/common/digitaladvisor/cm-app/latest/cm-app.min.js" defer async></script>
+
+
+
+    
+        
+            <script type="module" src="https://1.www.s81c.com/common/carbon/web-components/version/v1.41.0-rc.0/tag.min.js"></script>
+        
+            <script type="module" src="https://1.www.s81c.com/common/carbon/web-components/version/v1.41.0-rc.0/code-snippet.min.js"></script>
+        
+        
+            <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v1.45.0-rc.1/leadspace.min.js"></script>
+        
+            <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v1.45.0-rc.1/content-block-horizontal.min.js"></script>
+        
+            <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v1.45.0-rc.1/content-item-horizontal.min.js"></script>
+        
+            <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v1.45.0-rc.1/table-of-contents.min.js"></script>
+        
+            <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v1.45.0-rc.1/tag-group.min.js"></script>
+        
+            <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v1.45.0-rc.1/content-section.min.js"></script>
+        
+            <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v1.45.0-rc.1/content-group-heading.js"></script>
+        
+            <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v1.45.0-rc.1/content-block-simple.min.js"></script>
+        
+            <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v1.45.0-rc.1/content-block-cards.min.js"></script>
+        
+            <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v1.45.0-rc.1/cta-block.min.js"></script>
+        
+            <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v1.45.0-rc.1/content-group.min.js"></script>
+        
+            <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v1.45.0-rc.1/background-media.min.js"></script>
+        
+            <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v1.45.0-rc.1/footer.min.js"></script>
+        
+            <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v1.45.0-rc.1/card-group.min.js"></script>
+        
+            <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v1.45.0-rc.1/image.min.js"></script>
+        
+            <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v1.45.0-rc.1/text-cta.js"></script>
+        
+            <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v1.45.0-rc.1/content-block.min.js"></script>
+        
+            <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v1.45.0-rc.1/link-list.min.js"></script>
+        
+            <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v1.45.0-rc.1/link-list-item-cta.js"></script>
+        
+            <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v1.45.0-rc.1/button-group.min.js"></script>
+        
+            <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v1.45.0-rc.1/card-cta-footer.js"></script>
+        
+            <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v1.45.0-rc.1/content-item.min.js"></script>
+        
+            <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v1.45.0-rc.1/button-cta.js"></script>
+        
+            <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v1.45.0-rc.1/content-block-segmented.min.js"></script>
+        
+            <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v1.45.0-rc.1/horizontal-rule.min.js"></script>
+        
+            <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v1.45.0-rc.1/lightbox-video-player.min.js"></script>
+        
+            <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v1.45.0-rc.1/video-cta-container.min.js"></script>
+        
+        
+            <script type="module" src="https://1.www.s81c.com/common/carbon/carbon-for-aem/version/v0.14.0/paragraph.min.js"></script>
+        
+            <script type="module" src="https://1.www.s81c.com/common/carbon/carbon-for-aem/version/v0.14.0/breadcrumb.min.js"></script>
+        
+            <script type="module" src="https://1.www.s81c.com/common/carbon/carbon-for-aem/version/v0.14.0/star-rating.min.js"></script>
+        
+    
+    <script type="module" id="anti-flicker-script">
+        document.getElementById('anti-flicker-style').remove();
+        document.getElementById('anti-flicker-script').remove();
+    </script>
+
+
+    
+
+    
+
+    
+
+
+
+    
+
+    
+
+
+<script type="text/javascript"  src="/qxFm-VRjqnUuW-jpPQ/NYYwhkNJrLfriDOz/VUl8/HBcfEB/o_T2M"></script><link rel="stylesheet" type="text/css"  href="/_sec/cp_challenge/sec-4-5.css">
+                                        <script  src="/_sec/cp_challenge/sec-cpt-4-5.js" async defer></script>
+                                        <div id="sec-overlay" style="display:none;">
+                                        <div id="sec-container">
+                                        </div>
+                                      </div></body>
+</html>
