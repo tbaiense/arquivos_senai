@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Modelagem de Sistemas/Design Thinking.md",
+                "file": "ProgApp/Anotações Java/Sites de estudo.md",
                 "mode": "source",
                 "source": false
               }
@@ -69,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "dc5abd0c7f26041e",
@@ -86,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Modelagem de Sistemas/Design Thinking.md",
+                "file": "ProgApp/Anotações Java/Sites de estudo.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Modelagem de Sistemas/Design Thinking.md",
+                "file": "ProgApp/Anotações Java/Sites de estudo.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Modelagem de Sistemas/Design Thinking.md"
+                "file": "ProgApp/Anotações Java/Sites de estudo.md"
               }
             }
           }
@@ -147,11 +146,14 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "b68d8f4f361d8aee",
+  "active": "0479e0a262c06fa2",
   "lastOpenFiles": [
-    "BD/Modelagem de Dados.md",
-    "Modelagem de Sistemas/Design Thinking.md",
     "ProgApp/Anotações Java/Sintaxe.md",
+    "ProgApp/Anotações Java/Sites de estudo.md",
+    "ProgApp/Anotações Java/Métodos e propriedades de classes padrão.md",
+    "ProgApp/Anotações Java/Exibição de informação.md",
+    "Modelagem de Sistemas/Design Thinking.md",
+    "BD/Modelagem de Dados.md",
     "README.md",
     "BD/BERCARIO.png",
     "ProgApp/Resumo - Programação orientadada a objeto.pdf"
