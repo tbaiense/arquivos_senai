@@ -22,9 +22,7 @@ public class PROJETO_7_THIAGO {
         
         // Cálculo do IMC
         imc = peso / (altura * altura);
-        
-        
-        
+    
         if (imc >= 40.0)
             classificacao += "Obesidade Classe III";
         else if (imc >= 35.0)
