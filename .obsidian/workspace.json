@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ProgApp/Anotações Java/Sites de estudo.md",
+                "file": "Estudos/Linux.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "ProgApp/Anotações Java/Sites de estudo.md",
+                "file": "Estudos/Linux.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "ProgApp/Anotações Java/Sites de estudo.md",
+                "file": "Estudos/Linux.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "ProgApp/Anotações Java/Sites de estudo.md"
+                "file": "Estudos/Linux.md"
               }
             }
           }
@@ -146,10 +146,14 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "0479e0a262c06fa2",
+  "active": "b68d8f4f361d8aee",
   "lastOpenFiles": [
-    "ProgApp/Anotações Java/Sintaxe.md",
+    "BD/Locadora de veículo .brM3",
+    "EAD-SENAI-DDS/186 - UC Introdução a Indústria 4.0 - LD .pdf",
+    "EAD-SENAI-DDS/186 - UC Saúde e Segurança no Trabalho - LD.pdf",
     "ProgApp/Anotações Java/Sites de estudo.md",
+    "Estudos/Linux.md",
+    "ProgApp/Anotações Java/Sintaxe.md",
     "ProgApp/Anotações Java/Métodos e propriedades de classes padrão.md",
     "ProgApp/Anotações Java/Exibição de informação.md",
     "Modelagem de Sistemas/Design Thinking.md",

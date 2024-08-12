@@ -1,0 +1,6 @@
+- `passwd`muda a senha do user atual
+- `passwd -S <USER>`  exibe o estado da senha do usuário USER
+- `passwd <USER>`  altera senha do usuário USER
+- `ps -ef` exibe detalhes de processos em execução e o caminho do comando que o inicializou
+-  `apt-cache search 'KEYWORD'`  exibe pacotes no cache APT com a decrição especificada
+- `alias name=COMMAND` útil se colocar no arquivo ~/.bash_aliases
