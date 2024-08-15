@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Estudos/Linux.md",
+                "file": "ProgApp/Anotações Java/Métodos e propriedades de classes padrão.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Estudos/Linux.md",
+                "file": "ProgApp/Anotações Java/Métodos e propriedades de classes padrão.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Estudos/Linux.md",
+                "file": "ProgApp/Anotações Java/Métodos e propriedades de classes padrão.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Estudos/Linux.md"
+                "file": "ProgApp/Anotações Java/Métodos e propriedades de classes padrão.md"
               }
             }
           }
@@ -148,18 +148,25 @@
   },
   "active": "b68d8f4f361d8aee",
   "lastOpenFiles": [
-    "BD/Locadora de veículo .brM3",
-    "EAD-SENAI-DDS/186 - UC Introdução a Indústria 4.0 - LD .pdf",
-    "EAD-SENAI-DDS/186 - UC Saúde e Segurança no Trabalho - LD.pdf",
-    "ProgApp/Anotações Java/Sites de estudo.md",
+    "ProgApp/NetBeans/Lista de Exercícios - Condição e Repetição/EX03_LISTA_COND_REP/target/classes/com/mycompany/ex03_lista_cond_rep/EX03_LISTA_COND_REP.class",
+    "ProgApp/NetBeans/Lista de Exercícios - Condição e Repetição/EX03_LISTA_COND_REP/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst",
+    "ProgApp/NetBeans/Lista de Exercícios - Condição e Repetição/EX03_LISTA_COND_REP/target/classes/com/mycompany/ex03_lista_cond_rep",
+    "ProgApp/NetBeans/Lista de Exercícios - Condição e Repetição/EX03_LISTA_COND_REP/target/classes/com/mycompany",
+    "ProgApp/NetBeans/Lista de Exercícios - Condição e Repetição/EX03_LISTA_COND_REP/target/classes/com",
+    "ProgApp/NetBeans/Lista de Exercícios - Condição e Repetição/EX03_LISTA_COND_REP/target/classes",
+    "ProgApp/NetBeans/Lista de Exercícios - Condição e Repetição/EX03_LISTA_COND_REP/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst",
+    "ProgApp/NetBeans/Lista de Exercícios - Condição e Repetição/EX03_LISTA_COND_REP/target/maven-status/maven-compiler-plugin/compile/default-compile",
+    "ProgApp/NetBeans/Lista de Exercícios - Condição e Repetição/EX03_LISTA_COND_REP/target/maven-status/maven-compiler-plugin/compile",
+    "ProgApp/NetBeans/Lista de Exercícios - Condição e Repetição/EX03_LISTA_COND_REP/target/maven-status/maven-compiler-plugin",
+    "ProgApp/NetBeans/Lista de Exercícios - Condição e Repetição/EX03_LISTA_COND_REP/target/maven-status",
     "Estudos/Linux.md",
+    "ProgApp/Anotações Java/Sites de estudo.md",
     "ProgApp/Anotações Java/Sintaxe.md",
     "ProgApp/Anotações Java/Métodos e propriedades de classes padrão.md",
     "ProgApp/Anotações Java/Exibição de informação.md",
     "Modelagem de Sistemas/Design Thinking.md",
     "BD/Modelagem de Dados.md",
     "README.md",
-    "BD/BERCARIO.png",
-    "ProgApp/Resumo - Programação orientadada a objeto.pdf"
+    "BD/BERCARIO.png"
   ]
 }
