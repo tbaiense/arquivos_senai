@@ -1,0 +1,3 @@
+- Inicialização de `array` de String preenche com `null`.
+- Arrays podem ser inicializadas com espaços determinados por expressões ex. `int[] vetor = new int[Scanner.nextInt()];
+- Funções de instância `Scanner.nextInt()`não retiram caracteres de controle -- como Enter --  do Input Buffer. 

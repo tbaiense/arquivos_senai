@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ProgApp/Anotações Java/Métodos e propriedades de classes padrão.md",
+                "file": "Estudos/Linux.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "ProgApp/Anotações Java/Métodos e propriedades de classes padrão.md",
+                "file": "Estudos/Linux.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "ProgApp/Anotações Java/Métodos e propriedades de classes padrão.md",
+                "file": "Estudos/Linux.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "ProgApp/Anotações Java/Métodos e propriedades de classes padrão.md"
+                "file": "Estudos/Linux.md"
               }
             }
           }
@@ -148,6 +148,10 @@
   },
   "active": "b68d8f4f361d8aee",
   "lastOpenFiles": [
+    "ProgApp/Anotações Java/Características.md",
+    "ProgApp/Testes e projetos/bingo.java",
+    "ProgApp/Testes e projetos",
+    "ProgApp/Anotações Java/Métodos e propriedades de classes padrão.md",
     "ProgApp/NetBeans/Lista de Exercícios - Condição e Repetição/EX03_LISTA_COND_REP/target/classes/com/mycompany/ex03_lista_cond_rep/EX03_LISTA_COND_REP.class",
     "ProgApp/NetBeans/Lista de Exercícios - Condição e Repetição/EX03_LISTA_COND_REP/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst",
     "ProgApp/NetBeans/Lista de Exercícios - Condição e Repetição/EX03_LISTA_COND_REP/target/classes/com/mycompany/ex03_lista_cond_rep",
@@ -156,13 +160,9 @@
     "ProgApp/NetBeans/Lista de Exercícios - Condição e Repetição/EX03_LISTA_COND_REP/target/classes",
     "ProgApp/NetBeans/Lista de Exercícios - Condição e Repetição/EX03_LISTA_COND_REP/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst",
     "ProgApp/NetBeans/Lista de Exercícios - Condição e Repetição/EX03_LISTA_COND_REP/target/maven-status/maven-compiler-plugin/compile/default-compile",
-    "ProgApp/NetBeans/Lista de Exercícios - Condição e Repetição/EX03_LISTA_COND_REP/target/maven-status/maven-compiler-plugin/compile",
-    "ProgApp/NetBeans/Lista de Exercícios - Condição e Repetição/EX03_LISTA_COND_REP/target/maven-status/maven-compiler-plugin",
-    "ProgApp/NetBeans/Lista de Exercícios - Condição e Repetição/EX03_LISTA_COND_REP/target/maven-status",
     "Estudos/Linux.md",
     "ProgApp/Anotações Java/Sites de estudo.md",
     "ProgApp/Anotações Java/Sintaxe.md",
-    "ProgApp/Anotações Java/Métodos e propriedades de classes padrão.md",
     "ProgApp/Anotações Java/Exibição de informação.md",
     "Modelagem de Sistemas/Design Thinking.md",
     "BD/Modelagem de Dados.md",
