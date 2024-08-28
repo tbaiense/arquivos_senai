@@ -53,9 +53,8 @@ public class PROJETO_12_THIAGO {
                         --qntPistas;
                     }
                     System.out.print("Tente novamente: ");
-                } else {
+                } else
                     System.out.println("ACABARAM SUAS TENTATIVAS E VOCÊ PERDEU! :(");
-                }
             }
         } while (tentativas > 0);
             
