@@ -34,7 +34,7 @@ public class PROJETO_12_THIAGO {
         jogadorDois = stdin.nextLine();
         
         String escolha;
-        System.out.printf(jogadorDois + " - \nPista: %s\n Advinhe o nome do filme: ", pistas[qntPistas - 1]);
+        System.out.printf("\nPista: %s\n%s - Advinhe o nome do filme: ", pistas[qntPistas - 1], jogadorDois);
         --qntPistas; 
         
         // Escolhas
@@ -52,6 +52,9 @@ public class PROJETO_12_THIAGO {
                         --qntPistas;
                     }
                     System.out.print("Tente novamente: ");
+                } else {
+                    System.out.println("ACABARAM SUAS TENTATIVAS E VOCÊ PERDEU! :(");
+                    break;
                 }
             }
         } while (tentativas > 0);
