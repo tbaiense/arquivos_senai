@@ -5,6 +5,7 @@ import java.util.Scanner;
  * Essa classe implementa um pequeno jogo de adivinhação de filmes,
  * onde o usuário adivinha o filme onde outro jogador especificou.
  */
+
 public class PROJETO_12_THIAGO {
 
     public static void main(String[] args) {
@@ -54,7 +55,6 @@ public class PROJETO_12_THIAGO {
                     System.out.print("Tente novamente: ");
                 } else {
                     System.out.println("ACABARAM SUAS TENTATIVAS E VOCÊ PERDEU! :(");
-                    break;
                 }
             }
         } while (tentativas > 0);
