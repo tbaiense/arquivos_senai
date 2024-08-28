@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Estudos/Linux.md",
+                "file": "ProgApp/Anotações Java/Métodos e propriedades de classes padrão.md",
                 "mode": "source",
                 "source": false
               }
@@ -69,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "dc5abd0c7f26041e",
@@ -85,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Estudos/Linux.md",
+                "file": "ProgApp/Anotações Java/Métodos e propriedades de classes padrão.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Estudos/Linux.md",
+                "file": "ProgApp/Anotações Java/Métodos e propriedades de classes padrão.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Estudos/Linux.md"
+                "file": "ProgApp/Anotações Java/Métodos e propriedades de classes padrão.md"
               }
             }
           }
@@ -148,22 +149,23 @@
   },
   "active": "b68d8f4f361d8aee",
   "lastOpenFiles": [
+    "ProgApp/Anotações Java/Javanotes 9/c3/ex7-3.java",
+    "ProgApp/Anotações Java/Javanotes 9/c3/ex7-2 copia.java",
+    "ProgApp/Anotações Java/Javanotes 9/c3/ex7-2.java",
+    "ProgApp/Anotações Java/Javanotes 9/c3/ex7-1 copia.java",
+    "ProgApp/Anotações Java/Javanotes 9/c3/ex7-1.java",
+    "ProgApp/Anotações Java/Javanotes 9/c3/ex6.java",
+    "ProgApp/Anotações Java/Javanotes 9/c3/ex5.java",
     "ProgApp/Anotações Java/Características.md",
-    "ProgApp/Testes e projetos/bingo.java",
-    "ProgApp/Testes e projetos",
     "ProgApp/Anotações Java/Métodos e propriedades de classes padrão.md",
-    "ProgApp/NetBeans/Lista de Exercícios - Condição e Repetição/EX03_LISTA_COND_REP/target/classes/com/mycompany/ex03_lista_cond_rep/EX03_LISTA_COND_REP.class",
-    "ProgApp/NetBeans/Lista de Exercícios - Condição e Repetição/EX03_LISTA_COND_REP/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst",
-    "ProgApp/NetBeans/Lista de Exercícios - Condição e Repetição/EX03_LISTA_COND_REP/target/classes/com/mycompany/ex03_lista_cond_rep",
-    "ProgApp/NetBeans/Lista de Exercícios - Condição e Repetição/EX03_LISTA_COND_REP/target/classes/com/mycompany",
-    "ProgApp/NetBeans/Lista de Exercícios - Condição e Repetição/EX03_LISTA_COND_REP/target/classes/com",
-    "ProgApp/NetBeans/Lista de Exercícios - Condição e Repetição/EX03_LISTA_COND_REP/target/classes",
-    "ProgApp/NetBeans/Lista de Exercícios - Condição e Repetição/EX03_LISTA_COND_REP/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst",
-    "ProgApp/NetBeans/Lista de Exercícios - Condição e Repetição/EX03_LISTA_COND_REP/target/maven-status/maven-compiler-plugin/compile/default-compile",
-    "Estudos/Linux.md",
-    "ProgApp/Anotações Java/Sites de estudo.md",
     "ProgApp/Anotações Java/Sintaxe.md",
+    "ProgApp/Anotações Java/Sites de estudo.md",
+    "ProgApp/Anotações Java/Javanotes 9/c3/ex4.java",
+    "ProgApp/Anotações Java/Javanotes 9/c3/ex4.java.txt",
     "ProgApp/Anotações Java/Exibição de informação.md",
+    "ProgApp/Anotações Java/Javanotes 9/c3/ex3.java",
+    "ProgApp/Anotações Java/Javanotes 9/c3/ex2.java",
+    "Estudos/Linux.md",
     "Modelagem de Sistemas/Design Thinking.md",
     "BD/Modelagem de Dados.md",
     "README.md",

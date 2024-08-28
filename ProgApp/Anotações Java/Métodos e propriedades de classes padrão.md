@@ -24,3 +24,8 @@ Métodos de instâncias:
 Propriedades _static_:
 - MAX_VALUE
 - MIN_VALUE
+
+### Character
+Métodos `static`:
+- isWhitespace(ch)  -> boolean
+- isLetter(ch) -> boolean
