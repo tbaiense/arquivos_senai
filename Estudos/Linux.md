@@ -4,3 +4,4 @@
 - `ps -ef` exibe detalhes de processos em execução e o caminho do comando que o inicializou
 -  `apt-cache search 'KEYWORD'`  exibe pacotes no cache APT com a decrição especificada
 - `alias name=COMMAND` útil se colocar no arquivo ~/.bash_aliases
+- `xinput set-button-map <id> 1 0 3` desabilita o paste do botao do meio no x11. OBS.: id deve ser obtido através de `xinput list` 
