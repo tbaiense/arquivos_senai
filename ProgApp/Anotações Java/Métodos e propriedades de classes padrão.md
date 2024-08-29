@@ -8,6 +8,8 @@ Métodos _static_:
 Propriedades _static_:
 - PI
 ### String
+Métodos `static`:
+- `valueOf(x)` >> retorna a representação de x como string, sendo x um tipo primitivo
 Métodos de instâncias:
 - length()
 - toUpperCase()

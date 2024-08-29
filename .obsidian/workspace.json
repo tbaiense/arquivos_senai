@@ -69,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "dc5abd0c7f26041e",
@@ -149,6 +148,8 @@
   },
   "active": "b68d8f4f361d8aee",
   "lastOpenFiles": [
+    "Estudos/Linux.md",
+    "ProgApp/Anotações Java/Métodos e propriedades de classes padrão.md",
     "ProgApp/Anotações Java/Javanotes 9/c3/ex7-3.java",
     "ProgApp/Anotações Java/Javanotes 9/c3/ex7-2 copia.java",
     "ProgApp/Anotações Java/Javanotes 9/c3/ex7-2.java",
@@ -157,15 +158,12 @@
     "ProgApp/Anotações Java/Javanotes 9/c3/ex6.java",
     "ProgApp/Anotações Java/Javanotes 9/c3/ex5.java",
     "ProgApp/Anotações Java/Características.md",
-    "ProgApp/Anotações Java/Métodos e propriedades de classes padrão.md",
     "ProgApp/Anotações Java/Sintaxe.md",
     "ProgApp/Anotações Java/Sites de estudo.md",
     "ProgApp/Anotações Java/Javanotes 9/c3/ex4.java",
     "ProgApp/Anotações Java/Javanotes 9/c3/ex4.java.txt",
     "ProgApp/Anotações Java/Exibição de informação.md",
     "ProgApp/Anotações Java/Javanotes 9/c3/ex3.java",
-    "ProgApp/Anotações Java/Javanotes 9/c3/ex2.java",
-    "Estudos/Linux.md",
     "Modelagem de Sistemas/Design Thinking.md",
     "BD/Modelagem de Dados.md",
     "README.md",
