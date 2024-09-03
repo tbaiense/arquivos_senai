@@ -1,26 +1,57 @@
 package com.thiago.teste;
 import java.util.Scanner;
+import java.util.InputMismatchException;
 
 public class Teste {
-    private static String[] nomes = new String[10]; // Nomes inseridos pelo usuário
-    private static int qntNomesReg; // Contabiliza quantos nomes foram inseridos
-    
+        
     public static void main(String[] args) {
-        System.out.println("Escreva os nomes a seguir:");
-        for (int n = 0; n < 10; ++n)
-            nomes[n] = receberNome();
-        exibirNomes(nomes);
+        Scanner scanner = new Scanner(System.in);
+        
+        int[] vetUm = new int[2];
+        int[] vetDois = new int[2];
+        
+        for(int v=0; v < 2; ++v) {
+            switch (v) {
+                case 0 -> {
+                    System.out.println("# VETOR UM -----------------------");
+                    vetUm = receberVetor(2);
+                }
+                case 1 -> {
+                    System.out.println("# VETOR DOIS -----------------------");
+                    vetDois = receberVetor(2);
+                }
+            }
+        }
+        System.out.println("");
+        for (int i = 0; i < 2; ++i) {
+            int resultado;
+            System.out.print("Resultado de " + vetUm[i] + " / " + vetDois[i] + " = ");
+            try {
+                resultado = vetUm[i] / vetDois[i];
+                System.out.printf("%d\n", resultado);
+            } catch (ArithmeticException e) {
+                System.out.println("ERRO: Divisao invalida!");
+            }
+        }
+        scanner.close();
     }
     
-    private static String receberNome() {
-        System.out.print(++qntNomesReg + ") >>> ");
-        Scanner stdin = new Scanner(System.in);
-        return stdin.nextLine();
-    }
-    
-    private static void exibirNomes(String[] nomes) {
-        System.out.printf("\n# Nomes registrados (%s):\n", qntNomesReg);
-        for (String nome : nomes) // Percorre o vetor `nomes`, colocando cada String em `nome`
-            System.out.println(nome);
+    private static int[] receberVetor(int tam) {
+        Scanner scanner = new Scanner(System.in);
+        int[] vet = new int[tam];
+        
+        for(int i=0; i < tam; ++i) {
+            System.out.print((i+1) + ". numero para o vetor: ");
+            while(true) {
+                try {
+                    vet[i] = scanner.nextInt();
+                    break;
+                } catch (InputMismatchException e) {
+                    scanner.nextLine();
+                    System.out.print("ERRO: NÚMERO NÁO É INTEIRO. TENTE NOVAMENTE: ");
+                }
+            }
+        }
+        return vet;
     }
 }
