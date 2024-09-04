@@ -12,17 +12,16 @@ import java.util.InputMismatchException;
 public class EX15 {
 
     public static void main(String[] args) {
-        Scanner stdin = new Scanner(System.in);
-        
         int[] vet = new int[20];
         for(int i=0; i < vet.length; ++i) {
+            
             System.out.print((i+1) + ". numero: ");
             while (true) {
+                Scanner stdin = new Scanner(System.in);
                 try {
                     vet[i] = stdin.nextInt();
                     break;
-                } catch (InputMismatchException e) {
-                    stdin.nextLine();
+                } catch (Exception e) {
                     System.out.print("ERRO: NÚMERO INVÁLIDO. Tente novamente: ");
                 }
             }
@@ -30,11 +29,11 @@ public class EX15 {
         System.out.print("\nInsira um número para procurar: ");
         int procurado;
         while (true) {
+            Scanner stdin = new Scanner(System.in);
             try {
                 procurado = stdin.nextInt();
                 break;
             } catch (InputMismatchException e) {
-                stdin.nextLine();
                 System.out.print("ERRO: NÚMERO INVÁLIDO. Tente novamente: ");
             }
         }
@@ -48,7 +47,28 @@ public class EX15 {
         }
         
         if (existente) {
-            // TODO: gerar um novo vetor sem esse número e sem números repetidos 
+            System.out.println("\nNÚMERO ENCONTRADO! GERANDO NOVO VETOR...");
+            vet = new int[vet.length];
+            
+            for (int i=0; i < vet.length; ++i) {
+                int numRand;
+                do {
+                    numRand = (int)Math.round(Math.random() * 100);
+                    
+                    if (numRand == procurado)
+                        continue;
+                    
+                    for (int anterior = i-1; anterior >= 0; --anterior)
+                        if (vet[anterior] == numRand)
+                            continue;
+                    
+                    vet[i] = numRand;
+                    break;
+                } while (true);
+            }
+            System.out.println("# NOVO VETOR -----------------");
+            for (int n: vet)
+                System.out.print(n + "  ");
         } else {
             System.out.println("NÚMERO NÃO ENCONTRADO");
         }
