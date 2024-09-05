@@ -33,7 +33,7 @@ public class EX18 {
             }
         }
         System.out.println("# POSICOES COM NUMEROS REPETIDOS -----------------");
-        for (int nAtual = 0; nAtual < VET.length-1; ++nAtual) { // Itera na array
+        for (int nAtual = 0; nAtual < VET.length; ++nAtual) { // Itera na array
             if (eNumRep[nAtual]) { // Pula se o número atual já tiver sido verificado e encontrado repetidos
                 continue;
             } else {

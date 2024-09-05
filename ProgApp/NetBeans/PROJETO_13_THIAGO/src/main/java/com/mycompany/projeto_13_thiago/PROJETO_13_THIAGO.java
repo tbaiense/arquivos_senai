@@ -33,7 +33,7 @@ public class PROJETO_13_THIAGO {
     public static void main(String[] args) {
         int[] vetor; // Armazena os números entrados pelo usuário
         double[] resultados = new double[10]; // Armazena o resultado das operações, sendo 10 o tamanho máximo do histórico
-        short tamVetor; // Tamanho de `vetor`, definido pelo usuário
+        int tamVetor; // Tamanho de `vetor`, definido pelo usuário
         
         // Cria vetor
         System.out.print("Especifique o tamanho do vetor: ");

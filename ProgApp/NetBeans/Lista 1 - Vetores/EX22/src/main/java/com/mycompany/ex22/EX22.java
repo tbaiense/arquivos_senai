@@ -101,7 +101,7 @@ public class EX22 {
         }
         
         System.out.printf("""
-            \n# PRODUTOS COM PRECO ABAIXO DA MÉDIA (%,0.2f) -------------------
+            \n# PRODUTOS COM PRECO ABAIXO DA MÉDIA (%,.2f) -------------------
             %s
             # PRODUTOS COM NOME QUE COMECA COM '%c' -------------------
             %s

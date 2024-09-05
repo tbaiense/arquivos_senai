@@ -1,57 +1,23 @@
 package com.thiago.teste;
-import java.util.Scanner;
-import java.util.InputMismatchException;
+
+import java.io.DataInputStream;
+import java.io.IOException;
 
 public class Teste {
         
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+    public static void main(String[] args) throws IOException {
+        String s="";
+        float notas[], media=0, soma=0;
+        notas = new float[4];
+        DataInputStream dado;
         
-        int[] vetUm = new int[2];
-        int[] vetDois = new int[2];
-        
-        for(int v=0; v < 2; ++v) {
-            switch (v) {
-                case 0 -> {
-                    System.out.println("# VETOR UM -----------------------");
-                    vetUm = receberVetor(2);
-                }
-                case 1 -> {
-                    System.out.println("# VETOR DOIS -----------------------");
-                    vetDois = receberVetor(2);
-                }
-            }
+        for(int i=0; i < notas.length; ++i) {
+            System.out.println("Entre com a nota " + (i+1) +":");
+            dado = new DataInputStream(System.in);
+
+            s = dado.readLine();
+            media += notas[i] = Float.parseFloat(s);
         }
-        System.out.println("");
-        for (int i = 0; i < 2; ++i) {
-            int resultado;
-            System.out.print("Resultado de " + vetUm[i] + " / " + vetDois[i] + " = ");
-            try {
-                resultado = vetUm[i] / vetDois[i];
-                System.out.printf("%d\n", resultado);
-            } catch (ArithmeticException e) {
-                System.out.println("ERRO: Divisao invalida!");
-            }
-        }
-        scanner.close();
-    }
-    
-    private static int[] receberVetor(int tam) {
-        Scanner scanner = new Scanner(System.in);
-        int[] vet = new int[tam];
-        
-        for(int i=0; i < tam; ++i) {
-            System.out.print((i+1) + ". numero para o vetor: ");
-            while(true) {
-                try {
-                    vet[i] = scanner.nextInt();
-                    break;
-                } catch (InputMismatchException e) {
-                    scanner.nextLine();
-                    System.out.print("ERRO: NÚMERO NÁO É INTEIRO. TENTE NOVAMENTE: ");
-                }
-            }
-        }
-        return vet;
+        System.out.println(media /= notas.length);
     }
 }
