@@ -1,3 +1,4 @@
+- ao rodar classes pelo console, fornecer `-cp <local do pacote>` e a descricao da classe que será rodada na forma de pacote ex `java -cp /home/projetosjava org.thiago.HelloWorld 
 - Inicialização de `array` de String preenche com `null`.
 - Arrays podem ser inicializadas com espaços determinados por expressões ex. `int[] vetor = new int[Scanner.nextInt()];
 - Funções de instância `Scanner.nextInt()`não retiram caracteres de controle -- como Enter --  do Input Buffer. 
