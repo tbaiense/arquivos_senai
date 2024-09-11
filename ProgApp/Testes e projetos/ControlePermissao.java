@@ -1,5 +1,3 @@
-package org.thiago;
-
 class Usuario {
 	String nome;
 	
@@ -14,8 +12,8 @@ class Usuario {
 		permissoesTODOS[1] = "pedido.editar.*";
 		
 		this.grupos[0] = new Grupo("TODOS", permissoesTODOS);
-		for(int i=1; i<grupos.length && grupos[i] != null; i++) {
-			this.grupos[i] = new Grupo(grupos[i].nome, grupos[i].permissoes);
+		for(int i=1,j=0; j<grupos.length && grupos[j] != null; i++, j++) {
+			this.grupos[i] = new Grupo(grupos[j].nome, grupos[j].permissoes);
 		}
 	}
 	
@@ -28,9 +26,6 @@ class Usuario {
 		permissoesTODOS[1] = "pedido.editar.*";
 		
 		this.grupos[0] = new Grupo("TODOS", permissoesTODOS);
-		for(int i=1; i<grupos.length && grupos[i] != null; i++) {
-			this.grupos[i] = new Grupo(grupos[i].nome, grupos[i].permissoes);
-		}
 	}
 	
 }
@@ -55,11 +50,22 @@ class Grupo {
 public class ControlePermissao {
 	public static void main(String args[]) {
 		Usuario thiago = new Usuario("thiagooooo");
-		if (temPermissao(thiago, "pedido.cadastrar", "pedido.*")) {
+                
+                String[] permAdm = new String[2];
+                permAdm[0] = "cliente.*";
+                permAdm[1] = "pedido.*";
+                Grupo administrador = new Grupo("adm", permAdm);
+                Grupo[] gruposJoana = new Grupo[1];
+                gruposJoana[0] = administrador; 
+                
+                Usuario joana = new Usuario("joana", gruposJoana);
+                
+		if (temPermissao(joana, "cliente.cadastrar", "cliente.*")) {
 			System.out.print("permissao concedida");
 		} else {
 			System.out.print("permissao NEGADA");
 		}
+                System.out.print("\nGrupos " + joana.grupos.length);
 	}
 	
 	/**
@@ -78,7 +84,6 @@ public class ControlePermissao {
 				}
 			}
 		}
-
 		return false;
 	}
 }
