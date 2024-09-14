@@ -1,10 +1,31 @@
-1. ****usuário**** >> faz tudo que o sistema permite
-2. pedidos não são excluídos.
-3. pedidos não são alterados depois de concluídos.
-4. cadastro de produtos não terão quantidade atribuída (NO CADASTRO)
-5. contabilização de quantidade de produtos movimentados
-6. não é necessário haver o cadastro prévio do cliente para cadastrar um pedido novo
-7. destinatário >> caixa de texto opcional
-8. nome e telefone de cliente serão armazenados em uma tabela separada dos pedidos e nos pedidos.
-9. preenchimento automático de informações de pedidos de um cliente reincidente incluirão TUDO, menos a QUANTIDADES DE PRODUTOS, resgatado do pedido anterior pelo mesmo cliente
-10. 
+
+1. PERMISSOES
+  - ****usuário**** >> faz tudo que o sistema permite
+
+2. PEDIDOS
+  - não é necessário haver o cadastro prévio do cliente para cadastrar um pedido novo
+  - não são excluídos.
+  - não são alterados depois de concluídos.
+  - não sendo cliente reincidente, nome e telefone do cliente serão registrados no sistema
+  - destinatário >> caixa de texto opcional
+
+3. PREENCHIMENTO AUTOMÁTICO NOS PEDIDOS
+  - informações serão resgatadas do pedido anterior pelo mesmo cliente
+  - informações de cliente reincidente incluirão TODAS AS INFORMAÇÕES DO PEDIDO, menos a QUANTIDADE DE PRODUTOS e o ESTADO DO PEDIDO;
+
+4. PRODUTOS;
+  - cadastro não terá quantidade atribuída
+
+5. RELATÓRIO DE MOVIMENTAÇÃO DE ESTOQUE
+  - contabilização de quantidade de produtos movimentados nos pedidos anteriores
+
+A RESOLVER:
+1. USUARIOS:
+ - como vai funcionar o cadastro? quem vai cadastrar os usuários? e a recuperação do acesso?
+
+2. PRODUTOS dos pedidos:
+ - inserir somente produtos cadastrados ou permitir também inserir manualmente?
+
+3. REGISTRO DOS CLIENTES:
+ - o registro dos clientes armazenará o número de telefone de contato e o nome do cliente?
+ - o nome do cliente registrado poderá ser alterado? se um novo pedido for registrado como o mesmo telefone, mas nome diferente o que deverá ocorrer?
