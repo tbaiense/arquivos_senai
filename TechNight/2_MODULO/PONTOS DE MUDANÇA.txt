@@ -1,0 +1,10 @@
+1. ****usuário**** >> faz tudo que o sistema permite
+2. pedidos não são excluídos.
+3. pedidos não são alterados depois de concluídos.
+4. cadastro de produtos não terão quantidade atribuída (NO CADASTRO)
+5. contabilização de quantidade de produtos movimentados
+6. não é necessário haver o cadastro prévio do cliente para cadastrar um pedido novo
+7. destinatário >> caixa de texto opcional
+8. nome e telefone de cliente serão armazenados em uma tabela separada dos pedidos e nos pedidos.
+9. preenchimento automático de informações de pedidos de um cliente reincidente incluirão TUDO, menos a QUANTIDADES DE PRODUTOS, resgatado do pedido anterior pelo mesmo cliente
+10. 
