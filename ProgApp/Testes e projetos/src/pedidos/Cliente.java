@@ -2,13 +2,13 @@ package pedidos;
 
 
 public class Cliente {
-	private static int cadastrados=0;
+	private static int cadastrados;
 	
 	private String nomeCliente;
-	private String telCliente;
-	private int id;
+	private final String telCliente;
+	private final int id;
 	
-	Cliente(final String nomeCliente, final String telCliente) {
+	public Cliente(final String nomeCliente, final String telCliente) {
 		validateNome(nomeCliente);
 		validateTel(telCliente);
 		

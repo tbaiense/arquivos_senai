@@ -3,22 +3,22 @@ package pedidos;
 
 public class Pedido {
 	// member variables ou static variables ou class variables
-	private static int cadastrados=0;
+	private static int cadastrados;
 	
 	// instance variables
 	private String nomeCliente;
-	private int idCliente;
-	private int id;
+	private final int idCliente;
+	private final int id;
 	private String produto;
 	private String qtdProduto;
 	private String endereco;
 	private String destinatario;
 	
-	Pedido(final int idCliente, final String produto, final String qtdProduto, final String endereco) {
+	public Pedido(final int idCliente, final String produto, final String qtdProduto, final String endereco) {
 		this(idCliente, produto, qtdProduto, endereco, null);
 	}
 	
-	Pedido(final int idCliente, final String produto, final String qtdProduto, final String endereco, final String destinatario) {
+	public Pedido(final int idCliente, final String produto, final String qtdProduto, final String endereco, final String destinatario) {
 		if (idCliente < 0 || ListaClientes.getCliente(idCliente) == null) {
 			throw new IllegalArgumentException("Id do cliente nao encontrado");
 		}
@@ -58,16 +58,6 @@ public class Pedido {
 	
 	public String getDestinatario() {
 		return this.destinatario;
-	}
-	// Setters
-	public void setNomeCliente(final String newNomeCliente) {
-		// alterar nome do cliente na lista de clientes
-	}
-	
-	public void setTelCliente(final String newTelCliente) {
-		// corresponder a um existente na lista, atualizar id do cliente no pedido com o id do encontrado
-		// Se nao
-			// criar novo cliente e atualizar id do cliente no peido
 	}
 	
 	@Override

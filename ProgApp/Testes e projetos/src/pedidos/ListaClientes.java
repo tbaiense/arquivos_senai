@@ -2,15 +2,15 @@ package pedidos;
 
 
 public class ListaClientes {
-	private static Cliente[] clientes = null;
+	private static Cliente[] clientes;
 	private static int cadastrados=0; // Quantidade de clientes cadastrados
 	
 	// Getters
-	static int getCadastrados() {
+	public static int getCadastrados() {
 		return cadastrados;
 	}
 	
-	static Cliente getCliente(final String telCliente) {
+	public static Cliente getCliente(final String telCliente) {
 		Cliente.validateTel(telCliente); // Garante não ser nulo e estar dentro dos requisitos de telefone
 		if (clientes != null) {
 			for(Cliente c : clientes) {
@@ -22,7 +22,7 @@ public class ListaClientes {
 		return null; // Caso não encontre
 	}
 	
-	static Cliente getCliente(final int idCliente) {
+	public static Cliente getCliente(final int idCliente) {
 		if (idCliente < 0) {
 			throw new IllegalArgumentException("Id do cliente procurado deve ser maior que zero");
 		}

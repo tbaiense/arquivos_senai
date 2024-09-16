@@ -2,15 +2,15 @@ package pedidos;
 
 
 public class ListaPedidos {
-	private static Pedido[] pedidos = null;
-	private static int cadastrados=0; // Quantidade de pedidos cadastrados
+	private static Pedido[] pedidos;
+	private static int cadastrados; // Quantidade de pedidos cadastrados
 	
 	// Getters
-	static int getCadastrados() {
+	public static int getCadastrados() {
 		return cadastrados;
 	}
 	
-	static Pedido getPedido(int idPedido) {
+	public static Pedido getPedido(int idPedido) {
 		if (idPedido < 0) {
 			throw new IllegalArgumentException("Id do pedido procurado deve ser maior que zero");
 		}
@@ -26,7 +26,7 @@ public class ListaPedidos {
 		return null; // Caso não encontre
 	}
 	
-	static Pedido getLastPedidoFromCliente(final int idCliente) {
+	public static Pedido getLastPedidoFromCliente(final int idCliente) {
 		if (idCliente < 0 || ListaClientes.getCliente(idCliente) == null) {
 			return null;
 		}

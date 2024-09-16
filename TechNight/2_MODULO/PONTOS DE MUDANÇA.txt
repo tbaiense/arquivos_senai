@@ -19,7 +19,7 @@
 5. RELATÓRIO DE MOVIMENTAÇÃO DE ESTOQUE
   - contabilização de quantidade de produtos movimentados nos pedidos anteriores
 
-A RESOLVER:
+[ A RESOLVER ] ========================================================>
 1. USUARIOS:
  - como vai funcionar o cadastro? quem vai cadastrar os usuários? e a recuperação do acesso?
 
@@ -29,3 +29,8 @@ A RESOLVER:
 3. REGISTRO DOS CLIENTES:
  - o registro dos clientes armazenará o número de telefone de contato e o nome do cliente?
  - o nome do cliente registrado poderá ser alterado? se um novo pedido for registrado como o mesmo telefone, mas nome diferente o que deverá ocorrer?
+ - o telefone dos clientes poderá ser alterado?
+
+4. ALTERAÇÃO DOS PEDIDOS CADASTRADOS
+ - O que poderá ser alterado nos pedidos?
+ - As informações do cliente solicitante no pedido poderão ser alteradas ? Se o nome e/ou telefone de um cliente do pedido for alterado o que deve acontecer? (acredito que o cliente fora do pedido não deve sofrer mudança)
