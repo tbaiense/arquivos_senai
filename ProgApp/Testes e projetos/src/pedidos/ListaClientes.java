@@ -38,7 +38,7 @@ public class ListaClientes {
 		return null; // Caso não encontre
 	}
 	// Setters
-	static int push(final Cliente newCliente) { // Retorna id do cliente inserido
+	public static int push(final Cliente newCliente) { // Retorna id do cliente inserido
 		if (newCliente == null) {
 			throw new NullPointerException("Cliente a ser inserido nao pode ser nulo");
 		}

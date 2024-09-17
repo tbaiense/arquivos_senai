@@ -3,11 +3,12 @@ package pedidos;
 import java.io.DataInputStream;
 import java.io.IOException;
 
+import validacao.CPF;
+
 public class CadastrarPedidos {
 	private static Pedido lastPedidoFromCliente = null; 
 	
 	public static void main(String[] args) throws IOException {
-		
 		ListaClientes.push(new Cliente("anonimo", "xxxx-xxxx"));
 		//System.out.print("LOG >>> ID DO CLIENTE CADASTRADO NO PEDIDO: " + telaReceberCliente());
 		while (true) {
@@ -15,21 +16,19 @@ public class CadastrarPedidos {
 			final int idCliente = telaReceberCliente();
 			lastPedidoFromCliente = ListaPedidos.getLastPedidoFromCliente(idCliente);
 			final String produto = telaReceberProduto();
+
 			
-			System.out.print("quantidade: ");
-			DataInputStream in = new DataInputStream(System.in);
-			final String quantidade = in.readLine();
-			
+			final String quantidade = telaReceberQuantidade();
+
 			final String endereco = telaReceberEndereco();
-			
+
 			final String destinatario = telaReceberDestinatario();
+
+			Pedido novoPedido = new Pedido(idCliente, produto, quantidade, endereco);
+			novoPedido.setDestinatario(destinatario); // Se for nulo ou nao, atribui
 			
-			Pedido novoPedido;
-			if (destinatario == null) {
-				novoPedido = new Pedido(idCliente, produto, quantidade, endereco);
-			} else {
-				novoPedido = new Pedido(idCliente, produto, quantidade, endereco, destinatario);
-			}
+			novoPedido.setCpf(telaReceberCpf());
+
 			lastPedidoFromCliente = null;
 			ListaPedidos.push(novoPedido);
 			System.out.println("\nLOG NOVO PEDIDO >>> " + novoPedido + "\n");
@@ -78,42 +77,62 @@ public class CadastrarPedidos {
 			System.out.print("\nUltimo produto do cliente: " + lastProduto 
 			+ "\nUsar mesmo produto?\nSIM ou NAO >>> ");
 			if (readYORN()) {
-				produto = lastProduto;
 				System.out.println();
+				return lastProduto;
 			}
 		}
-		
-		if (produto == null) {
-			// Novo pedido para novo cliente
-			System.out.print("produto: ");
-			DataInputStream in = new DataInputStream(System.in);
-			produto = in.readLine();
+		System.out.print("produto: ");
+		do {// Receber produto do cliente
+			try {
+				DataInputStream in = new DataInputStream(System.in);
+				produto = in.readLine();
+				Pedido.validateProduto(produto); // Checa se telefone maior que 8 caracteres
+				return produto;
+			} catch (IllegalArgumentException e) {
+				handleError(e);
+			}
+		} while (true);
+	}
+	
+	private static String telaReceberQuantidade() throws IOException {
+		System.out.print("quantidade: ");
+		while (true) {
+			try {
+				DataInputStream in = new DataInputStream(System.in);
+				final String quantidade = in.readLine();
+				Pedido.validateQuantidade(quantidade);
+				return quantidade;
+			} catch (IllegalArgumentException e) {
+				handleError(e);
+			}
 		}
-
-		return produto;
 	}
 	
 	private static String telaReceberEndereco() throws IOException {
-		String endereco = null;
-
 		if (lastPedidoFromCliente != null) { // Se houver pedido cadastrado para o cliente
 			String lastEndereco = lastPedidoFromCliente.getEndereco();
 			System.out.print("\nUltimo endereco do cliente: " + lastEndereco
 			+ "\nUsar mesmo endereco?\nSIM ou NAO >>> ");
 			if (readYORN()) {
-				endereco = lastEndereco;
 				System.out.println();
+				return lastEndereco;
 			}
 		}
 		
-		if (endereco == null) {
-			// Novo endereco
-			System.out.print("endereco: ");
-			DataInputStream in = new DataInputStream(System.in);
-			endereco = in.readLine();
+		// Novo endereco
+		System.out.print("endereco: ");
+		while(true) {
+			try {
+				DataInputStream in = new DataInputStream(System.in);
+				String endereco = in.readLine();
+				Pedido.validateEndereco(endereco);
+				return endereco;
+			} catch (IllegalArgumentException e) {
+				handleError(e);
+			}
 		}
-
-		return endereco;
+		
+		
 	}
 	
 	private static String telaReceberDestinatario() throws IOException {
@@ -144,6 +163,39 @@ public class CadastrarPedidos {
 		return destinatario;
 	}
 	
+	private static CPF telaReceberCpf() throws IOException {
+		if (lastPedidoFromCliente != null) { // Se houver pedido cadastrado para o cliente
+			String lastCpf = lastPedidoFromCliente.getCpf();
+			if (lastCpf != null) {
+				System.out.print("\nUltimo CPF do cliente: " + lastCpf
+						+ "\nUsar o mesmo CPF?\nSIM ou NAO >>> ");
+				if (readYORN()) {
+					System.out.println();
+					return new CPF(lastCpf);
+				}
+			}
+		}
+		// Novo cpf
+		CPF cpf;
+		System.out.print("CPF: ");
+		while (true) {
+			DataInputStream in = new DataInputStream(System.in);
+			String strCpf = in.readLine().trim();
+			if (strCpf.isEmpty()) {
+				return null;
+			}
+			
+			try {
+				cpf = new CPF(strCpf);
+				break;
+			} catch (IllegalArgumentException e) {
+				handleError(e);
+			}
+		}
+		
+		return cpf;
+	}
+	
 	private static String receberTelefone() throws IOException {
 		do {// Receber tel do cliente
 			try {
@@ -152,7 +204,7 @@ public class CadastrarPedidos {
 				Cliente.validateTel(tel); // Checa se telefone maior que 8 caracteres
 				return tel;
 			} catch (IllegalArgumentException e) {
-				System.out.print("ERRO: " + e.getMessage() + "\nTente novamente: ");
+				handleError(e);
 			}
 		} while (true);
 	}
@@ -165,12 +217,16 @@ public class CadastrarPedidos {
 				Cliente.validateNome(nome); // Checa se telefone maior que 8 caracteres
 				return nome;
 			} catch (IllegalArgumentException e) {
-				System.out.print("ERRO: " + e.getMessage() + "\nTente novamente: ");
+				handleError(e);
 			}
 		} while (true);
 	}
 	
-	private static boolean readYORN() throws IOException {
+	private static void handleError(Exception e) {
+		System.out.print("ERRO: " + e.getMessage() + "\nTente novamente >>> ");
+	}
+	
+ 	private static boolean readYORN() throws IOException {
 		while (true) {
 			DataInputStream in = new DataInputStream(System.in);
 			String entrada = in.readLine();
