@@ -13,13 +13,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ProgApp/Anotações Java/Características.md",
+                "file": "BD/SGDB/SQL/COMANDOS SQL.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "27b93cffdab371f3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "BD/SGDB/MARIADB & MYSQL.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -85,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "ProgApp/Anotações Java/Características.md",
+                "file": "BD/SGDB/MARIADB & MYSQL.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "ProgApp/Anotações Java/Características.md",
+                "file": "BD/SGDB/MARIADB & MYSQL.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "ProgApp/Anotações Java/Características.md"
+                "file": "BD/SGDB/MARIADB & MYSQL.md"
               }
             }
           }
@@ -146,26 +159,27 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "f044d9f5e186accc",
+  "active": "27b93cffdab371f3",
   "lastOpenFiles": [
+    "BD/SGDB/SQL/COMANDOS SQL.md",
+    "BD/SGDB/MARIADB & MYSQL.md",
+    "BD/SGDB/SQL",
+    "ProgApp/Anotações Java/Sites de estudo.md",
+    "BD/SGDB",
+    "ProgApp/Anotações Java/Métodos e propriedades de classes padrão.md",
+    "ProgApp/Anotações Java/Exibição de informação.md",
+    "ProgApp/Anotações Java/Características.md",
     "ProgApp/Testes e projetos/src/pedidos/ListaPedidos.class",
     "ProgApp/Testes e projetos/src/pedidos/ListaClientes.class",
     "ProgApp/Testes e projetos/src/pedidos/Cliente.class",
     "ProgApp/Testes e projetos/src/pedidos/Pedido.class",
     "ProgApp/Testes e projetos/src/pedidos/CadastrarPedidos.class",
     "ProgApp/Testes e projetos/ControlePermissao.java",
-    "ProgApp/Anotações Java/Exibição de informação.md",
-    "ProgApp/Anotações Java/Métodos e propriedades de classes padrão.md",
     "ProgApp/Anotações Java/Sintaxe.md",
-    "ProgApp/Anotações Java/Características.md",
     "Estudos/Git/git_commands.md",
     "Estudos/Linux.md",
     "ProgApp/Anotações Java/Javanotes 9/c3/ex7-3.java",
     "ProgApp/Anotações Java/Javanotes 9/c3/ex7-2 copia.java",
-    "ProgApp/Anotações Java/Javanotes 9/c3/ex7-2.java",
-    "ProgApp/Anotações Java/Javanotes 9/c3/ex7-1 copia.java",
-    "ProgApp/Anotações Java/Javanotes 9/c3/ex7-1.java",
-    "ProgApp/Anotações Java/Sites de estudo.md",
     "Modelagem de Sistemas/Design Thinking.md",
     "BD/Modelagem de Dados.md",
     "README.md",
