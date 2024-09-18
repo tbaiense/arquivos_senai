@@ -1,0 +1,56 @@
+sql > dividido em tipos 
+\! cls;
+
+abrir shell
+mysql -u root
+
+show databases;
+use <banco>; >> entra no banco
+show tables;
+describe [<banco>.]<table>; >> ver dicionario de dados
+
+DDL: ==============================
+
+CREATE DATABASE <nome_banco_novo>;
+
+CREATE TABLE mae(
+    id_mae INT NOT NULL AUTO_INCREMENT,
+    nome_nome VARCHAR(40) NOT NULL,
+    telefone VARCHAR(11),
+    estado_nasc CHAR(2) DEFAULT 'ES',
+    PRIMARY KEY (id_mae)
+);
+
+DROP TABLE <tabela a dropar>;
+
+CREATE TABLE medico(
+    crm_medico INT NOT NULL,
+    nome_medico VARCHAR(40) NOT NULL,
+    especialidade VARCHAR(10) DEFAULT 'Geral',
+    telefone CHAR(11),
+    CONSTRAINT pk_medico PRIMARY KEY (crm_medico, nome_medico)
+);
+
+ALTER TABLE <tabela> ADD PRIMARY KEY (<atributo_que_sera_pk>);
+
+ALTER TABLE <tabela> DROP PRIMARY KEY (pk_a_ser_excluida);
+
+ALTER TABLE <tabela> 
+	ADD 
+		FOREIGN KEY <atributo_que_deve_apontar_para_pk> 
+			REFERENCES <outratabela>(<atributo_pl);
+			
+ALTER TABLE mae CHANGE COLUMN nome_nome nome_mae VARCHAR(40);
+
+DML ============================
+
+INSERT INTO mae (nome_nome, telefone, estado_nasc)
+	VALUE ("luciana", 40028922, "RJ");
+	
+INSERT INTO mae (nome_mae, telefone, estado_nasc)
+	VALUES ("luciana", 40028922, "RJ"),
+	("luciana", 40028922, "RJ"),
+	("luciana", 40028922, "RJ");
+	
+SELECT * FROM table_name;
+SELECT field_name FROM table_name;
