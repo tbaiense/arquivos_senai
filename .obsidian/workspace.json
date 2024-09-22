@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "BD/SGDB/MARIADB & MYSQL.md",
+                "file": "ProgApp/Anotações Java/Características.md",
                 "mode": "source",
                 "source": false
               }
@@ -98,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "BD/SGDB/MARIADB & MYSQL.md",
+                "file": "ProgApp/Anotações Java/Características.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "BD/SGDB/MARIADB & MYSQL.md",
+                "file": "ProgApp/Anotações Java/Características.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "BD/SGDB/MARIADB & MYSQL.md"
+                "file": "ProgApp/Anotações Java/Características.md"
               }
             }
           }
@@ -161,8 +161,8 @@
   },
   "active": "27b93cffdab371f3",
   "lastOpenFiles": [
-    "BD/SGDB/SQL/COMANDOS SQL.md",
     "BD/SGDB/MARIADB & MYSQL.md",
+    "BD/SGDB/SQL/COMANDOS SQL.md",
     "BD/SGDB/SQL",
     "ProgApp/Anotações Java/Sites de estudo.md",
     "BD/SGDB",

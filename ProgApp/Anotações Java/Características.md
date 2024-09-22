@@ -4,3 +4,4 @@
 - Funções de instância `Scanner.nextInt()`não retiram caracteres de controle -- como Enter --  do Input Buffer. 
 - variáveis de instância são inicializados automaticamente ao construir objetos
 - valores de variáveis`final` são definidas somente na declaração ou nos construtores de instance variables
+- member variables e member methods que usam `protected` são acessíveis às classes no mesmo pacote e a classes que extendem a classe onde são definidos
