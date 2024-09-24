@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ProgApp/Anotações Java/Características.md",
+                "file": "BD/SGDB/MARIADB & MYSQL.md",
                 "mode": "source",
                 "source": false
               }
@@ -98,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "ProgApp/Anotações Java/Características.md",
+                "file": "BD/SGDB/MARIADB & MYSQL.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "ProgApp/Anotações Java/Características.md",
+                "file": "BD/SGDB/MARIADB & MYSQL.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "ProgApp/Anotações Java/Características.md"
+                "file": "BD/SGDB/MARIADB & MYSQL.md"
               }
             }
           }
@@ -161,6 +161,9 @@
   },
   "active": "27b93cffdab371f3",
   "lastOpenFiles": [
+    "ProgApp/Testes e projetos/bin/ControlePermissao.class",
+    "ProgApp/Testes e projetos/bin/Bingo.class",
+    "ProgApp/Anotações Java/Características.md",
     "BD/SGDB/MARIADB & MYSQL.md",
     "BD/SGDB/SQL/COMANDOS SQL.md",
     "BD/SGDB/SQL",
@@ -168,7 +171,6 @@
     "BD/SGDB",
     "ProgApp/Anotações Java/Métodos e propriedades de classes padrão.md",
     "ProgApp/Anotações Java/Exibição de informação.md",
-    "ProgApp/Anotações Java/Características.md",
     "ProgApp/Testes e projetos/src/pedidos/ListaPedidos.class",
     "ProgApp/Testes e projetos/src/pedidos/ListaClientes.class",
     "ProgApp/Testes e projetos/src/pedidos/Cliente.class",
@@ -179,7 +181,6 @@
     "Estudos/Git/git_commands.md",
     "Estudos/Linux.md",
     "ProgApp/Anotações Java/Javanotes 9/c3/ex7-3.java",
-    "ProgApp/Anotações Java/Javanotes 9/c3/ex7-2 copia.java",
     "Modelagem de Sistemas/Design Thinking.md",
     "BD/Modelagem de Dados.md",
     "README.md",
