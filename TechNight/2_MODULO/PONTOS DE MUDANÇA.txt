@@ -1,6 +1,9 @@
 
+quais são os níveis de usuário >>> Administrador e atendente
+
 1. PERMISSOES
-  - ****usuário**** >> faz tudo que o sistema permite
+  - ****Administrador**** >> tudo que o sistema permite
+ - atendente >> não inclui/altera cadastro de produto, não inclui/altera usuários e senhas, não tem acesso a relatórios financeiros
 
 2. PEDIDOS
   - não é necessário haver o cadastro prévio do cliente para cadastrar um pedido novo
@@ -8,26 +11,31 @@
   - não são alterados depois de concluídos.
   - não sendo cliente reincidente, nome e telefone do cliente serão registrados no sistema
   - destinatário >> caixa de texto opcional
+2. PRODUTOS dos pedidos:
+ - inserir somente produtos cadastrados
 
 3. PREENCHIMENTO AUTOMÁTICO NOS PEDIDOS
-  - informações serão resgatadas do pedido anterior pelo mesmo cliente
+  - informações serão resgatadas do pedido anterior pelo mesmo cliente, usando o telefone como referencia
   - informações de cliente reincidente incluirão TODAS AS INFORMAÇÕES DO PEDIDO, menos a QUANTIDADE DE PRODUTOS e o ESTADO DO PEDIDO;
 
 4. PRODUTOS;
   - cadastro não terá quantidade atribuída
+  - estados: habilitado ou desabilitado
+  - não pode ser excluído, só desativado
 
 5. RELATÓRIO DE MOVIMENTAÇÃO DE ESTOQUE
   - contabilização de quantidade de produtos movimentados nos pedidos anteriores
 
-[ A RESOLVER ] ========================================================>
 1. USUARIOS:
- - como vai funcionar o cadastro? quem vai cadastrar os usuários? e a recuperação do acesso?
+ - Adm cadastra usuário
+ - Adm altera senha do usuário
+ - usuário tem: nome, email, login, senha e cargo
+ - autenticação por: login e senha
 
-2. PRODUTOS dos pedidos:
- - inserir somente produtos cadastrados ou permitir também inserir manualmente?
+[ A RESOLVER ] ================================================
+
 
 3. REGISTRO DOS CLIENTES:
- - o registro dos clientes armazenará o número de telefone de contato e o nome do cliente?
  - o nome do cliente registrado poderá ser alterado? se um novo pedido for registrado como o mesmo telefone, mas nome diferente o que deverá ocorrer?
  - o telefone dos clientes poderá ser alterado?
 
