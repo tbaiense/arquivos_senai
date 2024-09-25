@@ -38,7 +38,7 @@ public class Bingo {
 	 * Generates an array of pseudo-random numbers to be used in the game.
 	 * @return a new array consisting of the generated numbers.
 	 */
-	private static int[] gerarCartela() {
+	public static int[] gerarCartela() {
 		int[] numerosCartela = new int[LINHAS * COLUNAS];
 		if (MAX < numerosCartela.length) {
 			System.out.print("ERRO: Número de números aleatórios inferior ao tamanho da cartela. Aumente a faixa de valores a serem gerados.");
@@ -65,7 +65,7 @@ public class Bingo {
 		return numerosCartela;
 	}
 
-	private static String imprimirCartela(int[] cartela) {
+	public static String imprimirCartela(int[] cartela) {
 		String cartelaStr = "";
 		for (int n = 0; n < cartela.length; n++) {
 			if (n % COLUNAS == 0 && n != 0) // Garante a formatação das linhas e colunas
