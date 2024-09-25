@@ -33,7 +33,10 @@ quais são os níveis de usuário >>> Administrador e atendente
  - autenticação por: login e senha
 
 [ A RESOLVER ] ================================================
-
+1. PROMOCOES
+ - como vai ocorrer?
+ - quais serão os tipos?
+ - onde serão aplicáveis?
 
 3. REGISTRO DOS CLIENTES:
  - o nome do cliente registrado poderá ser alterado? se um novo pedido for registrado como o mesmo telefone, mas nome diferente o que deverá ocorrer?
