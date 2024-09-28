@@ -1,0 +1,20 @@
+o que é biblioteca de classe de graficos
+javax.swing.JOptionPane;
+
+>>> apertar no x fecha o codigo
+
+
+showInputDialog > tipos null, 
+(null, "string de exibição") > ok, cancelar
+
+showMessageDialog(null, "Mensagem")
+
+Swing =====
+JButton
+JCheckboxName
+JLabelGenericName
+JTextAreaName
+JTextFieldName
+JPasswordField
+JRadioButtonName
+JOptionPane
