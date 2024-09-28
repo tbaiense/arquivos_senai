@@ -51,10 +51,14 @@ public class Ex8 {
                 System.out.printf("Valor fora do intervalo [%d, %d] ignorado na totalização\n", Min, Max);
             }
         }
-        
-        System.out.printf("""
+        if (inserido > 0) {
+            System.out.printf("""
                            \nTotal: %d
                            Quantidade inserida: %d
                            """, soma, inserido);
+        } else {
+            System.out.println("Não foi inserido nenhum numero");
+        }
+        
     }
 }
