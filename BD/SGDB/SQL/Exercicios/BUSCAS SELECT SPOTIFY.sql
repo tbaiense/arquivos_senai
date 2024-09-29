@@ -23,7 +23,6 @@ SELECT COUNT(DISTINCT nomeArtista) AS QTD_ARTISTAS FROM spotifytop;
 SELECT nomeMusica, nomeArtista, totalStreams FROM spotifytop
 WHERE totalStreams = (SELECT MAX(totalStreams) FROM spotifytop);
 
-
 -- 7 Qual música com maior pico de streams
 SELECT nomeMusica, nomeArtista, picoDeStreams FROM spotifytop
 WHERE picoDeStreams = (SELECT MAX(picoDeStreams) FROM spotifytop);
@@ -81,15 +80,17 @@ ORDER BY QTD_MUSICAS
 LIMIT 5;
 
 -- 18 Qual o total de streams das 10 músicas mais com mais streams
-SELECT posicao, nomeMusica, totalStreams
-FROM spotifytop
-WHERE totalStreams IS NOT NULL
-ORDER BY totalStreams DESC
-LIMIT 10;
-
-SELECT SUM(totalStreams) AS TOTAL_TOP10
-FROM spotifytop
-WHERE posicao BETWEEN 1 AND 10;
+SELECT
+    SUM(totalStreams) AS totalStreamsTop10
+FROM
+    (SELECT
+            nomeMusica, totalStreams
+        FROM
+            spotifytop
+        WHERE
+            totalStreams IS NOT NULL
+        ORDER BY totalStreams DESC
+        LIMIT 10) AS StreamsTop10;
 
 -- 19 Quais as músicas que já estiveram no top 1 e estiveram entre 40 e 60 vezes a maior posição
 SELECT nomeMusica, maiorPosicao, vezesMaiorPosicao
