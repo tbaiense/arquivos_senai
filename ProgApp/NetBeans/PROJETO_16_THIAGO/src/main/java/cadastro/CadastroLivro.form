@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[800, 600]"/>
+    </Property>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Component id="jPanel1" alignment="1" max="32767" attributes="0"/>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Container class="javax.swing.JPanel" name="jPanel1">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace pref="19" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="jlbl_titulo" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="jtxtf_titulo" max="32767" attributes="0"/>
+                              <EmptySpace min="-2" pref="331" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="jlbl_isbn" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                              <Component id="jtxtf_isbn" min="-2" pref="138" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jlbl_codBarras" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="jtxtf_codBarras" min="-2" pref="137" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jlbl_exemplares" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                              <Component id="js_exemplares" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jchb_subtitulo" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jlbl_subtitulo" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jtxtf_subtitulo" min="-2" pref="563" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jlbl_NovoLivro" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="219" max="-2" attributes="0"/>
+                                  <Component id="jbtn_cadastrar" min="-2" pref="125" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                                  <Component id="jbtn_cancelar" min="-2" pref="127" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="jlbl_editora" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="jcb_editora" min="-2" pref="136" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="jlbl_anoPub" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="jtxtf_anoPub" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="jlbl_genero" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="jcb_genero" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="jlbl_autores" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="jtxtf_autores" min="-2" pref="222" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="jlbl_assuntos" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="jtxtf_assuntos" min="-2" pref="295" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace pref="32" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                  <Component id="jlbl_NovoLivro" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jlbl_isbn" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jtxtf_isbn" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jlbl_codBarras" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jtxtf_codBarras" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jlbl_exemplares" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="js_exemplares" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jlbl_titulo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jtxtf_titulo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jlbl_subtitulo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jtxtf_subtitulo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jchb_subtitulo" alignment="1" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jlbl_autores" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jtxtf_autores" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jlbl_assuntos" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jtxtf_assuntos" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jlbl_editora" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jcb_editora" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jlbl_anoPub" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jtxtf_anoPub" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jlbl_genero" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jcb_genero" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="32" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jbtn_cancelar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jbtn_cadastrar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="jlbl_NovoLivro">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="18" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Novo Livro"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jlbl_isbn">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="N&#xfa;mero de ISBN"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jlbl_codBarras">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="C&#xf3;digo de barras"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jlbl_exemplares">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Qtd. exemplares"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jlbl_titulo">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="T&#xed;tulo"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jlbl_subtitulo">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Subt&#xed;tulo"/>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jlbl_assuntos">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Assuntos"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jlbl_editora">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Editora"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jlbl_anoPub">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Ano de publica&#xe7;&#xe3;o"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jtxtf_subtitulo">
+          <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jtxtf_codBarras">
+        </Component>
+        <Component class="javax.swing.JTextField" name="jtxtf_isbn">
+        </Component>
+        <Component class="javax.swing.JTextField" name="jtxtf_titulo">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Alice no Pa&#xed;s das Maravilhas"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jtxtf_tituloActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JSpinner" name="js_exemplares">
+        </Component>
+        <Component class="javax.swing.JComboBox" name="jcb_editora">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="6">
+                <StringItem index="0" value="Cia das letras"/>
+                <StringItem index="1" value="Record"/>
+                <StringItem index="2" value="Gazeta"/>
+                <StringItem index="3" value="Globo"/>
+                <StringItem index="4" value="Belas Artes"/>
+                <StringItem index="5" value=" "/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jtxtf_anoPub">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="2024"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jtxtf_assuntos">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="A&#xe7;&#xe3;o, Com&#xe9;dia, Suspence"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="jchb_subtitulo">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jlbl_autores">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Autores"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jtxtf_autores">
+        </Component>
+        <Component class="javax.swing.JButton" name="jbtn_cadastrar">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Cadastrar"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="jbtn_cancelar">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Cancelar"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jlbl_genero">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="G&#xea;nero Liter&#xe1;rio"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="jcb_genero">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="3">
+                <StringItem index="0" value="Romance"/>
+                <StringItem index="1" value="Epopeia"/>
+                <StringItem index="2" value="T&#xe9;cnico"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+      </SubComponents>
+    </Container>
+  </SubComponents>
+</Form>
