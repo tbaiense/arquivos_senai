@@ -1,0 +1,5 @@
+package japedidos.sistema;
+
+public enum AtividadeAtual {
+	CRIACAO, VISUALIZACAO, EDICAO, CARREGAMENTO
+}

@@ -1,0 +1,252 @@
+package japedidos.pedido;
+
+import java.util.Date;
+
+import japedidos.produto.Produto;
+import japedidos.cliente.*;
+import japedidos.dados.Endereco;
+import japedidos.dados.Telefone;
+import japedidos.sistema.AtividadeAtual;
+import japedidos.filial.Filial;
+
+/**
+ * @author t.baiense
+ */
+public class Pedido {
+	private AtividadeAtual atividade; // Controla o que está sendo feito no pedido
+	private int id;
+	Cliente cliente;
+	Destinatario destinatario;
+	
+	public class Destinatario {
+		private String nome, info;
+		private Telefone telefone;
+		
+		Destinatario(String nome, Telefone telefone) {
+			setNome(nome);
+			set(telefone);
+		}
+		
+		public final String getNome() {
+			return this.nome;
+		}
+		
+		
+		public final Telefone getTelefone() {
+			return this.telefone;
+		}
+		
+		public final String getInfo() {
+			return this.info;
+		}
+		
+		public final void setNome(String nome) {
+			if(nome != null) {
+				this.nome = nome;
+			}
+		}
+
+		public final void set(Telefone tel) {
+			if(tel != null) {
+				this.telefone = tel;			
+			}
+		}
+		
+		public final void setInfo(String info) {
+			if(info != null) {
+				this.info = info;		
+			}
+		}
+		
+		public static final String MSG_EX_NULL = "o cliente e nulo";
+	}
+
+	
+	//TODO entrega >> tipo, dataEntregar, horaEntregar, dataEntregue, horaEntregue
+	//TODO andamento >> estado, intercorrencias
+	//TODO pagamento >> estado, dataVencimento
+	Destino destino;
+	
+	public class Destino extends Endereco {
+		public String infoAdicional;
+		private static String DEFAULT_ESTADO = "Espírito Santo";
+		private static String DEFAULT_PAIS = "Brasil";
+		
+		public Destino(String rua, String numero, String bairro, String cidade, String estado, String pais) {
+			super(rua, numero, bairro, cidade, estado, pais);
+		}
+		
+		public Destino(String rua, String numero, String bairro, String cidade) {
+			super(rua, numero, bairro, cidade, DEFAULT_ESTADO, DEFAULT_PAIS);
+		}
+		
+		public Destino(String rua, String numero, String bairro, String cidade, String estado) {
+			super(rua, numero, bairro, cidade, estado, DEFAULT_PAIS);
+		}
+		
+		public final void setInfoAdicional(String info) {
+			this.infoAdicional = info;
+		}
+	}
+	
+	Filial filialOrigem;
+	ProdutosPedido produtos;
+	Date dataCriacao;
+	private double valorTotalVenda;
+	private double valorTotalCusto;
+	
+	public Pedido() {
+		produtos = new ProdutosPedido();
+	}
+	
+	public final int getId() {
+		if(atividade == AtividadeAtual.VISUALIZACAO || atividade == AtividadeAtual.EDICAO) {
+			return this.id;			
+		}
+		
+		return -1;
+	}
+	
+	public final Pedido novo() { // Define o pedido como novo e permite inserção de dados
+		if(atividade != null) {
+			throw new IllegalStateException();
+		}
+		atividade = AtividadeAtual.CRIACAO;
+		return this;
+	}
+	
+	public final Pedido cadastrar() { // Valida e envia os dados ao banco
+		// TODO validadar dados
+		// TODO CODIGO DE BANCO... receber id
+		// ...
+		atividade = AtividadeAtual.VISUALIZACAO;
+		// this.carregar(id);
+		return this;
+	}
+	
+	public final Pedido carregar(int id) { // Obtem informacoes do pedido do banco
+		if (atividade == AtividadeAtual.CRIACAO) {
+			throw new IllegalStateException();
+		}
+		atividade = AtividadeAtual.CARREGAMENTO;
+		
+		// TODO CODIGO DE BANCO...
+		// ...
+		// TODO executar setters com dados do banco
+		
+		
+		this.id = id;
+		atividade = AtividadeAtual.VISUALIZACAO;
+		return this;
+	}
+	
+	public final Pedido carregar() {
+		if (atividade == null || atividade == AtividadeAtual.CRIACAO || atividade == AtividadeAtual.CARREGAMENTO) {
+			throw new IllegalStateException();
+		}
+		
+		return this.carregar(this.id);
+	}
+	
+	public final Pedido edicao() { // Entra em modo edicao
+		
+		atividade = AtividadeAtual.EDICAO;
+		return this;
+	}
+	
+	public final Pedido editar() { // Valida dados e atualiza pedido no banco
+		// TODO validadar dados
+		// TODO CODIGO DE BANCO...
+		// ...
+		atividade = AtividadeAtual.VISUALIZACAO;
+		return this;
+	}
+	
+	final Pedido set(Cliente cliente) {
+		checarAtividadeMudanca();
+		
+		if (cliente == null) {
+			throw new IllegalArgumentException(Cliente.MSG_EX_NULL);
+		}
+		
+		this.cliente = cliente;
+		return this;
+	}
+	
+	final Pedido set(Destinatario destinatario) {
+		checarAtividadeMudanca();
+		
+		if (destinatario == null) {
+			throw new IllegalArgumentException(Destinatario.MSG_EX_NULL);
+		}
+		
+		this.destinatario = destinatario;
+		return this;
+	}
+	
+	final Pedido set(Destino destino) {
+		checarAtividadeMudanca();
+		
+		if (destino == null) {
+			throw new IllegalArgumentException(Destinatario.MSG_EX_NULL);
+		}
+		
+		this.destino = destino;
+		return this;
+	}
+	
+	final Pedido set(Filial filialOrigem) {
+		checarAtividadeMudanca();
+		
+		if (filialOrigem == null) {
+			throw new IllegalArgumentException();
+		}
+		
+		this.filialOrigem = filialOrigem;
+		return this;
+	}
+	
+	final Pedido add(Produto produto) {
+		checarAtividadeMudanca();
+		
+		this.produtos.add(produto);
+		return this;
+	}
+	
+	final Pedido add(Produto produto, int quantidade) {
+		checarAtividadeMudanca();
+		
+		this.produtos.add(produto, quantidade);
+		return this;
+	}
+	
+	final Pedido set(Produto produto, int quantidade) {
+		checarAtividadeMudanca();
+		
+		int indexProd = this.produtos.indexOf(produto); // Procura pelo produto
+		
+		if (indexProd != -1) {
+			this.produtos.setQtd(indexProd, quantidade);
+		}
+		
+		return this;
+	}
+	
+	final Pedido remove(Produto produto) {
+		checarAtividadeMudanca();
+		
+		int indexProd = this.produtos.indexOf(produto); // Procura pelo produto
+		if (indexProd != -1) {
+			this.produtos.remove(indexProd);
+		}
+		
+		return this;
+	}
+	
+	final private void checarAtividadeMudanca() {
+		if (atividade == null || atividade == AtividadeAtual.VISUALIZACAO) {
+			throw new IllegalStateException("acao nao permitida. so e possivel alterar o pedido durante a criacao ou em modo edicao");
+		}
+	}
+	
+}

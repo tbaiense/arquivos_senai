@@ -1,0 +1,18 @@
+package japedidos.sistema;
+
+public class Banco {
+
+	public static final Usuario getUsuario(int id) {
+		// TODO puxar usuario do banco
+		// Criar objeto usuario
+		return new Usuario(0, "Thiago"); // Só para demonstraçao
+	}
+	
+	public static final Usuario getUsuarioAtual(int id) {
+		// TODO puxar usuario do banco
+		// Criar objeto usuario
+		Usuario usr = new Usuario(0, "Thiago");
+		usr.set(new Email("emailthiago@email.com"));
+		return  // Só para demonstraçao
+	}
+}

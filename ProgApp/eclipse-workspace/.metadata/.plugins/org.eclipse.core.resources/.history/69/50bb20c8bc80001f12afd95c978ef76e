@@ -1,0 +1,6 @@
+package japedidos.filial;
+
+public class Filial {
+	String nomeFilial, nomeFantasia, razaoSocial
+	Endereco endereco;
+}

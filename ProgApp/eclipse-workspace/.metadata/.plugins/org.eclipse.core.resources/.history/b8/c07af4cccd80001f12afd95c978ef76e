@@ -1,0 +1,32 @@
+package japedidos.cliente;
+
+import japedidos.dados.CPF;
+import japedidos.dados.Telefone;
+
+/**
+ * @author t.baiense
+ */
+public class ClientePF extends Cliente {
+	String nome;
+	String[] telefone;
+	String cpf;
+	
+	public ClientePF(int id, String nome, String telefone) {
+		super(id, TipoCliente.PF);
+		this.nome = nome;
+		this.telefone = new String[1];
+		this.telefone[0] = telefone;
+	}
+	
+	public void set(CPF cpf) {
+		if (cpf != null) {
+			this.cpf = cpf.getNumerico();			
+		}
+	}
+	
+	public void add(Telefone tel) {
+		if (tel != null) {
+			this.telefone[0] = tel.getNumerico();			
+		}
+	}
+}

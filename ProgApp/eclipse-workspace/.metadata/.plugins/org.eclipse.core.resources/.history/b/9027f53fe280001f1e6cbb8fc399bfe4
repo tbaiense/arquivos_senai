@@ -1,0 +1,13 @@
+package org.thiago;
+
+public class Testes {
+
+	
+	// Recebido de Comercializável
+	
+	public static void main(String[] args) {
+		
+	}
+}
+	
+

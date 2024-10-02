@@ -1,0 +1,14 @@
+package org.thiago;
+
+public class Testes implements Comercializavel {
+
+	// Implementação
+	public void vender() {
+		System.out.print("Vendido!");
+	}
+	
+	public static void main(String[] args) {
+		
+	}
+}
+

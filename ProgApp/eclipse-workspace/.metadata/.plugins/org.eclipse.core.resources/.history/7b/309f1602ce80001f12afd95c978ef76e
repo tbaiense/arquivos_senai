@@ -1,0 +1,17 @@
+package japedidos.cliente;
+
+/**
+ * @author t.baiense
+ */
+public class ClientePJ extends Cliente {
+	String cnpj;
+	String nomeFantasia, razaoSocial;
+	
+	public ClientePJ(int id, String nomeFantasia, String razaoSocial, String cnpj) {
+		super(id, TipoCliente.PJ);
+		this.cnpj = cnpj;
+		this.nomeFantasia = nomeFantasia;
+		this.razaoSocial = razaoSocial;
+		this.cnpj = cnpj;
+	};
+}

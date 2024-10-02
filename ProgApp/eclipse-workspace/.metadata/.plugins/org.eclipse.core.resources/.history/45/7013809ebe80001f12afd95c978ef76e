@@ -1,0 +1,25 @@
+package japedidos.pedido;
+
+import japedidos.dados.Endereco;
+
+public class Destino extends Endereco {
+	public String infoAdicional;
+	private static String DEFAULT_ESTADO = "Espírito Santo";
+	private static String DEFAULT_PAIS = "Brasil";
+	
+	public Destino(String rua, String numero, String bairro, String cidade, String estado, String pais) {
+		super(rua, numero, bairro, cidade, estado, pais);
+	}
+	
+	public Destino(String rua, String numero, String bairro, String cidade) {
+		super(rua, numero, bairro, cidade, DEFAULT_ESTADO, DEFAULT_PAIS);
+	}
+	
+	public Destino(String rua, String numero, String bairro, String cidade, String estado) {
+		super(rua, numero, bairro, cidade, estado, DEFAULT_PAIS);
+	}
+	
+	void setInfoAdicional(String info) {
+		this.infoAdicional = info;
+	}
+}

@@ -1,0 +1,7 @@
+package org.thiago;
+
+public interface Cadastravel {
+	public static final int id=1;
+	
+	public abstract void cadastrar();
+}

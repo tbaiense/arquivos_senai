@@ -1,0 +1,6 @@
+package japedidos.pedido;
+import japedidos.produto.Produto;
+
+public interface ProdutoFunction {
+	Produto executar(int index);
+}

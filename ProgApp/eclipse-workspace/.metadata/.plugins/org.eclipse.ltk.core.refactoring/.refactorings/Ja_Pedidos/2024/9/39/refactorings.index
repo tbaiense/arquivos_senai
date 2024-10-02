@@ -1,0 +1,21 @@
+1727096820876	Rename field 'listaProdutos'
+1727096831621	Rename local variable 'listaProdutos'
+1727096895318	Rename type 'ItemListaProduto'
+1727096920798	Rename type 'ListaProdutosPedido'
+1727097149921	Rename field 'tamanho'
+1727097168825	Rename local variable 'tamanho'
+1727097181912	Rename method 'setTamanho'
+1727098486135	Rename field 'solicitante'
+1727290053050	Move compilation units
+1727290057764	Delete element
+1727290091017	Rename package 'japedidos.pedido.cliente'
+1727290153755	Rename package 'japedidos.sistema.preferencias'
+1727290201596	Delete element
+1727290210449	Delete element
+1727290231982	Delete elements
+1727290236771	Delete element
+1727290506096	Rename method 'push'
+1727293956852	Rename method 'append'
+1727377704878	Rename type 'CadastrarPedido'
+1727378625387	Rename type 'ClientePessoaFisica'
+1727378633309	Rename type 'ClientePessoaJuridica'

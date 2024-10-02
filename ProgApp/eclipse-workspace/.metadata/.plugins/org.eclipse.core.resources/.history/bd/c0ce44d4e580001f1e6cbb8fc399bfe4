@@ -1,0 +1,11 @@
+package org.thiago;
+
+public class Testes {
+	
+	public static void main(String[] args) {
+		TesteMesmoPacote t = new TesteMesmoPacote();
+		TesteMesmoPacote.AninhadaStatica.metStatica();
+	}
+}
+	
+

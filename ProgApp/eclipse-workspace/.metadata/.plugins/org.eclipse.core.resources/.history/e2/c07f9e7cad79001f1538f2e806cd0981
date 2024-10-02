@@ -1,0 +1,153 @@
+package japedidos.pedido;
+
+import japedidos.produto.Produto;
+
+class ProdutoPedido {
+	private final Produto produto;
+	private int quantidade;
+	
+	ProdutoPedido(Produto produto, int quantidade) {
+		if(produto == null) {
+			throw new NullPointerException("Produto não pode ser nulo.");
+		}
+		
+		if(quantidade <= 0) {
+			throw new IllegalArgumentException("Quantidade deve ser maior que zero.");
+		}
+		
+		this.produto = produto;
+		this.quantidade = quantidade;
+	}
+	
+	public Produto getProduto() {
+		return this.produto;
+	}
+	
+	public int getQuantidade() {
+		return this.quantidade;
+	}
+
+	// totalVenda();
+	// totalCusto();
+}
+
+public class ProdutosPedido {
+	private ProdutoPedido[] itens; //Deve ter tamanho fixo ao ser criado e não conterá null
+	private int tamanho; // Quantidade de itens distintos
+	
+	ProdutosPedido(Produto produto, int quantidade) {
+		this(new ProdutoPedido(produto, quantidade));
+	}
+	
+	ProdutosPedido(ProdutoPedido item) {
+		
+		this.itens = new ProdutoPedido[1];
+		put(item, 0);
+		this.tamanho = 1;
+	}
+	
+	ProdutosPedido(ProdutoPedido[] itens) {
+		validateItens(itens); // Throw se itens for null
+			
+		this.itens = new ProdutoPedido[itens.length]; // Garantido não conter nulos
+		this.tamanho = itens.length;
+		
+		for(int i=0; i < itens.length; i++) {
+			ProdutoPedido item = itens[i];
+			put(item, i); // Valida index e item
+		}
+		
+		
+	}
+	
+	private void put(ProdutoPedido item, int index) { // Colocar item não existente na lista
+		validateItens(itens); // Throw se itens for null
+		validateIndex(index); // Throw se index for inválido
+		validateItem(item); // Throw se item for null
+		
+		this.itens[index] = item;
+	}
+	
+	public ProdutoPedido getItem(int index) {
+		validateItens(itens); // Throw se itens for null
+		validateIndex(index); // Throw se index for inválido
+		
+		return this.itens[index];
+	}
+	
+	public int indexOf(ProdutoPedido item) {
+		validateItens(this.itens); // Throw se itens for null
+		validateItem(item); // Throw se item for null
+		
+		for(int i=0; i < this.tamanho; i++) {
+			if (getItem(i).equals(item)) {
+				return i;
+			}
+		}
+		return -1;
+	}
+	
+	public void push(ProdutoPedido item) {
+		validateItens(this.itens); // Throw se itens for null
+		validateItem(item); // Throw se item inválido
+		
+		if (indexOf(item) == -1) { // Se não encontrado na lista
+			int novoTamanho = this.tamanho+1;
+			ProdutoPedido[] novosItens = new ProdutoPedido[novoTamanho];
+			int i;
+			for(i=0; i < this.tamanho; i++) {
+				novosItens[i] = this.itens[i];
+			}
+			novosItens[i] = item;
+			this.itens = novosItens;
+			setTamanho(novoTamanho);
+		} else {
+			throw new IllegalArgumentException("não é possível adicionar um item já existente na lista.");
+		}
+		
+	}
+	
+	public void remove(ProdutoPedido itemRemover) { //TODO: impedir de retirar todos os itens da lista
+		validateItens(this.itens); // Throw se itens for null
+		validateItem(itemRemover); // Throw se item inválido
+		
+		int novoTamanho = this.tamanho-1;
+		ProdutoPedido[] novosItens = new ProdutoPedido[novoTamanho];
+		
+		
+		for(int n=0,v=0; v < this.tamanho; v++) {
+			ProdutoPedido atual = this.itens[v];
+			if(!atual.equals(itemRemover)) { // Se item da lista é diferente do a ser removido, adiciona à nova lista
+				novosItens[n] = atual;
+				n++; // Só avança a posição se o item adicionado não for o a ser removido
+			}
+		}
+		this.itens = novosItens;	
+		setTamanho(novoTamanho);
+	}
+	
+	// totalVenda();
+	// totalCusto();
+	
+	private void setTamanho(int tamanho) {
+		this.tamanho = tamanho;
+	}
+	
+	private void validateItens(ProdutoPedido[] itens) {
+		if (itens == null) {
+			throw new IllegalStateException("array de itens não pode ser nulo");
+		}
+	}
+	
+	private void validateItem(ProdutoPedido item) {
+		if (item == null) {
+			throw new NullPointerException("item não pode ser nulo.");
+		}
+	}
+	
+	private void validateIndex(int index) {
+		if(index < 0 || index > this.tamanho) {
+			throw new IllegalArgumentException("Indice fora do intervalo do vetor");
+		}
+	}
+}

@@ -1,0 +1,23 @@
+package japedidos.cliente;
+
+import japedidos.pedido.Pedido;
+
+enum TipoCliente {PJ, PF}
+
+/**
+ * @author t.baiense
+ */
+public abstract class Cliente {
+	Pedido ultimoPedido;
+	final TipoCliente tipo;
+	final int id;
+	
+	public Cliente(int id, TipoCliente tipo) {
+		this.id = id;
+		this.tipo = tipo;
+	}
+	
+	public boolean ePF() {
+		
+	}
+}

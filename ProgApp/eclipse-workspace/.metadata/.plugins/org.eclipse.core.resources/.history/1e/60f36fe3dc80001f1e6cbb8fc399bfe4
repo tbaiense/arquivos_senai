@@ -1,0 +1,5 @@
+package japedidos.sistema;
+
+public class UsuarioAtual extends Usuario {
+
+}

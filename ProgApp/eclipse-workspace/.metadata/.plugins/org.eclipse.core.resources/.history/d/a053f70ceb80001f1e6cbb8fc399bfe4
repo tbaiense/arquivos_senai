@@ -1,0 +1,48 @@
+package japedidos.pedido;
+import japedidos.dados.Telefone;
+/**
+ * @author t.baiense
+ */
+
+public class Destinatario {
+	private String nome, info;
+	private Telefone telefone;
+	
+	Destinatario(String nome, Telefone telefone) {
+		setNome(nome);
+		set(telefone);
+	}
+	
+	public final String getNome() {
+		return this.nome;
+	}
+	
+	
+	public final Telefone getTelefone() {
+		return this.telefone;
+	}
+	
+	public final String getInfo() {
+		return this.info;
+	}
+	
+	public final void setNome(String nome) {
+		if(nome != null) {
+			this.nome = nome;
+		}
+	}
+
+	public final void set(Telefone tel) {
+		if(tel != null) {
+			this.telefone = tel;			
+		}
+	}
+	
+	public final void setInfo(String info) {
+		if(info != null) {
+			this.info = info;		
+		}
+	}
+	
+	public static final String MSG_EX_NULL = "o cliente e nulo";
+}

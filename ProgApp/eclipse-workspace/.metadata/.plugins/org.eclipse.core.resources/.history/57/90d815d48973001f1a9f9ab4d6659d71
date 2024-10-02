@@ -1,0 +1,24 @@
+package org.thiago;
+
+import java.io.DataInputStream;
+import java.io.IOException;
+
+public class Teste {
+	
+	public static void main(String[] args) throws IOException {
+		
+	}
+	
+	private static void telaCliente() {
+		String nome, tel;
+		int id;
+		
+		// Receber nome do cliente
+		System.out.print("telefone do cliente: ");
+		try {
+			DataInputStream in = new DataInputStream(System.in);
+			tel = in.readLine();
+			Cliente.validateTel(tel); // Checa se telefone maior que 8 caracteres
+		}
+	}
+}

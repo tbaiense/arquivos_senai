@@ -1,0 +1,22 @@
+package japedidos.pedido;
+import japedidos.cliente.Telefone;
+/**
+ * @author t.baiense
+ */
+public class Destinatario {
+	private String nome, info, telefone;
+	
+	Destinatario(String nome, String telefone, String info) {
+		setNome(nome);
+		this.telefone = Telefone.toNumerico(telefone);
+		this.info = info;
+	}
+	
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	
+	public void setTelefone() {
+		
+	}
+}

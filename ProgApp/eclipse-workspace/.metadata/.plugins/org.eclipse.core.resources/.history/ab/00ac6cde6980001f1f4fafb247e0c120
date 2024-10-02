@@ -1,0 +1,17 @@
+package japedidos.pedido;
+import japedidos.cliente.Telefone;
+/**
+ * @author t.baiense
+ */
+public class Destinatario {
+	String nome, info;
+	Telefone telefone;
+	
+	Destinatario(String nome, String telefone, info) {
+		
+	}
+	
+	setNome() {
+		
+	}
+}

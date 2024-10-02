@@ -1,0 +1,5 @@
+package japedidos.pedido;
+
+public class Destino {
+
+}

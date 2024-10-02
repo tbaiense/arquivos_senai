@@ -1,0 +1,12 @@
+package org.thiago;
+
+public class TesteMesmoPacote {
+	
+	class Produto implements Cadastravel {
+		
+	}
+	
+	public static void main(String[] args) {
+		
+	}
+}

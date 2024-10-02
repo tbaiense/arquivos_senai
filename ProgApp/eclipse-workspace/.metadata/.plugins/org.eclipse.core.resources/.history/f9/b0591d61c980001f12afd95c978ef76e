@@ -1,0 +1,13 @@
+package japedidos.pedido;
+
+import japedidos.cliente.*;
+import japedidos.produto.*;
+import japedidos.dados.*;
+
+public class CadastroPedido {
+
+	public static void main(String[] args) {
+		String email = new Email("a@a.i").toString();
+		System.out.print(email);
+	}
+}

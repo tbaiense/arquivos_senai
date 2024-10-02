@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="textio.TextIO"/>
+    <fullyQualifiedTypeName name="thiago.Projeto.Projeto.Veiculo"/>
+    <fullyQualifiedTypeName name="java.util.InputMismatchException"/>
+    <fullyQualifiedTypeName name="java.lang.String"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="java.lang.Character"/>
+    <fullyQualifiedTypeName name="org.thiago.ListaClientes"/>
+    <fullyQualifiedTypeName name="javafx.scene.layout.BorderPane"/>
+    <fullyQualifiedTypeName name="javafx.scene.canvas.Canvas"/>
+    <fullyQualifiedTypeName name="javafx.animation.AnimationTimer"/>
+    <fullyQualifiedTypeName name="org.thiago.CPF"/>
+    <fullyQualifiedTypeName name="pedidos.Pedido"/>
+    <fullyQualifiedTypeName name="org.thiago.Pessoa"/>
+    <fullyQualifiedTypeName name="validacao.CPF"/>
+    <fullyQualifiedTypeName name="validacao.CNPJ"/>
+    <fullyQualifiedTypeName name="japedidos.pedido.cliente.ClientePessoaFisica"/>
+    <fullyQualifiedTypeName name="japedidos.sistema.preferencias.tipos.PreferenciaString"/>
+    <fullyQualifiedTypeName name="japedidos.cliente.ClientePessoaFisica"/>
+    <fullyQualifiedTypeName name="java.lang.IllegalAccessException"/>
+    <fullyQualifiedTypeName name="java.lang.ArrayIndexOutOfBoundsException"/>
+    <fullyQualifiedTypeName name="java.io.IOException"/>
+    <fullyQualifiedTypeName name="java.io.DataInput"/>
+    <fullyQualifiedTypeName name="java.io.DataInputStream"/>
+    <fullyQualifiedTypeName name="java.lang.IllegalAccessError"/>
+    <fullyQualifiedTypeName name="japedidos.sistema.AtividadeAtual"/>
+    <fullyQualifiedTypeName name="japedidos.dados.Endereco"/>
+    <fullyQualifiedTypeName name="japedidos.dados.Telefone"/>
+    <fullyQualifiedTypeName name="japedidos.filial.Filial"/>
+    <fullyQualifiedTypeName name="java.lang.NullPointerException"/>
+    <fullyQualifiedTypeName name="java.lang.IllegalArgumentException"/>
+    <fullyQualifiedTypeName name="japedidos.dados.CNPJ"/>
+    <fullyQualifiedTypeName name="japedidos.dados.Email"/>
+    <fullyQualifiedTypeName name="org.thiago.TesteMesmoPacote"/>
+    <fullyQualifiedTypeName name="org.thiago.TesteMesmoPacote.AninhadaInstancia"/>
+    <fullyQualifiedTypeName name="org.thiago.TesteMesmoPacote.AninhadaStatica"/>
+    <fullyQualifiedTypeName name="japedidos.sistema.Usuario"/>
+    <fullyQualifiedTypeName name="japedidos.sistema.Usuario.UsuarioAtual"/>
+    <fullyQualifiedTypeName name="japedidos.sistema.Banco"/>
+    <fullyQualifiedTypeName name="java.lang.IllegalStateException"/>
+    <fullyQualifiedTypeName name="japedidos.sistema.Usuario.Atual"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="jogo.Jogo.Jogador"/>
+    <fullyQualifiedTypeName name="jogo.Boliche.Jogador"/>
+</qualifiedTypeNameHistroy>

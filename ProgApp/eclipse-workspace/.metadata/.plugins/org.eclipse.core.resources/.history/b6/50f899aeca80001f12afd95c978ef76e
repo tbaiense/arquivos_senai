@@ -1,0 +1,80 @@
+package japedidos.dados;
+
+public class Email {
+	final String endereco;
+	final String provedor;
+	
+	public Email(String email) {
+		// TODO validar endereco, validar provedor...
+		this.endereco = toEndereco(email);
+		this.provedor = toProvedor(email);
+	}
+	
+	public static String toEndereco(String email) {
+		if (email == null) {
+			throw new NullPointerException();
+		}
+		
+		email = email.trim();
+		
+		if(email.indexOf('@') == -1) {
+			throw new IllegalArgumentException();
+		}
+		
+		StringBuilder strEnd = new StringBuilder();
+		
+		for(int i=0; i < email.length(); i++) {
+			char c = email.charAt(i);
+			if(Character.isDigit(c) || c == '.' || c == '-' || ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')) ) {
+				strEnd.append(c);
+			} else if (c == '@') {
+				break;
+			} else {
+				throw new IllegalArgumentException();
+			}
+		}
+		
+		return strEnd.toString();
+	}
+	
+	public static String toProvedor(String email) {
+		if (email == null) {
+			throw new NullPointerException();
+		}
+		
+		email = email.trim();
+		int indexAt = email.indexOf('@');
+		if(indexAt == -1 || indexAt == 0 || indexAt > email.length()-5) {
+			throw new IllegalArgumentException();
+		}
+		
+		StringBuilder strProv = new StringBuilder();
+		
+		for(int i=indexAt+1; i < email.length(); i++) {
+			char c = email.charAt(i);
+			if(Character.isDigit(c) || c == '.' || c == '-' || ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')) ) {
+				if(c == '.' || c == email.charAt(i-1) )
+				strProv.append(c);
+			} else if (c == '@') {
+				break;
+			} else {
+				throw new IllegalArgumentException();
+			}
+		}
+		
+		String prov = strProv.toString();
+		boolean temDominio = false;
+		int indexTopLevelDomain = prov.lastIndexOf('.');
+		if(indexTopLevelDomain == -1 || indexTopLevelDomain == prov.length()-2) {
+			throw new IllegalArgumentException("provedor sem domínio");
+		}
+		
+		
+		
+		return ;
+	}
+	
+	public String toString() {
+		return String.format("%s@%s", endereco, provedor);
+	}
+}

@@ -1,0 +1,8 @@
+package japedidos.sistema;
+
+public class Banco {
+
+	public static final Usuario getUsuario(int id) {
+		return new Usuario(0, "Thiago"); // Só para demonstraçao
+	}
+}

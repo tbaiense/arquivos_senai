@@ -1,0 +1,14 @@
+package japedidos.cliente;
+
+public class Telefone {
+	String numerico;
+	
+	public Telefone(String telefone) {
+		if(telefone == null) {
+			throw new IllegalArgumentException();
+		}
+		this.numerico = telefone;
+	}
+	
+	public final String MSG_EX_TELEFONE_NULL = "o cliente e nulo";
+}

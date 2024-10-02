@@ -1,0 +1,13 @@
+package org.thiago;
+
+public interface Dirigivel {
+	void mover();
+	
+	default void buzinar() {
+		System.out.print(buzinarStr());
+	}
+	
+	default String buzinarStr() {
+		return "BI-BI!";
+	}
+}

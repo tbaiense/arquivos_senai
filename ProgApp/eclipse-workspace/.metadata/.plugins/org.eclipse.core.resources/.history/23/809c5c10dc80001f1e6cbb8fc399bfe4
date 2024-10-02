@@ -1,0 +1,26 @@
+package japedidos.cliente;
+
+import japedidos.dados.Telefone;
+import japedidos.dados.CNPJ;
+
+/**
+ * @author t.baiense
+ */
+public class ClientePJ extends Cliente {
+	CNPJ cnpj;
+	String nomeFantasia, razaoSocial;
+	Telefone[] telefone;
+	
+	public ClientePJ(int id, String nomeFantasia, String razaoSocial, CNPJ cnpj) {
+		super(id, TipoCliente.PJ);
+		this.cnpj = cnpj;
+		this.nomeFantasia = nomeFantasia;
+		this.razaoSocial = razaoSocial;
+	};
+	
+	public void add(Telefone tel) {
+		if (tel != null) {
+			this.telefone[0] = tel;	
+		}
+	}
+}

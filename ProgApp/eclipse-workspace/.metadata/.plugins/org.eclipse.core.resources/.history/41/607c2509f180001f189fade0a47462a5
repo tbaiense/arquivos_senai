@@ -1,0 +1,16 @@
+package jogo;
+
+public class Boliche extends Jogo {
+
+	Boliche() {
+		super(TipoJogo.BOLICHE, 10, 60);
+	}
+	
+	public class Jogador extends Jogo.Jogador {
+		int bolas;
+		
+		Jogador(String nome, int idade, int bolas) {
+			
+		}
+	}
+}

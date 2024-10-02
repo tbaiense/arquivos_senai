@@ -1,0 +1,21 @@
+package org.thiago;
+
+public class TesteMesmoPacote {
+	
+	public TesteMesmoPacote() {
+		// TODO Auto-generated constructor stub
+		this.prod = new Produto();
+	}
+	
+	class Produto implements Cadastravel {
+		public void cadastrar() {
+			System.out.print("Cadastrado!");
+		}
+	}
+	
+	Produto prod;
+	
+	public static void main(String[] args) {
+		TesteMesmoPacote t = new TesteMesmoPacote();
+	}
+}

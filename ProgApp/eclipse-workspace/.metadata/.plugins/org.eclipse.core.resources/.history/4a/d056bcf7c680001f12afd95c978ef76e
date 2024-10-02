@@ -1,0 +1,43 @@
+package japedidos.dados;
+
+public class Email {
+	String endereco;
+	String provedor;
+	
+	public Email(String email) {
+		// TODO validar endereco, validar provedor...
+		this.endereco = toEndereco(email);
+		this.provedor = "provedor.com.br";
+	}
+	
+	public static String toEndereco(String email) {
+		if (email == null) {
+			throw new NullPointerException();
+		}
+		
+		email = email.trim();
+		
+		if(email.indexOf('@') == -1) {
+			throw new IllegalArgumentException();
+		}
+		
+		StringBuilder strEnd = new StringBuilder();
+		
+		for(int i=0; i < email.length(); i++) {
+			char c = email.charAt(i);
+			if(Character.isDigit(c) || Character.isLetter(c) && ((&& c >= 'A') || c == '.' || c == '-')) {
+				strEnd.append(c);
+			} else if (c == '@') {
+				break;
+			} else {
+				throw new IllegalArgumentException();
+			}
+		}
+		
+		return strEnd.toString();
+	}
+	
+	public String toString() {
+		return String.format("%s@%s", endereco, provedor);
+	}
+}

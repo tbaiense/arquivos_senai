@@ -1,0 +1,5 @@
+package org.thiago;
+
+public interface ExecutarArray {
+	double executar(double d);
+}

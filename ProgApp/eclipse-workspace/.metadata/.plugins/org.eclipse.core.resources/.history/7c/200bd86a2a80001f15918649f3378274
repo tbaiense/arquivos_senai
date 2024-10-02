@@ -1,0 +1,17 @@
+package org.thiago;
+
+public class Testes implements Comercializavel {
+
+	// Implementação
+	public void vender() {
+		System.out.print("Vendido!");
+	}
+	
+	// Recebido de Comercializável
+	
+	public static void main(String[] args) {
+		Testes teste = new Testes();
+		System.out.print(teste.cambioDolar(5));
+	}
+}
+

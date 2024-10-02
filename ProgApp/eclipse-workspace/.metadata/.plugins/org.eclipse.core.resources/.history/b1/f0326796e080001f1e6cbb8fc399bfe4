@@ -1,0 +1,22 @@
+package japedidos.sistema;
+
+public class UsuarioAtual extends Usuario {
+	private static String nome;
+	private static String login;
+	private static String email;
+	private static int id;
+	
+	UsuarioAtual(Usuario atual) {
+		super(atual.id, atual.nome);
+		super.login = atual.login;
+		super.email = atual.email;
+		nome = super.nome;
+		login = super.login;
+		id = super.id;
+		email = super.email;
+	}
+	
+	public final UsuarioAtual inicializar(Usuario atual) {
+
+	}
+}

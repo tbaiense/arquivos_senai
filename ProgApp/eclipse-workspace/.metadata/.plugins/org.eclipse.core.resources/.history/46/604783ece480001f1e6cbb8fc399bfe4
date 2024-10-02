@@ -1,0 +1,23 @@
+package org.thiago;
+
+public class TesteMesmoPacote {
+	
+	public class AninhadaInstancia {
+		public int intInstancia = 1;
+		
+		public void metInstancia() {
+			System.out.print("Sou um instancia aninhada!");
+		}
+	}
+	
+	static public class AninhadaStatica {
+		public static int intStatica = 2;
+		
+		public 
+	}
+	
+	public static void main(String[] args) {
+		
+	
+	}
+}

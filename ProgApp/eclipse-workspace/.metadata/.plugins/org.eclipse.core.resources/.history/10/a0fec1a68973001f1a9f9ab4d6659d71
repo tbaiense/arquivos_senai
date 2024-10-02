@@ -1,0 +1,18 @@
+package org.thiago;
+
+import java.io.DataInputStream;
+import java.io.IOException;
+
+public class Teste {
+	
+	public static void main(String[] args) throws IOException {
+		ListaPedidos.push(new Pedido());
+		ListaPedidos.push(new Pedido());
+		ListaPedidos.push(new Pedido());
+		ListaPedidos.push(new Pedido());
+		ListaPedidos.push(new Pedido("thiago", "999694568", "hamburger e acai"));
+		ListaPedidos.push(new Pedido("rozana", "534534554", "peixe"));
+		ListaPedidos.push(new Pedido("thiago", "2313214554", "macarrao e acai"));
+		System.out.print(ListaPedidos.getPedido(4).getCliente());
+	}
+}

@@ -1,0 +1,24 @@
+package org.thiago;
+
+public class Testes implements Comercializavel {
+
+	// Implementação
+	public void vender() {
+		System.out.print("Vendido!");
+	}
+	
+	// Recebido de Comercializável
+	
+	public static void main(String[] args) {
+		Testes teste = new Testes();
+		System.out.print(teste.cambioDolar(5.17));
+	}
+	
+	
+	public static double[] doForEach(double[] a, ExecutarArray e) {
+		for(int i = 0; i < a.length; i++) {
+			 a[i] = e.executar(a[i]);
+		}
+	}
+}
+

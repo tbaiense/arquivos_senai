@@ -1,0 +1,13 @@
+package org.thiago;
+
+public class Testes {
+
+	public static void main(String[] args) {
+		Runnable jogo = () -> {
+			System.out.print("josé do arroiz");
+			int i = "jose".length();
+		};
+		jogo.run();
+	}
+}
+

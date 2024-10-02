@@ -1,0 +1,23 @@
+1726366107894	Delete element
+1726367444984	Rename field 'pedidos'
+1726367473120	Rename method 'getPedido'
+1726368478246	Rename local variable 'resultado'
+1726422158682	Rename method 'telaCliente'
+1726426052891	Rename local variable 'p'
+1726433575569	Rename method 'telaReceberProdutos'
+1726433844961	Rename local variable 'endereco'
+1726433853759	Rename local variable 'lastEndereco'
+1726435786240	Move compilation units
+1726435816508	Move compilation units
+1726435840851	Rename type 'Teste'
+1726435845555	Move compilation unit
+1726581073280	Rename field 'numeros'
+1726581514641	Rename method 'toNumeros'
+1726590907908	Move compilation unit
+1726590950124	Move compilation unit
+1726593411112	Rename local variable 'lastDestinatario'
+1726593512701	Rename local variable 'cpf'
+1726715688884	Move compilation unit
+1726745328976	Delete element
+1726754878014	Copy compilation units
+1726754962645	Copy compilation unit

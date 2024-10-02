@@ -1,0 +1,35 @@
+package org.thiago;
+
+public class TesteMesmoPacote {
+	
+	public TesteMesmoPacote() {
+		// TODO Auto-generated constructor stub
+		this.prod = new Produto();
+		this.prod.cadastrar();
+	}
+	
+	class Produto implements Cadastravel {
+		Cadastravel modo;
+		public void cadastrar() {
+			modo.cadastrar();
+		}
+	}
+	
+	Produto prod;
+	
+	public static void main(String[] args) {
+		TesteMesmoPacote t = new TesteMesmoPacote();
+		
+		t.prod.modo = definirModo();
+		
+		t.prod.cadastrar();
+	
+	}
+	
+	public static Cadastravel definirModo() {
+		return switch((int)(Math.random() * 2)) {
+			case 1 -> () -> System.out.print("Cadastrado no modo 1");
+			default -> () -> System.out.print("Cadastrado no modo padrão");
+		};
+	}
+}

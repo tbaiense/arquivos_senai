@@ -1,0 +1,47 @@
+package japedidos.dados;
+
+/**
+ * @author t.baiense
+ */
+public class Telefone {
+	public final String numerico;
+	public final static int TAM_MAX = 14;
+	public final String codigoArea;
+	public String descricao;
+	
+	public Telefone(String telefone) {
+		this(telefone, "");
+	}
+	
+	public Telefone(String telefone, String codigoArea) {
+		this.codigoArea = codigoArea;
+		this.numerico = String.format("%s%s", codigoArea, toNumerico(telefone));
+	}
+	
+	public final void setDescricao(String desc) {
+		if( desc != null) {
+			this.descricao = desc;			
+		}
+	}
+	
+	public static String toNumerico(String telefone) { // TODO remover pontuação e outras coisas
+		if(telefone == null) {
+			throw new IllegalArgumentException(MSG_EX_TELEFONE_NULL);
+		}
+		
+		telefone = telefone.trim();
+		
+		if (telefone.length() > TAM_MAX) {
+			throw new IllegalArgumentException(MSG_EX_TELEFONE_TAM_MAX);
+		}
+		
+		return telefone;
+	}
+	
+	public String getNumerico() {
+		return this.numerico;
+	}
+	
+	public final static String MSG_EX_TELEFONE_TAM_MAX = "numero maximo de digitos de telefone excedido";
+	public final static String MSG_EX_TELEFONE_NULL = "o telefone e nulo";
+}

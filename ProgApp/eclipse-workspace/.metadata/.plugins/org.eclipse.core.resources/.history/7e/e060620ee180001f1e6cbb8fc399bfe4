@@ -1,0 +1,27 @@
+package japedidos.sistema;
+
+import japedidos.dados.Email;
+
+/**
+ * @author t.baiense
+ */
+public class Usuario {
+	String nome;
+	String login;
+	String email;
+	int id;
+	
+	public Usuario(int id, String nome) {
+		if(nome == null) {
+			throw new NullPointerException();
+		}
+		
+		this.id = id;
+		this.nome = nome;
+	}
+	
+	public final void set(Email email) {
+		this.email = email.toString();
+	}
+	
+}

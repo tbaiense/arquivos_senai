@@ -1,0 +1,43 @@
+1726754839233	Delete element
+1726754958349	Delete element
+1726755166345	Rename package 'atores'
+1726755197957	Copy compilation unit
+1726755215697	Delete element
+1726755220386	Move compilation unit
+1726755230211	Move compilation units
+1726755468478	Delete element
+1726755494875	Copy package
+1726755526631	Delete element
+1726755545203	Rename package 'sistema'
+1726755611538	Rename package 'dados'
+1726755684238	Rename package 'ator.sistema'
+1726755710686	Rename package 'ator.pedido'
+1726755753618	Rename package 'ator.dados'
+1726756651349	Rename package 'japedidos.ator.pedido'
+1726756777889	Rename package 'japedidos.pedido.produto'
+1726756816843	Move compilation units
+1726756868470	Rename package 'japedidos.pedido'
+1726763434157	Move compilation units
+1726763870814	Copy package
+1726767819076	Rename local variable 'item'
+1726768084381	Move compilation unit
+1726768148803	Rename type 'ListaProdutos'
+1726771621784	Move compilation unit
+1726771655270	Move compilation unit
+1726773002017	Rename local variable 'primeiro'
+1726798817098	Move compilation unit
+1726798915302	Rename package 'japedidos.sistema.preferencia'
+1726799587976	Rename compilation unit 'Preferencias.java'
+1726800137210	Delete element
+1726800342377	Move compilation units
+1726801834597	Move compilation unit
+1726801919346	Rename type 'PreferenciasUsuario'
+1726801935524	Rename type 'PreferenciasSistema'
+1726804599510	Rename method 'setItem'
+1726804648301	Rename method 'removeItem'
+1726804915131	Rename method 'getPreco'
+1726887771452	Delete element
+1726887891290	Move compilation unit
+1726887896956	Delete element
+1726889917141	Delete element
+1726890036156	Delete elements

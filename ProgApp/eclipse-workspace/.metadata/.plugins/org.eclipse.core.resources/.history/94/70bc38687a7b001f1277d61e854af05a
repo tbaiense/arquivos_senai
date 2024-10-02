@@ -1,0 +1,186 @@
+package japedidos.pedido;
+
+import japedidos.produto.Produto;
+
+class ProdutoPedido {
+	private final Produto produto;
+	private double quantidade;
+	
+	ProdutoPedido(Produto produto, double quantidade) {
+		if(produto == null) {
+			throw new NullPointerException("Produto não pode ser nulo.");
+		}
+		// TODO verificar se o valor de quantidade informada é aplicável à unidade do produto
+		if(quantidade <= 0) {
+			throw new IllegalArgumentException("Quantidade deve ser maior que zero.");
+		}
+		
+		this.produto = produto;
+		this.quantidade = quantidade;
+	}
+	
+	Produto getProduto() {
+		return this.produto;
+	}
+	
+	double getQuantidade() {
+		return this.quantidade;
+	}
+
+	void setQuantidade(int q) {
+		if(q <= 0)
+			throw new IllegalArgumentException("quantidade nao pode ser inferior a 1");
+		
+		this.quantidade = q;
+	}
+	// totalVenda();
+	// totalCusto();
+}
+
+public class ProdutosPedido {
+	private ProdutoPedido[] itens; //Deve ter tamanho fixo ao ser criado e não conterá null
+	private int quantidade; // Quantidade de itens distintos
+	
+	ProdutosPedido () {}
+	
+	ProdutosPedido(Produto produto, double quantidade) {
+		this(new ProdutoPedido(produto, quantidade));
+	}
+	
+	private ProdutosPedido(ProdutoPedido item) {
+		
+		this.itens = new ProdutoPedido[1];
+		put(item, 0);
+		this.quantidade = 1;
+	}
+	
+	private ProdutosPedido(ProdutoPedido[] itens) {
+		validateItens(itens); // Throw se itens for null
+			
+		this.itens = new ProdutoPedido[itens.length]; // Garantido não conter nulos
+		this.quantidade = itens.length;
+		
+		for(int i=0; i < itens.length; i++) {
+			ProdutoPedido item = itens[i];
+			put(item, i); // Valida index e item
+		}
+		
+		
+	}
+	
+	private void put(ProdutoPedido item, int index) { // Colocar item não existente na lista
+		validateItens(itens); // Throw se itens for null
+		validateIndex(index); // Throw se index for inválido
+		validateItem(item); // Throw se item for null
+		
+		this.itens[index] = item;
+	}
+	
+	public ProdutoPedido getItem(int index) {
+		validateItens(itens); // Throw se itens for null
+		validateIndex(index); // Throw se index for inválido
+		
+		return this.itens[index];
+	}
+	
+	public Produto getProduto(int index) {
+		validateIndex(index);
+		return this.itens[index].getProduto();
+	}
+	
+	public int indexOf(ProdutoPedido item) {
+		validateItens(this.itens); // Throw se itens for null
+		validateItem(item); // Throw se item for null
+		
+		for(int i=0; i < this.quantidade; i++) {
+			if (getItem(i).equals(item)) {
+				return i;
+			}
+		}
+		return -1;
+	}
+	
+	public void add(Produto produto, int quantidade) {
+		int i;
+		boolean found = false;
+		for(i=0; i < itens.length; i++) {
+			if(itens[i].getProduto().id == produto.id) {
+				found = true;
+				break;
+			}
+		}
+		
+		if(found) {
+			quantidade += itens[i].getQuantidade();
+			setQuantidade(i, quantidade);
+		} else {
+			this.append(new ProdutoPedido(produto, quantidade));
+		}
+	}
+	
+	private void append(ProdutoPedido item) {
+		if(item == null) 
+			throw new IllegalArgumentException("item não pode ser nulo");
+		if (itens != null) {
+			int novoTamanho = this.quantidade+1;
+			ProdutoPedido[] novosItens = new ProdutoPedido[novoTamanho];
+			int i;
+			for(i=0; i < this.quantidade; i++) {
+				novosItens[i] = this.itens[i];
+			}
+			novosItens[i] = item;
+			this.itens = novosItens;
+			this.quantidade = novoTamanho;
+		} else {
+			itens = new ProdutoPedido[1];
+			itens[0] = item;
+		}
+	}
+	
+	public void remove(ProdutoPedido itemRemover) { //TODO: impedir de retirar todos os itens da lista
+		validateItens(this.itens); // Throw se itens for null
+		validateItem(itemRemover); // Throw se item inválido
+		
+		int novoTamanho = this.quantidade-1;
+		ProdutoPedido[] novosItens = new ProdutoPedido[novoTamanho];
+		
+		
+		for(int n=0,v=0; v < this.quantidade; v++) {
+			ProdutoPedido atual = this.itens[v];
+			if(!atual.equals(itemRemover)) { // Se item da lista é diferente do a ser removido, adiciona à nova lista
+				novosItens[n] = atual;
+				n++; // Só avança a posição se o item adicionado não for o a ser removido
+			}
+		}
+		this.itens = novosItens;	
+		this.quantidade = novoTamanho;
+	}
+	
+	// totalVenda();
+	// totalCusto();
+	
+	public void setQuantidade(int index, int quantidade) { // Seta o valor de quantidade de dado produto
+		if (index < 0 || index >= this.itens.length)
+			throw new IllegalArgumentException("indice deve ter valor entre 0 e o ultimo indice");
+		this.itens[index].setQuantidade(quantidade);
+	}
+
+	
+	private void validateItens(ProdutoPedido[] itens) {
+		if (itens == null) {
+			throw new IllegalStateException("array de itens não pode ser nulo");
+		}
+	}
+	
+	private void validateItem(ProdutoPedido item) {
+		if (item == null) {
+			throw new NullPointerException("item não pode ser nulo.");
+		}
+	}
+	
+	private void validateIndex(int index) {
+		if(index < 0 || index > this.quantidade) {
+			throw new IllegalArgumentException("Indice fora do intervalo do vetor");
+		}
+	}
+}

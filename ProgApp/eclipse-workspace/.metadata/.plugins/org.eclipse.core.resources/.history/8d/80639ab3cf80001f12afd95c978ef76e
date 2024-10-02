@@ -1,0 +1,68 @@
+package japedidos.filial;
+
+import japedidos.dados.Endereco;
+import japedidos.dados.CNPJ;
+import japedidos.dados.Telefone;
+import japedidos.dados.Email;
+
+/**
+ * @author t.baiense
+ */
+public class Filial {
+	final int id;
+	String nome, nomeFantasia, razaoSocial;
+	CNPJ cnpj;
+	Endereco endereco;
+	Telefone telefone;
+	Email email;
+	
+	public Filial(int id, String nome) {
+		if (nome == null) {
+			throw new NullPointerException();
+		}
+		this.id = id;
+		this.nome = nome;
+	};
+	
+	public void set(CNPJ cnpj) {
+		if (cnpj != null) {
+			this.cnpj = cnpj.getNumerico();			
+		}
+	}
+	
+	public void setNome(String nome) {
+		if (nome != null) {
+			this.nome = nome;
+		}
+	}
+	
+	public void setNomeFantasia(String nomeFant) {
+		if (nomeFant != null) {
+			this.nomeFantasia = nomeFant;
+		}
+	}
+	
+	public void setRazaoSocial(String razaoSoc) {
+		if (razaoSoc != null) {
+			this.razaoSocial = razaoSoc;			
+		}
+	}
+	
+	public void set(Endereco endereco) {
+		if (endereco != null) {
+			this.endereco = endereco;			
+		}
+	}
+	
+	public void set(Telefone tel) {
+		if (tel != null) {
+			this.telefone = tel;			
+		}
+	}
+	
+	public void set(Email email) {
+		if (email != null) {
+			this.email = email;		
+		}
+	}
+}

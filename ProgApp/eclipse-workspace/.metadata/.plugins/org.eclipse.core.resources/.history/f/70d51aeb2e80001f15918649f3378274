@@ -1,0 +1,195 @@
+package japedidos.pedido;
+
+import japedidos.produto.Produto;
+
+class ProdutoPedido {
+	private final Produto produto;
+	private int quantidade;
+	
+	ProdutoPedido(Produto produto, int quantidade) {
+		if(produto == null) {
+			throw new NullPointerException("Produto não pode ser nulo.");
+		}
+		// TODO verificar se o valor de quantidade informada é aplicável à unidade do produto
+		if(quantidade <= 0) {
+			throw new IllegalArgumentException("quantidade deve ser maior que zero.");
+		}
+		
+		this.produto = produto;
+		this.quantidade = quantidade;
+	}
+	
+	Produto getProduto() {
+		return this.produto;
+	}
+	
+	int getQtd() {
+		return this.quantidade;
+	}
+
+	void setQtd(int q) {
+		if(q <= 0)
+			throw new IllegalArgumentException("quantidade nao pode ser inferior a 1");
+		
+		this.quantidade = q;
+	}
+	// totalVenda();
+	// totalCusto();
+}
+
+public class ProdutosPedido {
+	private ProdutoPedido[] itens; //Deve ter tamanho fixo ao ser criado e não conterá null
+	private int total=0; // Quantidade de itens distintos
+	
+	
+	ProdutosPedido () {}
+	
+	public void getInfoAll(IntFunction f) {
+		if(!isEmpty()) {
+			for(int i = 0; i < itens.length; i++) {
+				System.out.print(f.executar(i));
+			}
+		}
+	}
+	
+	public void getInfoAll(ProdutoFunction f) {
+		
+	}
+	
+	public int total() {
+		return this.total;
+	}
+	
+	public Produto getProduto(int index) {
+		validateIndex(index);
+		return this.itens[index].getProduto();
+	}
+	
+	public int indexOf(Produto produto) {
+		if(produto == null)
+                    throw new IllegalArgumentException("produto nao pode ser nulo");
+		
+		for(int i=0; i < this.total; i++) {
+			if (getProduto(i).equals(produto)) {
+				return i;
+			}
+		}
+		return -1;
+	}
+	
+    public void add(Produto produto) {
+            this.add(produto, 1);
+        }
+        
+	public void add(Produto produto, int quantidade) { // Controla a adicao ou incremento de produtos
+		if (produto == null)
+			throw new IllegalArgumentException("item não pode ser nulo");
+		
+		if(quantidade <= 0) {
+			throw new IllegalArgumentException("quantidade deve ser maior que zero.");
+		}
+		
+		if (itens != null) {
+                    int i;
+                    for(i=0; i < itens.length; i++) {
+                            if(itens[i].getProduto().id == produto.id) {
+                                quantidade += itens[i].getQtd();
+                                setQtd(i, quantidade);
+                                return;
+                            }
+                    }
+
+                    this.append(new ProdutoPedido(produto, quantidade));
+		} else {
+                    itens = new ProdutoPedido[1];
+                    this.append(new ProdutoPedido(produto, quantidade));
+		}
+	}
+	
+	private void append(ProdutoPedido item) { // Insere novos itens
+            if(item == null) 
+                throw new IllegalArgumentException("item não pode ser nulo");
+            if (itens != null) {
+                int novoTamanho = this.total+1;
+                ProdutoPedido[] novosItens = new ProdutoPedido[novoTamanho];
+                int i;
+                for(i=0; i < this.total; i++) {
+                        novosItens[i] = this.itens[i];
+                }
+                novosItens[i] = item;
+                this.itens = novosItens;
+                this.total = novoTamanho;
+            } else {
+                throw new IllegalStateException("itens nao pode estar vazio");
+            }
+	}
+	
+	public void remove(int index) {
+            validateIndex(index);
+            if (this.total == 1) {
+                this.itens = null;
+                return;
+            }
+            
+            int novoTamanho = this.total-1;
+            ProdutoPedido[] novosItens = new ProdutoPedido[novoTamanho];
+
+
+            for(int n=0,v=0; v < this.total; v++) {
+                if(v != index) { // Se item da lista é diferente do a ser removido, adiciona à nova lista
+                    ProdutoPedido atual = this.itens[v];
+                    novosItens[n] = atual;
+                    n++; // Só avança a posição se o item adicionado não for o a ser removido
+                }
+            }
+            this.itens = novosItens;	
+            this.total = novoTamanho;
+	}
+	
+	// totalVenda();
+	// totalCusto();
+	
+	public void setQtd(int index, int quantidade) { // Seta o valor de quantidade de dado produto
+            if(total == 0) {
+                throw new IllegalStateException("nao e possivel adicionar com itens vazio");
+            }
+           validateIndex(index);
+           
+            this.itens[index].setQtd(quantidade);
+	}
+
+    public int getQtd(int index) {
+        validateItens();
+        validateIndex(index);
+        return this.itens[index].getQtd();
+    }
+
+    public boolean isEmpty() {
+            if(this.itens == null)
+                return true;
+            else
+                return false;
+        }
+        
+	private void validateItens(ProdutoPedido[] itens) {
+            if (itens == null) {
+                throw new IllegalStateException("array de itens nao pode ser nulo");
+            }
+	}
+	
+	private void validateItem(ProdutoPedido item) {
+            if (item == null) {
+                    throw new NullPointerException("item nao pode ser nulo.");
+            }
+	}
+	private void validateItens() {
+            if (this.isEmpty()) {
+                throw new IllegalStateException("array de itens nao pode ser nulo");
+            }
+        }
+	private void validateIndex(int index) {
+            if(index < 0 || index > this.total-1) {
+                throw new ArrayIndexOutOfBoundsException("indice fora do intervalo do vetor");
+            }
+	}
+}

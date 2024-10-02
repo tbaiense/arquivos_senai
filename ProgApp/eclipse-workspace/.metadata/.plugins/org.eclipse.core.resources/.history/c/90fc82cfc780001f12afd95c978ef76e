@@ -1,0 +1,24 @@
+package japedidos.sistema;
+
+/**
+ * @author t.baiense
+ */
+public abstract class Usuario {
+	String nome;
+	String login;
+	String email;
+	int id;
+	
+	public Usuario(int id, String nome) {
+		if(nome == null) {
+			throw new NullPointerException();
+		}
+		
+		this.id = id;
+		this.nome = nome;
+	}
+	
+	public void set(Email email) {
+		
+	}
+}

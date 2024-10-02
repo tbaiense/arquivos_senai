@@ -1,0 +1,9 @@
+package japedidos.pedido;
+
+public class Destino {
+	public final String rua, numero, bairro, cidade, estado, pais;
+	
+	Destino() {
+		
+	}
+}

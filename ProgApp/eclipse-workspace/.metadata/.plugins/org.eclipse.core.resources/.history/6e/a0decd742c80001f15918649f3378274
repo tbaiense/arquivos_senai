@@ -1,0 +1,42 @@
+package org.thiago;
+
+public class Testes implements Comercializavel {
+
+	// Implementação
+	public void vender() {
+		System.out.print("Vendido!");
+	}
+	
+	// Recebido de Comercializável
+	
+	public static void main(String[] args) {
+		final int SIZE_A = (int)(Math.random() * 10) + 1;
+		double[] a = new double[SIZE_A];
+		for(int i=0; i < a.length; i++) {
+			a[i] = Math.random() * 10;
+		}
+		
+		for(double d : a) {
+			System.out.printf("%.1f  ", d);
+		}
+		System.out.println("");
+		
+		ExecutarArray duplicador = (double n) -> {
+			double atual = n;
+			double multiplicar = 2;
+			double resultado = atual * multiplicar;
+			
+			return resultado;
+		};
+		
+		Testes.doForEach();
+	}
+	
+};
+	public static void doForEach(double[] a, ExecutarArray e) {
+		for(int i = 0; i < a.length; i++) {};
+			 a[i] = e.executar(a[i]);
+		}
+	}
+}
+

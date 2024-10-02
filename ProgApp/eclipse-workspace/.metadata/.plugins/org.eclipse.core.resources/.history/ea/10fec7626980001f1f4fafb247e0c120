@@ -1,0 +1,28 @@
+package japedidos.cliente;
+
+public class Telefone {
+	final String numerico;
+	final static int TAM_MAX = 14;
+	
+	public Telefone(String telefone) {
+		if(telefone == null) {
+			throw new IllegalArgumentException(MSG_EX_TELEFONE_NULL);
+		}
+		this.numerico = telefone;
+	}
+	
+	public static String toNumerico(String telefone) {
+		if(telefone == null) {
+			throw new IllegalArgumentException(MSG_EX_TELEFONE_NULL);
+		}
+		
+		telefone = telefone.trim();
+		
+		if (telefone.length() > TAM_MAX) {
+			
+		}
+		return ;
+	}
+	public final static String MSG_EX_TELEFONE_TAM_MAX = "o cliente e nulo";
+	public final static String MSG_EX_TELEFONE_NULL = "o cliente e nulo";
+}

@@ -1,0 +1,8 @@
+package jogo;
+
+public class NovoJogo {
+	public static void main(String[] args) {
+		Boliche boliche = new Boliche();
+		boliche.jogadores.add(Boliche.new Jogador());
+	}
+}

@@ -1,0 +1,13 @@
+package japedidos.sistema;
+
+public class abstract UsuarioAtual {
+	private static String nome;
+	private static String login;
+	private static String email;
+	private static int id;
+
+	
+	public static final void inicializar(Usuario atual) {
+		
+	}
+}

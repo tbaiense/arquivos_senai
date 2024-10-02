@@ -1,0 +1,24 @@
+package japedidos.pedido;
+
+import java.util.Date;
+
+import japedidos.pedido.cliente.Cliente;
+
+public class Pedido {
+	Cliente solicitante;
+	Destinatario destinatario;
+	ProdutosPedido produtos;
+	
+	Date dataCriacao;
+	double valorTotalVenda;
+	double valorTotalCusto;
+	
+	Pedido(Cliente solicitante, Destinatario destinatario, ProdutosPedido produtos) {
+		this.solicitante = solicitante;
+		this.destinatario = destinatario;
+		this.produtos = produtos;
+		this.dataCriacao = new Date();
+		//TODO: calcular e armazenar valorTotal
+	}
+	
+}

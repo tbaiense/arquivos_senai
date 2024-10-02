@@ -1,0 +1,64 @@
+package org.thiago;
+
+public class Pedido {
+	// member variables ou static variables ou class variables
+	private static int cadastrados=0;
+	
+	// instance variables
+	private int idCliente;
+	private int id;
+	private String produtos;
+	
+	Pedido() {
+		this(("Nome qualquer " + ListaPedidos.getCadastrados()), "xxxx-xxxx", "hambuguer e refri");
+	}
+	
+	Pedido(final String nomeCliente, final String telCliente, final String produtos) {
+		Cliente.validateNome(nomeCliente);
+		Cliente.validateTel(telCliente);
+		
+		if (produtos == null || produtos.length() < 2)
+			throw new IllegalArgumentException("Produtos devem ter 3 ou mais caracteres");
+		
+		/*TODO: Controle de registro de clientes
+		 * Se cliente com o mesmo telefone existir
+		 * 		referenciar o id do cliente
+		 * Senao
+		 * 		criar novo cliente e referenciar o id*/
+		
+		
+		{// Procurar cliente na lista
+			Cliente clienteEncontrado = ListaClientes.getCliente(telCliente); // Retorna nulo se não encontrar
+			
+			if (clienteEncontrado != null) { // Cliente já existente na lista
+				this.idCliente = clienteEncontrado.getId();
+			} else {
+				Cliente novoCliente = new Cliente(nomeCliente, telCliente);
+				ListaClientes.push(novoCliente);
+				this.idCliente = novoCliente.getId();
+			}
+		}
+		this.produtos = produtos;
+		this.id = cadastrados++;
+	}
+	
+	//Getters
+	public int getId() {
+		return this.id;
+	}
+	
+	public Cliente getCliente() {
+		return ListaClientes.getCliente(idCliente);
+	}
+	
+	// Setters
+	public void setNomeCliente(final String newNomeCliente) {
+		// alterar nome do cliente na lista de clientes
+	}
+	
+	public void setTelCliente(final String newTelCliente) {
+		// corresponder a um existente na lista, atualizar id do cliente no pedido com o id do encontrado
+		// Se nao
+			// criar novo cliente e atualizar id do cliente no peido
+	}
+}

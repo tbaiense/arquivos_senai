@@ -1,0 +1,24 @@
+package japedidos.pedido;
+
+import japedidos.cliente.*;
+import japedidos.produto.*;
+
+public class CadastroPedido {
+
+	public static void main(String[] args) {
+		Cliente cliente = new ClientePF(0, "Thiago", "27999694568");
+		//((ClientePF)cliente).setCPF("160.938.977-88");
+		ProdutosPedido produtos = new ProdutosPedido();
+		
+		Produto prod1 = new Produto("Xtudo", 0, "Comestíveis", 12.50, 20.0);
+        produtos.add(prod1);
+        produtos.setQtd(0, 9);
+        Produto prod2 = new Produto("Macarrao", 1, "Comestíveis", 2.50, 5.0);
+        produtos.add(prod2);
+        Produto prod3 = new Produto("Salada", 2, "Comestíveis", 1.50, 2.0);
+        produtos.add(prod3,10);
+
+		Pedido p = new Pedido(null, null, produtos);
+		p.produtos.getQtd(0);
+	}
+}

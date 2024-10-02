@@ -1,0 +1,7 @@
+package japedidos.pedido;
+
+import japedidos.produto.Produto;
+
+/**
+ * @author t.baiense
+ */

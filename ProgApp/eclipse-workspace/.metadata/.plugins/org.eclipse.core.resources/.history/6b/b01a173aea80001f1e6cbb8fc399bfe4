@@ -1,0 +1,15 @@
+package japedidos;
+import japedidos.sistema.Banco;
+import japedidos.sistema.Usuario;
+
+/**
+ * @author t.baiense
+ */
+public class JaPedidos {
+
+	public static void main(String[] args) {
+		
+		Usuario.Atual.init(Banco.getUsuario(0));
+		Usuario.Atual.getId();
+	}
+}

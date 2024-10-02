@@ -1,0 +1,9 @@
+package org.thiago;
+
+public class TesteMesmoPacote {
+	
+	public static void main(String[] args) {
+		Testes t = new Testes();
+		System.out.print(t.numeroSecreto);;
+	}
+}

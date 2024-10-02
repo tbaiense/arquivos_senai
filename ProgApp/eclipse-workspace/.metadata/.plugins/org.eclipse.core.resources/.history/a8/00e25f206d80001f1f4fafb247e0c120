@@ -1,0 +1,33 @@
+package japedidos.pedido;
+
+public class Destino {
+	private String rua, numero, bairro, cidade, estado, pais;
+	
+	Destino(String rua, String numero, String bairro, String cidade, String estado, String pais) {
+		
+	}
+	
+	private void setRua(String rua) {
+		if(rua == null) {
+			throw new IllegalArgumentException();
+		}
+		
+		this.rua = rua;
+	}
+	
+	private void setNumero(String numero) {
+		if(numero == null) {
+			throw new IllegalArgumentException();
+		}
+		
+		this.numero = numero;
+	}
+	
+	private void setBairro(String bairro) {
+		if(bairro == null) {
+			throw new IllegalArgumentException();
+		}
+		
+		this.bairro = bairro;
+	}
+}

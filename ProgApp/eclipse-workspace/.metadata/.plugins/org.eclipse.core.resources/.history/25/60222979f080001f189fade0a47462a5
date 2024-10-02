@@ -1,0 +1,5 @@
+package jogo;
+
+public class NovoJogo {
+	Boliche boliche = new Boliche();
+}

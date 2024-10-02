@@ -1,0 +1,8 @@
+package japedidos.pedido;
+
+import japedidos.dados.Endereco;
+
+public class Destino extends Endereco {
+	private static String DEFAULT_ESTADO = "Espírito Santo";
+	private static String DEFAULT_PAIS = "Brasil";
+}

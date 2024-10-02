@@ -1,0 +1,12 @@
+package org.thiago;
+
+public interface Comercializavel {
+	
+	public static final double COT_DOLAR = 5.1789345;
+	
+	public abstract void vender();
+	
+	default public double cambioDolar(double reais) {
+		return reais*COT_DOLAR;
+	}
+}

@@ -1,0 +1,36 @@
+package japedidos.dados;
+
+/**
+ * @author t.baiense
+ */
+import java.util.Date;
+
+public class CNPJ {
+	public final String numerico;
+	public final Date dataCriacao;
+	
+	public CNPJ(String strCnpj) {
+		this.numerico = strCnpj;
+		this.dataCriacao = new Date();
+	}
+	
+//	public static String toNumerico(String str) {
+//
+//	}
+	
+	public String getNumerico() {
+		return this.numerico;
+	}
+	
+//	public static boolean eValido(String str) {
+//		
+//	}
+	
+//	public boolean equals(String str) {
+//		
+//	}
+	
+//	public boolean equals(CPF outroCPF) {
+//		
+//	}
+}

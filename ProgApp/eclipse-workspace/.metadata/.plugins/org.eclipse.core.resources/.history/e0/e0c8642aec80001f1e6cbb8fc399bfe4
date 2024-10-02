@@ -1,0 +1,36 @@
+package japedidos.cliente;
+
+import japedidos.dados.Telefone;
+import japedidos.pedido.Pedido;
+
+enum TipoCliente {PJ, PF}
+
+/**
+ * @author t.baiense
+ */
+public abstract class Cliente {
+	Pedido ultimoPedido;
+	final TipoCliente tipo;
+	final int id;
+	
+	public Cliente(int id, TipoCliente tipo) {
+		this.id = id;
+		this.tipo = tipo;
+	}
+	
+	public final boolean ePF() {
+		if(this.tipo == TipoCliente.PF)
+			return true;
+		else
+			return false;
+	}
+	
+	public final boolean ePJ() {
+		if(this.tipo == TipoCliente.PJ)
+			return true;
+		else
+			return false;
+	}
+	
+	public static final String MSG_EX_NULL = "o cliente e nulo";
+}

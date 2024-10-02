@@ -1,0 +1,80 @@
+package org.thiago;
+
+import java.io.DataInputStream;
+import java.io.IOException;
+
+public class Teste {
+	
+	public static void main(String[] args) throws IOException {
+		telaReceberCliente();
+	}
+	
+	private static int telaReceberCliente() throws IOException{
+		String nome, tel;
+		int id; // Id do objeto cliente a ser retornado
+		
+		do {// Receber tel do cliente
+			System.out.print("telefone do cliente: ");
+			try {
+				DataInputStream in = new DataInputStream(System.in);
+				tel = in.readLine();
+				Cliente.validateTel(tel); // Checa se telefone maior que 8 caracteres
+				break;
+			} catch (IllegalArgumentException e) {
+				System.out.print("ERRO: " + e.getMessage() + "\nTente novamente: ");
+			}
+		} while (true);
+		
+		/*Controle de registro de clientes
+		 * Se cliente com o mesmo telefone existir
+		 * 		referenciar o id do cliente
+		 * Senao
+		 * 		criar novo cliente e referenciar o id*/
+		
+		// Procurar cliente na lista
+		Cliente clienteEncontrado = ListaClientes.getCliente(tel); // Retorna nulo se não encontrar
+		
+		if (clienteEncontrado != null) { // Cliente já existente na lista
+			System.out.print("Um cliente com esse número foi encontrado: " + clienteEncontrado.getNome() 
+					+ "\nDeseja informar outro nome?\n SIM ou NAO >>> ");
+			if (readYORN()) {
+				do {// Receber novo nome do cliente
+					System.out.print("nome do cliente: ");
+					try {
+						DataInputStream in = new DataInputStream(System.in);
+						nome = in.readLine();
+						Cliente.validateNome(nome); // Checa se telefone maior que 8 caracteres
+						clienteEncontrado.setNome(nome);
+					} catch (IllegalArgumentException e) {
+						System.out.print("ERRO: " + e.getMessage() + "\nTente novamente: ");
+					}
+				} while (true);
+			} else {
+				id = clienteEncontrado.getId();
+			}
+			
+
+		} else {
+			Cliente novoCliente = new Cliente(nomeCliente, tel);
+			ListaClientes.push(novoCliente);
+			this.idCliente = novoCliente.getId();
+		}
+	}
+	
+	private static boolean readYORN() throws IOException {
+		while (true) {
+			DataInputStream in = new DataInputStream(System.in);
+			String entrada = in.readLine();
+			if (entrada != null && entrada.length() > 0) {
+				char c = Character.toUpperCase(entrada.trim().charAt(0));
+				if (c == 'S') {
+					return true;
+				} else if (c == 'N') {
+					return false;
+				}
+			} else {
+				System.out.print("Escolha inválida. Digite SIM ou NAO >>> ");
+			}
+		}
+ 	}
+}

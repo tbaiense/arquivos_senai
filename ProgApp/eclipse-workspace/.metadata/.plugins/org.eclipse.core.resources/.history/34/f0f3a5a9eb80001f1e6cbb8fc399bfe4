@@ -1,0 +1,8 @@
+package japedidos.pedido;
+
+import japedidos.dados.Endereco;
+
+/**
+ * @author t.baiense
+ */
+

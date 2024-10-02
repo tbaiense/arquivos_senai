@@ -1,0 +1,71 @@
+package japedidos.dados;
+
+public class Endereco {
+	private String rua, numero, bairro, cidade, estado, pais;
+	
+	
+	Destino(String rua, String numero, String bairro, String cidade) {
+		this(rua, numero, bairro, cidade, DEFAULT_ESTADO, DEFAULT_PAIS);
+	}
+	
+	Destino(String rua, String numero, String bairro, String cidade, String estado) {
+		this(rua, numero, bairro, cidade, estado, DEFAULT_PAIS);
+	}
+	
+	Destino(String rua, String numero, String bairro, String cidade, String estado, String pais) {
+		setRua(rua);
+		setNumero(numero);
+		setBairro(bairro);
+		setCidade(cidade);
+		setEstado(estado);
+		setPais(pais);
+	}
+	
+	private void setRua(String rua) {
+		if(rua == null) {
+			throw new IllegalArgumentException();
+		}
+		
+		this.rua = rua;
+	}
+	
+	private void setNumero(String numero) {
+		if(numero == null) {
+			throw new IllegalArgumentException();
+		}
+		
+		this.numero = numero;
+	}
+	
+	private void setBairro(String bairro) {
+		if(bairro == null) {
+			throw new IllegalArgumentException();
+		}
+		
+		this.bairro = bairro;
+	}
+	
+	private void setCidade(String cidade) {
+		if(cidade == null) {
+			throw new IllegalArgumentException();
+		}
+		
+		this.cidade = cidade;
+	}
+	
+	private void setPais(String pais) {
+		if(cidade == null) {
+			throw new IllegalArgumentException();
+		}
+		
+		this.pais = pais;
+	}
+	
+	private void setEstado(String estado) {
+		if(cidade == null) {
+			throw new IllegalArgumentException();
+		}
+		
+		this.estado = estado;
+	}
+}

@@ -1,0 +1,9 @@
+package org.thiago;
+
+public interface Consumivel {
+	public final String PESO = "KG";
+	public final String VOL_LIQUIDO = "L";
+	public final String VOL_SOLIDO = "M³";
+	public void consumir();
+	public void quantoResta();
+}

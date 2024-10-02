@@ -1,0 +1,8 @@
+package org.thiago;
+
+public class TesteMesmoPacote {
+	
+	public static void main(String[] args) {
+		
+	}
+}

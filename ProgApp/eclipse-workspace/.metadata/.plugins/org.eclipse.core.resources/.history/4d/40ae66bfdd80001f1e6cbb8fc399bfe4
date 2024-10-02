@@ -1,0 +1,10 @@
+package japedidos.sistema;
+
+public abstract UsuarioAtual extends Usuario {
+	static String nome;
+	static String login;
+	static String email;
+	static final int id;
+	
+	
+}

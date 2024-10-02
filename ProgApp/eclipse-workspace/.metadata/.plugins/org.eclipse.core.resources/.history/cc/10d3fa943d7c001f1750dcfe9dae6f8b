@@ -1,0 +1,15 @@
+package japedidos.cliente;
+
+import japedidos.pedido.Pedido;
+
+/**
+ * @author t.baiense
+ */
+public abstract class Cliente {
+	Pedido ultimoPedido;
+	final int id;
+	
+	public Cliente(int id) {
+		this.id = id;
+	}
+}

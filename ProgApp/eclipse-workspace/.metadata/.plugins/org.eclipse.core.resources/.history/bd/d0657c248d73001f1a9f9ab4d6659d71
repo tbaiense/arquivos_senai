@@ -1,0 +1,28 @@
+package org.thiago;
+
+import java.io.DataInputStream;
+import java.io.IOException;
+
+public class Teste {
+	
+	public static void main(String[] args) throws IOException {
+		telaReceberCliente();
+	}
+	
+	private static int telaReceberCliente() throws IOException{
+		String nome, tel;
+		int id;
+		
+		do {// Receber nome do cliente
+			System.out.print("telefone do cliente: ");
+			try {
+				DataInputStream in = new DataInputStream(System.in);
+				tel = in.readLine();
+				Cliente.validateTel(tel); // Checa se telefone maior que 8 caracteres
+				
+			} catch (IllegalArgumentException e) {
+				System.out.print("ERRO: " + e.getMessage() + "\nTente novamente: ");
+			}
+		} while (true);
+	}
+}

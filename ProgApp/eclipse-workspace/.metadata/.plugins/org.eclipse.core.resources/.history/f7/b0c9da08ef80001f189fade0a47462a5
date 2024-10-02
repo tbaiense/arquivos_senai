@@ -1,0 +1,6 @@
+package jogo;
+
+public class Jogo {
+	public TipoJogo tipo;
+	public final int max_jogadores
+}

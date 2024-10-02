@@ -1,0 +1,60 @@
+package japedidos.sistema;
+
+import japedidos.dados.Email;
+
+/**
+ * @author t.baiense
+ */
+public class Usuario {
+	String nome;
+	String login;
+	Email email;
+	int id;
+	
+	public Usuario(int id, String nome) {
+		if(nome == null) {
+			throw new NullPointerException();
+		}
+		
+		this.id = id;
+		this.nome = nome;
+	}
+	
+	public final void set(Email email) {
+		if (email != null) {
+			this.email = email;			
+		}
+	}
+	
+	static public abstract class Atual {
+		private static String nome;
+		private static String login;
+		private static Email email;
+		private static int id;
+		private static boolean loaded;
+
+		public static final void init(Usuario.Atual recebido) {
+			loaded = false;
+			
+			nome = recebido.nome;
+			login = recebido.login;
+			email = recebido.email;
+			id = recebido.id;
+			
+			loaded = true;
+		}
+		
+		public static final int getId() {
+			if (!isLoaded()) {
+				throw new IllegalStateException();
+			}
+			
+			return Usuario.Atual.id;
+		}
+		
+		public static final boolean isLoaded() {
+			return loaded;
+		}
+	}
+	
+}

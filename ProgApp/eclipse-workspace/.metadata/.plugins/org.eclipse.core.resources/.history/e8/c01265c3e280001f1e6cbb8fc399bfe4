@@ -1,0 +1,16 @@
+package org.thiago;
+
+public class TesteMesmoPacote {
+	
+	class Produto implements Cadastravel {
+		public void cadastrar() {
+			System.out.print("Cadastrado!");
+		}
+	}
+	
+	Produto prod;
+	
+	public static void main(String[] args) {
+		
+	}
+}

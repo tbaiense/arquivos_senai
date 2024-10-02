@@ -1,0 +1,45 @@
+package org.thiago;
+
+public class Pedido {
+	// member variables ou static variables ou class variables
+	private static int cadastrados=0;
+	
+	// instance variables
+	private int idCliente;
+	private int id;
+	private String produto;
+	private int qtdProdutos;
+	
+	Pedido(final int idCliente, final String produto) {
+		if (idCliente < 0 || ListaClientes.getCliente(idCliente) == null) {
+			throw new IllegalArgumentException("Id do cliente nao encontrado");
+		}
+		
+		if (produto == null || produto.length() < 2)
+			throw new IllegalArgumentException("Produto devem ter 3 ou mais caracteres");
+		
+		this.produto = produto;
+		this.id = idCliente;
+		cadastrados++;
+	}
+	
+	//Getters
+	public int getId() {
+		return this.id;
+	}
+	
+	public Cliente getCliente() {
+		return ListaClientes.getCliente(idCliente);
+	}
+	
+	// Setters
+	public void setNomeCliente(final String newNomeCliente) {
+		// alterar nome do cliente na lista de clientes
+	}
+	
+	public void setTelCliente(final String newTelCliente) {
+		// corresponder a um existente na lista, atualizar id do cliente no pedido com o id do encontrado
+		// Se nao
+			// criar novo cliente e atualizar id do cliente no peido
+	}
+}

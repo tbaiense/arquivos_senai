@@ -1,0 +1,21 @@
+package com.mycompany;
+
+public class TesteJFX {
+
+	public static void main(String[] args) {
+		int rows = 0;
+		
+		while(true) {
+			int d1 = (int)(Math.random() * 5) + 1;
+			int d2 = (int)(Math.random() * 5) + 1;
+			++rows;
+			if (d1 == 1 && d2 == 1)
+				break;
+				
+		}
+		
+		System.out.print("ROWS TO SNAKE EYES: " + rows);
+		
+	}
+
+}

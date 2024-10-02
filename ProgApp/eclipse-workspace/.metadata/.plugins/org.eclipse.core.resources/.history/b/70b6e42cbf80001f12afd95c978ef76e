@@ -1,0 +1,22 @@
+package japedidos.filial;
+
+import japedidos.dados.Endereco;
+import japedidos.dados.CNPJ;
+import japedidos.dados.Telefone;
+
+public class Filial {
+	final int id;
+	String nomeFilial, nomeFantasia, razaoSocial;
+	String cnpj;
+	Endereco endereco;
+	String telefone;
+	
+	public Filial(int id, String nomeFantasia) {
+		this.id = id;
+		this.nomeFantasia = nomeFantasia;
+	};
+	
+	public void setCNPJ(String cnpj) {
+		CNPJ
+	}
+}

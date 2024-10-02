@@ -1,0 +1,8 @@
+package japedidos.cliente;
+
+import japedidos.dados.Telefone;
+import japedidos.dados.CNPJ;
+
+/**
+ * @author t.baiense
+ */

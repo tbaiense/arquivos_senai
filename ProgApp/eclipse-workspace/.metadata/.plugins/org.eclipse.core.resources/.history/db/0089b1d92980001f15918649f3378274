@@ -1,0 +1,12 @@
+package org.thiago;
+
+public class Testes implements Comercializavel {
+
+	// Implementação
+	
+	
+	public static void main(String[] args) {
+		
+	}
+}
+

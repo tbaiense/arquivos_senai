@@ -1,0 +1,43 @@
+package japedidos.sistema;
+
+import japedidos.dados.Email;
+
+/**
+ * @author t.baiense
+ */
+public class Usuario {
+	String nome;
+	String login;
+	Email email;
+	int id;
+	
+	public Usuario(int id, String nome) {
+		if(nome == null) {
+			throw new NullPointerException();
+		}
+		
+		this.id = id;
+		this.nome = nome;
+	}
+	
+	public final void set(Email email) {
+		if (email != null) {
+			this.email = email;			
+		}
+	}
+	
+	static public abstract class UsuarioAtual {
+		private static String nome;
+		private static String login;
+		private static Email email;
+		private static int id;
+
+		public static final void inicializar(Usuario atual) {
+			nome = atual.nome;
+			login = atual.login;
+			email = atual.email;
+			id = atual.id;
+		}
+	}
+	
+}

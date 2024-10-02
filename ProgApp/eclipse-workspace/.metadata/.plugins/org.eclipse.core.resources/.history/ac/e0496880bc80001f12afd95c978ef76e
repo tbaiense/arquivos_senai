@@ -1,0 +1,5 @@
+package japedidos.filial;
+
+public class Filial {
+	Endereco endereco
+}

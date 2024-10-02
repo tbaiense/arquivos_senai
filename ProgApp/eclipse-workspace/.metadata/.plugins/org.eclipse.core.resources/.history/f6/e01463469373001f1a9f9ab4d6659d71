@@ -1,0 +1,48 @@
+package org.thiago;
+
+public class ListaPedidos {
+	private static Pedido[] pedidos = null;
+	private static int cadastrados=0; // Quantidade de pedidos cadastrados
+	
+	// Getters
+	static int getCadastrados() {
+		return cadastrados;
+	}
+	
+	static Pedido getPedido(int idPedido) {
+		if (idPedido < 0) {
+			throw new IllegalArgumentException("Id do pedido procurado deve ser maior que zero");
+		}
+		
+		if (pedidos != null && idPedido <= cadastrados) { // Se existem pedidos cadastrados
+			for(Pedido p : pedidos) {
+				if (p != null && p.getId() == idPedido) {
+					return p;
+				}
+			}
+		}
+		
+		return null; // Caso não encontre
+	}
+	// Setters
+	static int push(Pedido newPedido) {
+		if (newPedido == null) {
+			throw new NullPointerException("Pedido a ser inserido nao pode ser nulo");
+		}
+		
+		if (pedidos == null) {
+			pedidos = new Pedido[2];
+		} else if (pedidos.length == cadastrados) {
+			Pedido[] copia = pedidos.clone();
+			pedidos = new Pedido[pedidos.length+1];
+			
+			for (int i=0; i < copia.length; i++) {
+				pedidos[i] = copia[i];
+			}
+		}
+		
+		pedidos[cadastrados] = newPedido;
+		
+		return ++cadastrados;
+	}
+}

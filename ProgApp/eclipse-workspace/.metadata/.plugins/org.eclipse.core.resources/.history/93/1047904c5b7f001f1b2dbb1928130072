@@ -1,0 +1,9 @@
+package org.thiago;
+
+public interface Dirigivel {
+	public abstract void mover();
+	
+	default public void buzinar() {
+		System.out.print("BI-BI!");
+	}
+}

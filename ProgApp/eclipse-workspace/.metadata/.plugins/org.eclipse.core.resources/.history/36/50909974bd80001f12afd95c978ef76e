@@ -1,0 +1,18 @@
+package japedidos.filial;
+
+import japedidos.cliente.TipoCliente;
+
+public class Filial {
+	String nomeFilial, nomeFantasia, razaoSocial;
+	String cnpj;
+	Endereco endereco;
+	String telefone;
+	
+	public Filial(int id, String nomeFant, String razaoSoc, String cnpj) {
+		super(id, TipoCliente.PJ);
+		this.cnpj = cnpj;
+		this.nomeFant = nomeFant;
+		this.razaoSoc = razaoSoc;
+		this.cnpj = cnpj;
+	};
+}

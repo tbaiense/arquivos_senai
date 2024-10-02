@@ -1,0 +1,9 @@
+package jogo;
+
+public class Boliche {
+
+	
+	Boliche() {
+		super(TipoJogo.BOLICHE, 10, 60);
+	}
+}

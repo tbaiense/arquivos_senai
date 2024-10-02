@@ -1,0 +1,23 @@
+package japedidos.produto;
+
+public class Produto {
+	public String nome;
+	public final int id;
+	public  String categoria;
+	public  double precoCusto;
+	public  double precoVenda;
+	
+	public Produto(String nome, int id, String categoria, double precoCusto, double precoVenda) {
+		this.nome = nome;
+		this.id = id;
+		this.categoria = categoria;
+		this.precoCusto  = precoCusto;
+		this.precoVenda = precoVenda;
+	}
+	
+	public String toString() {
+		return nome + " | " + id + " | " + precoCusto + " | " + precoVenda;
+		
+	}	
+	
+}

@@ -1,0 +1,12 @@
+package japedidos.sistema;
+
+public abstract class UsuarioAtual extends Usuario {
+	static String nome;
+	static String login;
+	static String email;
+	static final int id;
+	
+	public static final carregar(int id) {
+		super()
+	}
+}

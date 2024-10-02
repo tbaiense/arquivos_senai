@@ -1,0 +1,148 @@
+package japedidos.pedido;
+
+import java.util.Date;
+
+import japedidos.produto.Produto;
+import japedidos.cliente.*;
+import japedidos.sistema.AtividadeAtual;
+
+public class Pedido {
+	private AtividadeAtual atividade; // Controla o que está sendo feito no pedido
+	private int id;
+	Cliente cliente;
+	Destinatario destinatario;
+	Destino destino;
+	ProdutosPedido produtos;
+	Date dataCriacao;
+	private double valorTotalVenda;
+	private double valorTotalCusto;
+	
+	public Pedido() {
+		produtos = new ProdutosPedido();
+	}
+	
+	public Pedido novo() { // Define o pedido como novo e permite inserção de dados
+		if(atividade != null) {
+			throw new IllegalStateException();
+		}
+		atividade = AtividadeAtual.CRIACAO;
+		return this;
+	}
+	
+	public Pedido cadastrar() { // Valida e envia os dados ao banco
+		// TODO validadar dados
+		// TODO CODIGO DE BANCO...
+		// ...
+		atividade = AtividadeAtual.VISUALIZACAO;
+		return this;
+	}
+	
+	public Pedido carregar(int id) { // Obtem informacoes do pedido do banco
+		if (atividade == AtividadeAtual.CRIACAO) {
+			throw new IllegalStateException();
+		}
+		atividade = AtividadeAtual.CARREGAMENTO;
+		
+		// TODO CODIGO DE BANCO...
+		// ...
+		// TODO executar setters com dados do banco
+		
+		
+		this.id = id;
+		atividade = AtividadeAtual.VISUALIZACAO;
+		return this;
+	}
+	
+	public Pedido carregar() {
+		if (atividade == null || atividade == AtividadeAtual.CRIACAO || atividade == AtividadeAtual.CARREGAMENTO) {
+			throw new IllegalStateException();
+		}
+		
+		return this.carregar(this.id);
+	}
+	
+	public Pedido edicao() { // Entra em modo edicao
+		// TODO validadar dados
+		// TODO CODIGO DE BANCO...
+		// ...
+		atividade = AtividadeAtual.EDICAO;
+		return this;
+	}
+	
+	Pedido set(Cliente cliente) {
+		checarAtividadeMudanca();
+		
+		if (cliente == null) {
+			throw new IllegalArgumentException(Cliente.MSG_EX_NULL);
+		}
+		
+		this.cliente = cliente;
+		return this;
+	}
+	
+	Pedido set(Destinatario destinatario) {
+		checarAtividadeMudanca();
+		
+		if (destinatario == null) {
+			throw new IllegalArgumentException(Destinatario.MSG_EX_NULL);
+		}
+		
+		this.destinatario = destinatario;
+		return this;
+	}
+	
+	Pedido set(Destino destino) {
+		checarAtividadeMudanca();
+		
+		if (destino == null) {
+			throw new IllegalArgumentException(Destinatario.MSG_EX_NULL);
+		}
+		
+		this.destino = destino;
+		return this;
+	}
+	
+	Pedido add(Produto produto) {
+		checarAtividadeMudanca();
+		
+		this.produtos.add(produto);
+		return this;
+	}
+	
+	Pedido add(Produto produto, int quantidade) {
+		checarAtividadeMudanca();
+		
+		this.produtos.add(produto, quantidade);
+		return this;
+	}
+	
+	Pedido set(Produto produto, int quantidade) {
+		checarAtividadeMudanca();
+		
+		int indexProd = this.produtos.indexOf(produto); // Procura pelo produto
+		
+		if (indexProd != -1) {
+			this.produtos.setQtd(indexProd, quantidade);
+		}
+		
+		return this;
+	}
+	
+	Pedido remove(Produto produto) {
+		checarAtividadeMudanca();
+		
+		int indexProd = this.produtos.indexOf(produto); // Procura pelo produto
+		if (indexProd != -1) {
+			this.produtos.remove(indexProd);
+		}
+		
+		return this;
+	}
+	
+	private void checarAtividadeMudanca() {
+		if (atividade == null || atividade == AtividadeAtual.VISUALIZACAO) {
+			throw new IllegalStateException("acao nao permitida. so e possivel alterar o pedido durante a criacao ou em modo edicao");
+		}
+	}
+	
+}

@@ -1,0 +1,15 @@
+package japedidos.pedido;
+
+import japedidos.cliente.*;
+import japedidos.produto.*;
+import japedidos.dados.*;
+
+/**
+ * @author t.baiense
+ */
+public class CadastroPedido {
+
+	public static void main(String[] args) {
+		
+	}
+}

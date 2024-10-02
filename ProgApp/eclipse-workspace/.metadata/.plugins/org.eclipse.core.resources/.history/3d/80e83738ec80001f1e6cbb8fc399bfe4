@@ -1,0 +1,83 @@
+package japedidos.cliente;
+
+import japedidos.dados.CNPJ;
+import japedidos.dados.CPF;
+import japedidos.dados.Telefone;
+import japedidos.pedido.Pedido;
+
+enum TipoCliente {PJ, PF}
+
+/**
+ * @author t.baiense
+ */
+public abstract class Cliente {
+	Pedido ultimoPedido;
+	final TipoCliente tipo;
+	final int id;
+	
+	public Cliente(int id, TipoCliente tipo) {
+		this.id = id;
+		this.tipo = tipo;
+	}
+	
+	public final boolean ePF() {
+		if(this.tipo == TipoCliente.PF)
+			return true;
+		else
+			return false;
+	}
+	
+	public class PF extends Cliente {
+		String nome;
+		Telefone[] telefone;
+		CPF cpf;
+		
+		public PF(int id, String nome, Telefone telefone) {
+			super(id, TipoCliente.PF);
+			this.nome = nome;
+			this.telefone = new Telefone[1];
+			this.telefone[0] = telefone;
+		}
+		
+		public final void set(CPF cpf) {
+			if (cpf != null) {
+				this.cpf = cpf;			
+			}
+		}
+		
+		public final void add(Telefone tel) {
+			if (tel != null) {
+				this.telefone[0] = tel;	
+			}
+		}
+	}
+	
+	public final boolean ePJ() {
+		if(this.tipo == TipoCliente.PJ)
+			return true;
+		else
+			return false;
+	}
+	
+	public class PJ extends Cliente {
+		CNPJ cnpj;
+		String nomeFantasia, razaoSocial;
+		Telefone[] telefone;
+		
+		public PJ(int id, String nomeFantasia, String razaoSocial, CNPJ cnpj) {
+			super(id, TipoCliente.PJ);
+			this.cnpj = cnpj;
+			this.nomeFantasia = nomeFantasia;
+			this.razaoSocial = razaoSocial;
+		};
+		
+		public final void add(Telefone tel) {
+			if (tel != null) {
+				this.telefone[0] = tel;	
+			}
+		}
+	}
+
+	
+	public static final String MSG_EX_NULL = "o cliente e nulo";
+}

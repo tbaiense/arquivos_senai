@@ -1,0 +1,10 @@
+package jogo;
+
+public class Boliche extends Jogo {
+
+	
+	Boliche() {
+		super(TipoJogo.BOLICHE, 10, 60);
+		
+	}
+}
