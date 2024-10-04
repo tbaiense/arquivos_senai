@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `maternidade` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci */;
-USE `maternidade`;
 -- MySQL dump 10.13  Distrib 8.0.38, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: maternidade
@@ -47,7 +45,7 @@ CREATE TABLE `bebe` (
 
 LOCK TABLES `bebe` WRITE;
 /*!40000 ALTER TABLE `bebe` DISABLE KEYS */;
-INSERT INTO `bebe` VALUES (1,'joaozinho','M',2.200,0.12,'2024-09-19 20:52:00',31,2),(2,'joaozinho','M',2.200,0.12,'2024-09-19 20:53:00',31,2),(3,'mariazinho','F',4.350,0.20,'2024-09-19 20:53:00',33,4),(4,'josue','M',2.200,0.12,'2024-09-19 20:55:50',31,2);
+INSERT INTO `bebe` VALUES (1,'juberval','M',2.200,0.12,'2024-09-19 20:52:00',31,2),(2,'joaozinho','M',2.200,0.12,'2024-09-19 20:53:00',31,2),(3,'mariazinha','F',4.350,0.20,'2024-09-19 20:53:00',33,4),(4,'josue','M',2.200,0.12,'2024-09-19 20:55:50',31,2);
 /*!40000 ALTER TABLE `bebe` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -65,7 +63,7 @@ CREATE TABLE `mae` (
   `endereco` varchar(100) DEFAULT NULL,
   `dt_nasc` date DEFAULT NULL,
   PRIMARY KEY (`id_mae`)
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -74,7 +72,7 @@ CREATE TABLE `mae` (
 
 LOCK TABLES `mae` WRITE;
 /*!40000 ALTER TABLE `mae` DISABLE KEYS */;
-INSERT INTO `mae` VALUES (31,'gertrudes','2140028922','rua dos bobos','1987-06-01'),(32,'maria','27123456789','rua felizes','1947-06-01'),(33,'antonia','00000000','rua dos robos','1987-06-01'),(34,'carla','11111111','rua dos mariola','1947-06-01'),(35,'joana','22222222','rua dos anjos','1987-06-01'),(36,'beatriz','33333333','rua dos moribundos','1947-06-01');
+INSERT INTO `mae` VALUES (31,'gertrudes','2140028922','rua dos bobos','1987-06-01'),(32,'maria','27123456789','rua felizes','1947-06-01'),(33,'antonia','00000000','rua dos robos','1987-06-01'),(34,'carla','11111111','rua dos mariola','1947-06-01'),(35,'joana','22222222','rua dos anjos','1987-06-01'),(36,'beatriz','33333333','rua dos moribundos','1947-06-01'),(37,'Luana Ribeiro','111223344','Vitória','2002-10-23'),(38,'Juana Osvando','7788996655','Vila-Velha','1970-05-03');
 /*!40000 ALTER TABLE `mae` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -91,7 +89,7 @@ CREATE TABLE `medico` (
   `nome_medico` varchar(40) DEFAULT NULL,
   `especialidade` enum('Geral','Pediatra','Obstetra','Cirurgião') DEFAULT 'Geral',
   PRIMARY KEY (`id_medico`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -100,7 +98,7 @@ CREATE TABLE `medico` (
 
 LOCK TABLES `medico` WRITE;
 /*!40000 ALTER TABLE `medico` DISABLE KEYS */;
-INSERT INTO `medico` VALUES (1,'1234','JOANA','Geral'),(2,'2344','JOAO','Obstetra'),(3,'1224','carlos','Pediatra'),(4,'4432','estácio','Cirurgião'),(5,'5533','ruan','Geral'),(6,'0000','mario elias','Geral'),(8,'0000','mario elias','Geral'),(9,'0000','mario elias','Geral');
+INSERT INTO `medico` VALUES (1,'1234','JOANA','Geral'),(2,'2344','JOAO','Obstetra'),(3,'1224','carlos','Pediatra'),(4,'4432','estácio','Cirurgião'),(5,'5533','ruan','Geral'),(6,'0000','mario elias','Geral'),(8,'0000','mario elias','Geral'),(9,'0000','mario elias','Geral'),(10,'11457','Mario','Geral'),(11,'100','Lucas','Geral'),(12,'78965','Jucelino','Pediatra'),(13,'114','Marta','Geral');
 /*!40000 ALTER TABLE `medico` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -113,4 +111,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-09-19 21:26:00
+-- Dump completed on 2024-10-03 21:44:32

@@ -19,10 +19,13 @@ public class Jogo {
 	public class Jogador {
 		String nome;
 		int idade;
+		static qtdCriado;
+		int id;
 		
 		Jogador(String nome, int idade) {
 			this.nome = nome;
 			this.idade = idade;
+			this.id = ++qtdCriado;
 		}
 		
 		public String getNome() {
@@ -35,3 +38,8 @@ public class Jogo {
 	}
 	
 }
+
+Jogador eu = new Jogador("thiago", 22, "sub20");
+Jogador eu2 = new Jogador("thiago", 22, "sub10");
+eu.id;
+Jogador.quantidadeCriado;
