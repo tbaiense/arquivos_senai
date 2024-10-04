@@ -4,35 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "14f15e7646020dac",
+        "id": "28c0df2e9a0757e4",
         "type": "tabs",
         "children": [
           {
-            "id": "f044d9f5e186accc",
+            "id": "238f2a3edb8a6d21",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "BD/SGDB/SQL/COMANDOS SQL.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "27b93cffdab371f3",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "BD/SGDB/MARIADB & MYSQL.md",
-                "mode": "source",
+                "file": "BD/SGDB/SQL/JOIN.md",
+                "mode": "preview",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -98,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "BD/SGDB/MARIADB & MYSQL.md",
+                "file": "BD/SGDB/SQL/JOIN.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "BD/SGDB/MARIADB & MYSQL.md",
+                "file": "BD/SGDB/SQL/JOIN.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "BD/SGDB/MARIADB & MYSQL.md"
+                "file": "BD/SGDB/SQL/JOIN.md"
               }
             }
           }
@@ -159,27 +146,32 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "27b93cffdab371f3",
+  "active": "238f2a3edb8a6d21",
   "lastOpenFiles": [
-    "BD/SGDB/SQL/Spotify.sql",
-    "BD/SGDB/SQL/SPOTFY.sql",
-    "ProgApp/Testes e projetos/bin/ControlePermissao.class",
-    "ProgApp/Testes e projetos/bin/Bingo.class",
-    "ProgApp/Anotações Java/Características.md",
-    "BD/SGDB/MARIADB & MYSQL.md",
+    "BD/SGDB/SQL/joins-devmedia.html",
+    "BD/SGDB/SQL/join-stackoverflow.html",
+    "SQL.md",
+    "BD/SGDB/SQL/JOIN.md",
+    "BD/SGDB/SQL/joins.jpg",
+    "BD/SGDB/SQL/SUBQUERY.md",
+    "BD/SGDB/SQL/Datasets/SELECT Script_chinook.sql",
+    "BD/SGDB/SQL/sql - Qual é a diferença entre INNER JOIN e OUTER JOIN_ - Stack Overflow em Português (04_10_2024 12_14_35).html",
+    "BD/SGDB/SQL/SQL JOINS_ Como funciona o retorno de dados no SQL (04_10_2024 12_12_48).html",
     "BD/SGDB/SQL/COMANDOS SQL.md",
-    "BD/SGDB/SQL",
+    "BD/SGDB/Dump_maternidade.sql~",
+    "BD/SGDB/SQL/Exercicios/Join.sql",
+    "BD/SGDB/SQL/Exercicios/Atividade livraria - mysql/livros.csv",
+    "BD/SGDB/SQL/Exercicios/Atividade livraria - mysql/generos.csv",
+    "BD/SGDB/SQL/Exercicios/Atividade livraria - mysql/autores.csv",
+    "BD/SGDB/SQL/Exercicios/Atividade livraria - mysql",
+    "BD/SGDB/MARIADB & MYSQL.md",
+    "Estudos/Git/Revisão.md",
+    "Estudos/Git/git_commands.md",
+    "ProgApp/Anotações Java/Características.md",
     "ProgApp/Anotações Java/Sites de estudo.md",
-    "BD/SGDB",
     "ProgApp/Anotações Java/Métodos e propriedades de classes padrão.md",
     "ProgApp/Anotações Java/Exibição de informação.md",
-    "ProgApp/Testes e projetos/src/pedidos/ListaPedidos.class",
-    "ProgApp/Testes e projetos/src/pedidos/ListaClientes.class",
-    "ProgApp/Testes e projetos/src/pedidos/Cliente.class",
-    "ProgApp/Testes e projetos/src/pedidos/Pedido.class",
-    "ProgApp/Testes e projetos/src/pedidos/CadastrarPedidos.class",
     "ProgApp/Anotações Java/Sintaxe.md",
-    "Estudos/Git/git_commands.md",
     "Estudos/Linux.md",
     "Modelagem de Sistemas/Design Thinking.md",
     "BD/Modelagem de Dados.md",

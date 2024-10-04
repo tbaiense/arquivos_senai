@@ -18,6 +18,8 @@
 --
 -- Table structure for table `bebe`
 --
+CREATE DATABASE `maternidade`;
+USE `maternidade`;
 
 DROP TABLE IF EXISTS `bebe`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
