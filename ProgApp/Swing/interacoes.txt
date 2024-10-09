@@ -1,0 +1,6 @@
+exibir novas telas
+	1. instanciar objeto da classe da janela
+	2. obj.setVisible(true);
+	
+fechar telas
+	1. obj.dispose();

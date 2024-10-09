@@ -10,6 +10,7 @@ quais são os níveis de usuário >>> Administrador e atendente
   - não são excluídos.
   - não são alterados depois de concluídos.
   - não sendo cliente reincidente, nome e telefone do cliente serão registrados no sistema
+  - identificação do cliente será por id
   - destinatário >> caixa de texto opcional
 2. PRODUTOS dos pedidos:
  - inserir somente produtos cadastrados
@@ -19,6 +20,7 @@ quais são os níveis de usuário >>> Administrador e atendente
   - informações de cliente reincidente incluirão TODAS AS INFORMAÇÕES DO PEDIDO, menos a QUANTIDADE DE PRODUTOS e o ESTADO DO PEDIDO;
 
 4. PRODUTOS;
+
   - cadastro não terá quantidade atribuída
   - estados: habilitado ou desabilitado
   - não pode ser excluído, só desativado
@@ -31,6 +33,10 @@ quais são os níveis de usuário >>> Administrador e atendente
  - Adm altera senha do usuário
  - usuário tem: nome, email, login, senha e cargo
  - autenticação por: login e senha
+
+CLIENTES
+ - nome e telefone
+ - id autoincremental
 
 [ A RESOLVER ] ================================================
 1. PROMOCOES
