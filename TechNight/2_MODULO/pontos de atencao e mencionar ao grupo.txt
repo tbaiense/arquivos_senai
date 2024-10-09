@@ -1,0 +1,2 @@
+1. cadastro de produto > preco de custo e de venda (necessário para relatórios)
+2.
