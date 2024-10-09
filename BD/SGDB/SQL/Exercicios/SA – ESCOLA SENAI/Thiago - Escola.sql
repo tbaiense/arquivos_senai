@@ -74,7 +74,7 @@ SELECT turno, COUNT(cod) as cursos FROM curso GROUP BY turno ORDER BY cursos DES
 -- Quantos cursos duram mais de dois anos e meio?
 SELECT COUNT(cod) AS cursos FROM curso WHERE duracao > 5;
 
--- Quais os cursos com maior quantidade de alunos inscritos?
+-- Quais os cursos com maior quantidade de alunos inscritos?  MECHER!!
 SELECT
 	m.cod_curso AS cod_curso,
     c.nome AS nome_curso,
@@ -110,11 +110,83 @@ ORDER BY cursos DESC
 LIMIT 1;
 
 -- Quais cursos não possuem alunos cadastrados?
+SELECT
+	curso.nome AS curso
+FROM
+	matricula RIGHT JOIN curso
+		ON curso.cod = matricula.cod_curso
+WHERE
+	matricula.ra_aluno IS NULL;
+
 -- Quem se matriculou em 2021?
+SELECT
+	aluno.nome, matriculas_ano.ano_matricula
+FROM
+	(SELECT ra_aluno, YEAR(matricula.dt_matricula) AS ano_matricula FROM matricula) AS matriculas_ano
+		INNER JOIN aluno ON aluno.ra = matriculas_ano.ra_aluno
+WHERE ano_matricula = 2021;
+
 -- Qual a data de matrícula da aluna “Fernanda Lima”?
+SELECT
+	dt_matricula
+FROM
+	matricula
+WHERE
+	ra_aluno = (
+		SELECT ra FROM aluno WHERE nome LIKE("%Fernanda Lima%")
+	);
+
 -- Quais alunos não se cadastraram em nenhum curso?
+SELECT
+	aluno.nome
+FROM
+	aluno LEFT JOIN matricula
+		ON matricula.ra_aluno = aluno.ra
+WHERE
+	matricula.cod IS NULL;
+
 -- Quantas alunas matriculadas até o momento?
--- Quais alunos estão matriculados 3 cursos?
+SELECT
+	COUNT(DISTINCT aluno.nome) AS alunas_matriculadas
+FROM
+	aluno LEFT JOIN matricula
+		ON matricula.ra_aluno = aluno.ra
+WHERE
+	aluno.sexo = "F";
+
+-- Quais alunos estão matriculados em 3 cursos?
+
+
 -- Qual o curso do aluno “Guilherme Costa”?
+SELECT
+curso.nome
+FROM
+	(SELECT
+		cod_curso
+	 FROM matricula
+     WHERE
+		ra_aluno = (SELECT ra
+					FROM aluno
+                    WHERE nome LIKE ("%Guilherme Costa%")
+                    )
+	) AS cursos_aluno INNER JOIN curso ON curso.cod = cursos_aluno.cod_curso;
+
 -- Quais os alunos matriculados em “Ciência da computação”
+SELECT
+	aluno.nome
+FROM
+	(SELECT ra_aluno FROM matricula
+		WHERE
+			cod_curso = (SELECT cod FROM curso
+						WHERE nome LIKE ("%Ciência da computação%")
+						)
+	) AS alunos_curso
+	INNER JOIN aluno ON aluno.ra = alunos_curso.ra_aluno;
+
 -- Relação completa de todos os alunos e seus cursos
+SELECT
+	aluno.nome AS aluno, curso.nome AS curso
+FROM 
+	aluno LEFT JOIN matricula 
+		ON matricula.ra_aluno = aluno.ra
+	LEFT JOIN curso ON matricula.cod_curso = curso.cod;
