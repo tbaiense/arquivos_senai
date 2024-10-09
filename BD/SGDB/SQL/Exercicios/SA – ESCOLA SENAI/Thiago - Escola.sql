@@ -74,17 +74,25 @@ SELECT turno, COUNT(cod) as cursos FROM curso GROUP BY turno ORDER BY cursos DES
 -- Quantos cursos duram mais de dois anos e meio?
 SELECT COUNT(cod) AS cursos FROM curso WHERE duracao > 5;
 
--- Quais os cursos com maior quantidade de alunos inscritos?  MECHER!!
+-- Quais os cursos com maior quantidade de alunos inscritos?
 SELECT
 	m.cod_curso AS cod_curso,
     c.nome AS nome_curso,
     alunos
 FROM 
-	(SELECT cod_curso, COUNT(ra_aluno) AS alunos FROM matricula GROUP BY cod_curso) AS m 
-		INNER JOIN
-			curso c
+	(
+	  SELECT cod_curso, COUNT(ra_aluno) AS alunos FROM matricula
+	  GROUP BY cod_curso
+	  HAVING alunos = (
+	    SELECT MAX(alunos) 
+	  	FROM (
+		  SELECT COUNT(ra_aluno) AS alunos
+  		  FROM matricula GROUP BY cod_curso
+		) AS alunos_curso
+	  )
+	) AS m INNER JOIN curso c
 		ON c.cod = m.cod_curso;
-
+	
 -- Qual a média de preço dos cursos listados?
 SELECT ROUND(AVG(valor), 2) AS valor_medio FROM curso;
 
@@ -101,7 +109,7 @@ ORDER BY turno ASC;
 
 -- Qual o campus com mais cursos?
 SELECT 
-	campus.cidade as campus,
+	campus.cidade as cidade_campus,
 	COUNT(curso.cod) AS cursos
 FROM
 	curso INNER JOIN campus ON campus.cod = curso.cod_campus
@@ -111,7 +119,7 @@ LIMIT 1;
 
 -- Quais cursos não possuem alunos cadastrados?
 SELECT
-	curso.nome AS curso
+	curso.nome AS nome_curso
 FROM
 	matricula RIGHT JOIN curso
 		ON curso.cod = matricula.cod_curso
@@ -138,7 +146,7 @@ WHERE
 
 -- Quais alunos não se cadastraram em nenhum curso?
 SELECT
-	aluno.nome
+	aluno.nome AS nome_aluno
 FROM
 	aluno LEFT JOIN matricula
 		ON matricula.ra_aluno = aluno.ra
@@ -155,11 +163,23 @@ WHERE
 	aluno.sexo = "F";
 
 -- Quais alunos estão matriculados em 3 cursos?
-
+SELECT
+	aluno.nome AS nome_aluno, curso.nome AS nome_curso
+FROM
+	(SELECT ra_aluno, COUNT(cod_curso) AS cursos
+		FROM matricula GROUP BY ra_aluno HAVING cursos = 3
+	) AS cursos_alunos
+	INNER JOIN aluno
+		ON aluno.ra = cursos_alunos.ra_aluno
+	INNER JOIN matricula
+		ON matricula.ra_aluno = cursos_alunos.ra_aluno
+	INNER JOIN curso
+		ON curso.cod = matricula.cod_curso
+ORDER BY aluno.nome, curso.nome;
 
 -- Qual o curso do aluno “Guilherme Costa”?
 SELECT
-curso.nome
+curso.nome AS nome_curso
 FROM
 	(SELECT
 		cod_curso
@@ -173,20 +193,21 @@ FROM
 
 -- Quais os alunos matriculados em “Ciência da computação”
 SELECT
-	aluno.nome
+	aluno.nome AS nome_aluno
 FROM
 	(SELECT ra_aluno FROM matricula
-		WHERE
 			cod_curso = (SELECT cod FROM curso
 						WHERE nome LIKE ("%Ciência da computação%")
 						)
-	) AS alunos_curso
-	INNER JOIN aluno ON aluno.ra = alunos_curso.ra_aluno;
+	) AS alunos_curso INNER JOIN aluno
+		ON aluno.ra = alunos_curso.ra_aluno;
 
 -- Relação completa de todos os alunos e seus cursos
 SELECT
-	aluno.nome AS aluno, curso.nome AS curso
+	aluno.nome AS nome_aluno, curso.nome AS nome_curso
 FROM 
 	aluno LEFT JOIN matricula 
 		ON matricula.ra_aluno = aluno.ra
-	LEFT JOIN curso ON matricula.cod_curso = curso.cod;
+	LEFT JOIN curso ON matricula.cod_curso = curso.cod
+ORDER BY aluno.nome, curso.nome;
+	
