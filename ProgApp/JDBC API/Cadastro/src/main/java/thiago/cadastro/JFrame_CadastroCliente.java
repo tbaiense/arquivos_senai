@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package thiago.cadastro;
 
 import java.sql.*;
@@ -15,7 +11,7 @@ import javax.swing.JOptionPane;
 public class JFrame_CadastroCliente extends javax.swing.JFrame {
     
     String nome, telefone;
-    Character sexo;
+    String sexo;
     
     
     /**
@@ -46,6 +42,7 @@ public class JFrame_CadastroCliente extends javax.swing.JFrame {
         jlbl_sexo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocation(new java.awt.Point(100, 100));
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -115,20 +112,18 @@ public class JFrame_CadastroCliente extends javax.swing.JFrame {
 
     private void jbtn_enviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_enviarActionPerformed
         nome = jtxtf_nome.getText().trim();
-        sexo = ((String)jcmb_sexo.getSelectedItem()).trim().charAt(0);
+        sexo = ((String)jcmb_sexo.getSelectedItem()).trim().substring(0, 1);
         telefone = jtxtf_telefone.getText().trim();
+        jlbl_log.setText("Recebido dados!");
+        
+        Cadastro.cliente(nome, sexo, telefone);
+        Cliente cl = Receber.lastCliente();
         JOptionPane.showMessageDialog(null, String.format("""
+                                                          ID do cliente: %d
                                                           Nome informado: %s
                                                           Sexo informado: %s
                                                           Telefone informado: %s
-                                                          """, nome, sexo, telefone));
-        jlbl_log.setText("Recebido dados!");
-        
-        try {
-            
-        } catch (SQLException e)
-        
-        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/", "root", "");
+                                                          """, cl.getId(), cl.nome, cl.sexo, cl.telefone));
     }//GEN-LAST:event_jbtn_enviarActionPerformed
 
     /**
