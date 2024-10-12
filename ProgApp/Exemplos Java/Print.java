@@ -1,13 +1,13 @@
-import java.util.Scanner
+import java.util.Scanner;
 
-public class Projeto {
+public class Print {
 	public static void main() {
-		Scanner ler = new Scanner(System.in)
+		Scanner ler = new Scanner(System.in);
 		/*							^^^^
 									Direciona de onde a entrada virá
 		*/
 		int n = ler.nextInt(); //Ler até o primeiro inteiro
-		float preco = ler.nexttFloat();
+		float preco = ler.nextFloat();
 		double salario = ler.nextDouble();
 		String palavra = ler.next(); // Ler string até espaço
 		String nome_completo = ler.nextLine(); // Ler string até uma nova linha, esvaziando o buffer.
