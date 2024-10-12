@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package thiago.cadastro;
 
 /**
@@ -80,11 +76,7 @@ public class testetabela extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        TabelaCliente tb = new TabelaCliente();
-        tb.setOpaque(true);
-        
-        jPanel1.add(tb);
-        tb.setVisible(true);
+        tabelaCliente1.modelo.addRow(new Cliente("thiago", "m", "0000-0001"));
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

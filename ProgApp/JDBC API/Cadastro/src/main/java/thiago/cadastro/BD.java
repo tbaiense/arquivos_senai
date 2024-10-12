@@ -8,11 +8,11 @@ import javax.swing.JOptionPane;
 
 public final class BD {
     public static final String SGBD = "mysql";
-    public static final String IP = "10.0.0.107";
+    public static final String IP = "localhost";
     public static final String PORT = "3306";
     public static final String NAME = "cadastro";
     public static final String USER = "root";
-    public static final String USER_PWD = "tmb";
+    public static final String USER_PWD = "";
     
     private BD() {}
     
