@@ -4,16 +4,18 @@
  */
 package thiago.cadastro;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author t.baiense
  */
-public class JFrame_UpdateCliente extends javax.swing.JFrame {
+public class JFrame_DeleteCliente extends javax.swing.JFrame {
 
     /**
-     * Creates new form JFrame_UpdateCliente
+     * Creates new form JFrame_DeleteCliente
      */
-    public JFrame_UpdateCliente() {
+    public JFrame_DeleteCliente() {
         initComponents();
     }
 
@@ -31,7 +33,7 @@ public class JFrame_UpdateCliente extends javax.swing.JFrame {
         jlbl_telefone = new javax.swing.JLabel();
         jtxtf_telefone = new javax.swing.JTextField();
         jtxtf_nome = new javax.swing.JTextField();
-        jbtn_atualizar = new javax.swing.JButton();
+        jbtn_deletar = new javax.swing.JButton();
         jcmb_sexo = new javax.swing.JComboBox<>();
         jlbl_sexo = new javax.swing.JLabel();
         jlbl_nome1 = new javax.swing.JLabel();
@@ -63,13 +65,13 @@ public class JFrame_UpdateCliente extends javax.swing.JFrame {
         });
         jPanel1.add(jtxtf_nome, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 218, -1));
 
-        jbtn_atualizar.setText("Atualizar");
-        jbtn_atualizar.addActionListener(new java.awt.event.ActionListener() {
+        jbtn_deletar.setText("Deletar");
+        jbtn_deletar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbtn_atualizarActionPerformed(evt);
+                jbtn_deletarActionPerformed(evt);
             }
         });
-        jPanel1.add(jbtn_atualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 280, 110, 30));
+        jPanel1.add(jbtn_deletar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 280, 110, 30));
 
         jcmb_sexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Feminino" }));
         jPanel1.add(jcmb_sexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, 220, -1));
@@ -117,15 +119,26 @@ public class JFrame_UpdateCliente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jtxtf_nomeActionPerformed
 
-    private void jbtn_atualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_atualizarActionPerformed
-        String nome = jtxtf_nome.getText().trim();
-        String sexo = ((String)jcmb_sexo.getSelectedItem()).trim().substring(0, 1);
-        String telefone = jtxtf_telefone.getText().trim();
-        Cliente cl = new Cliente(nome, sexo, telefone);
-        cl.setId(Integer.parseInt(jtxtf_id.getText()));
+    private void jbtn_deletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_deletarActionPerformed
+        try {
+            int id = Integer.parseInt(jtxtf_id.getText());
+            String nome, sexo, telefone;
+            
+            nome = jtxtf_nome.getText().trim();
+            sexo = (String)jcmb_sexo.getSelectedItem();
+            telefone = jtxtf_telefone.getText().trim();
+            
+            Cliente cliente = new Cliente(nome, sexo, telefone);
+            cliente.setId(id);
+            
+            Deletar.cliente(cliente);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Formato de id inválido!");
+        }
         
-        Atualizar.cliente(cl);
-    }//GEN-LAST:event_jbtn_atualizarActionPerformed
+        
+        
+    }//GEN-LAST:event_jbtn_deletarActionPerformed
 
     private void jtxtf_idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtf_idActionPerformed
         // TODO add your handling code here:
@@ -139,6 +152,7 @@ public class JFrame_UpdateCliente extends javax.swing.JFrame {
         jtxtf_nome.setText(cl.nome);
         int index = (cl.sexo.equals("M") ? 0 : 1);
         jcmb_sexo.setSelectedIndex(index);
+        jcmb_sexo.repaint();
         jtxtf_telefone.setText(cl.telefone);
         System.out.print(index);
     }//GEN-LAST:event_jbtn_receberActionPerformed
@@ -160,27 +174,27 @@ public class JFrame_UpdateCliente extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JFrame_UpdateCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFrame_DeleteCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JFrame_UpdateCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFrame_DeleteCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JFrame_UpdateCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFrame_DeleteCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JFrame_UpdateCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFrame_DeleteCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JFrame_UpdateCliente().setVisible(true);
+                new JFrame_DeleteCliente().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JButton jbtn_atualizar;
+    private javax.swing.JButton jbtn_deletar;
     private javax.swing.JButton jbtn_receber;
     private javax.swing.JComboBox<String> jcmb_sexo;
     private javax.swing.JLabel jlbl_nome;

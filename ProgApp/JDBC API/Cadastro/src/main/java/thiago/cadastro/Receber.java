@@ -62,14 +62,16 @@ public class Receber {
             ResultSet rs = query.executeQuery();
             String nome, telefone, sexo;
             
-            rs.next();
-            id = rs.getInt(1);
-            nome = rs.getString(2);
-            sexo = rs.getString(3);
-            telefone = rs.getString(4);
-            
-            Cliente cl = new Cliente(nome, sexo, telefone);
-            cl.setId(id);
+            Cliente cl = null;
+            if (rs.next()) {
+                id = rs.getInt(1);
+                nome = rs.getString(2);
+                sexo = rs.getString(3);
+                telefone = rs.getString(4);
+
+                cl = new Cliente(nome, sexo, telefone);
+                cl.setId(id);   
+            }
             
             query.close();
             conn.close();
