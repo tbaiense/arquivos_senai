@@ -10,3 +10,4 @@ CREATE TABLE caderno(
 );
 
 SELECT * FROM caderno;
+INSERT INTO caderno(modelo, paginas, ativo, gramatura) VALUE ("SONIX", 100, b'1', "70g");

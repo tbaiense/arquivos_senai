@@ -20,7 +20,7 @@ public class JPanel_Table_Caderno extends JPanel {
         
         JTable table = new JTable(model);
         this.table = table;
-        table.setPreferredScrollableViewportSize(new Dimension(600, 300));
+        table.setPreferredScrollableViewportSize(new Dimension(600, 200));
         table.setFillsViewportHeight(true);
         
         JScrollPane scrollPane = new JScrollPane(table);

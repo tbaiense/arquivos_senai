@@ -83,6 +83,14 @@ public class CadernoTableModel extends AbstractTableModel {
         };
     }
     
+    public Caderno getRow(int row) {
+        if (row < 0) {
+            return null;
+        }
+        
+        return data.get(row);
+    }
+    
     public void addRow(Caderno c) {
         if (c == null) {
             return;
