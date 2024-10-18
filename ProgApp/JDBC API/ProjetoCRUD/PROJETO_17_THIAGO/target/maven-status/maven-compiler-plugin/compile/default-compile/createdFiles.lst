@@ -1,5 +1,9 @@
 crud/JFrame_CRUD$4.class
+crud/Caderno$InvalidPaginasException.class
 crud/Teste.class
 crud/Caderno$InvalidIdException.class
+crud/Caderno$InvalidModeloException.class
 crud/JFrame_CRUD$2.class
+crud/Caderno$InvalidGramaturaException.class
 crud/JFrame_CRUD$3.class
+crud/IllegalArgumentsException.class

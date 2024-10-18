@@ -64,8 +64,12 @@ public class JFrame_CRUD extends javax.swing.JFrame {
         gramatura = (Gramatura)jcmb_gramatura.getSelectedItem();
         ativo = jchb_ativo.isSelected();
         
-        Caderno c = new Caderno(id, modelo, paginas, gramatura, ativo);
-        return c;
+        try {
+            Caderno c = new Caderno(id, modelo, paginas, gramatura, ativo);
+            return c;
+        } catch (IllegalArgumentsException exs) {
+            return null;
+        }
     }
 
     @SuppressWarnings("unchecked")

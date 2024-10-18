@@ -174,9 +174,12 @@ public class BD {
                     }
                     
                     ativo = rs.getBoolean("ativo");
-                    
-                    c = new crud.Caderno(id, modelo, paginas, gramatura, ativo);
-                    cList.add(c);
+                    try {
+                        c = new crud.Caderno(id, modelo, paginas, gramatura, ativo);
+                        cList.add(c);
+                    } catch (IllegalArgumentsException exs) {
+//                     TODO........   
+                    }
                 }
             } catch (SQLException e) {
                 System.out.print("Erro de parse!");
