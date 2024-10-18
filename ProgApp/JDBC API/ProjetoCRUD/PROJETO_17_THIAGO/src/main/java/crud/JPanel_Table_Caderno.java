@@ -20,6 +20,7 @@ public class JPanel_Table_Caderno extends JPanel {
         
         JTable table = new JTable(model);
         this.table = table;
+        table.getTableHeader().setReorderingAllowed(false);
         table.setPreferredScrollableViewportSize(new Dimension(600, 200));
         table.setFillsViewportHeight(true);
         
@@ -30,14 +31,14 @@ public class JPanel_Table_Caderno extends JPanel {
     
     public JPanel_Table_Caderno(Caderno... cadernos) {
         this();
-        this.getTableModel().fillRows(cadernos);
+        this.getModel().fillRows(cadernos);
     }
     
-    public CadernoTableModel getTableModel() {
+    public CadernoTableModel getModel() {
         return this.model;
     }
     
-    public JTable getJTable() {
+    public JTable getTable() {
         return this.table;
     }
     

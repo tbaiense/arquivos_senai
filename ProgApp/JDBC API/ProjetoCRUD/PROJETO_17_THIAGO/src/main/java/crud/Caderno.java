@@ -5,11 +5,11 @@ public class Caderno {
     public String modelo, gramatura;
     boolean ativo;
     
-    public Caderno(int id, String modelo, int paginas, Gramatura gramatura, boolean ativo) {
+    public Caderno(int id, String modelo, int paginas, Gramatura gramatura, boolean ativo) throws IllegalArgumentException {
         this(modelo, paginas, gramatura, ativo);
         
         if (id < 1) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Id inválido", new InvalidIdException());
         }
         
         this.id = id;
@@ -30,5 +30,16 @@ public class Caderno {
         this.paginas = paginas;
         this.gramatura = gramatura.valor;
         this.ativo = ativo;
+    }
+    
+    static public class InvalidIdException extends Throwable {
+    
+        public InvalidIdException() {
+            
+        }
+        
+        public InvalidIdException(String message) {
+            super(message);
+        }
     }
 }

@@ -1,11 +1,5 @@
-crud\Caderno.class
-crud\JFrame_CRUD$1.class
-crud\JFrame_CRUD$4.class
-crud\JFrame_CRUD$2.class
-crud\JFrame_CRUD.class
-crud\BD.class
-crud\BD$Caderno.class
-crud\CadernoTableModel.class
-crud\Gramatura.class
-crud\JFrame_CRUD$3.class
-crud\JPanel_Table_Caderno.class
+crud/JFrame_CRUD$4.class
+crud/Teste.class
+crud/Caderno$InvalidIdException.class
+crud/JFrame_CRUD$2.class
+crud/JFrame_CRUD$3.class

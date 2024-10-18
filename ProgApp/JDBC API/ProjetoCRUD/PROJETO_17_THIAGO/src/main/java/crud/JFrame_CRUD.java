@@ -1,24 +1,26 @@
 package crud;
 
+import javax.swing.JOptionPane;
+
 
 public class JFrame_CRUD extends javax.swing.JFrame {
 
     public JFrame_CRUD() {
         initComponents();
-        jpnl_table.getTableModel().fillRows(BD.Caderno.selectAll());
+        jpnl_table.getModel().fillRows(BD.Caderno.selectAll());
         jlbl_valid_modelo.setVisible(false);
         jlbl_valid_paginas.setVisible(false);
         jlbl_valid_gramatura.setVisible(false);
         jcmb_gramatura.addItem(Gramatura.OFFSET_100G);
         jcmb_gramatura.addItem(Gramatura.OFFSET_70G);
         
-        jpnl_table.getJTable().getSelectionModel().addListSelectionListener((e) -> {
-            int rowSel = jpnl_table.getJTable().getSelectedRow();
+        jpnl_table.getTable().getSelectionModel().addListSelectionListener((e) -> {
+            int rowSel = jpnl_table.getTable().getSelectedRow();
             
             if (rowSel == -1) {
-                jpnl_table.getJTable().getSelectionModel().clearSelection();
+                jpnl_table.getTable().getSelectionModel().clearSelection();
             } else {
-                setFieldsInfo((Caderno)(jpnl_table.getTableModel().getRow(rowSel)));
+                setFieldsInfo((Caderno)(jpnl_table.getModel().getRow(rowSel)));
             }
         });
     }
@@ -47,11 +49,16 @@ public class JFrame_CRUD extends javax.swing.JFrame {
     
     private Caderno getFieldsInfo() {
         String modelo;
-        int id, paginas;
+        int id = -1, paginas;
         boolean ativo;
         Gramatura gramatura;
         
-        id = Integer.parseInt(jtxtf_id.getText());
+        try {
+            id = Integer.parseInt(jtxtf_id.getText());
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Não é permitido usar esse valor como id.");
+        }
+        
         modelo = jtxtf_modelo.getText();
         paginas = (Integer)jspn_paginas.getValue();
         gramatura = (Gramatura)jcmb_gramatura.getSelectedItem();
@@ -167,17 +174,17 @@ public class JFrame_CRUD extends javax.swing.JFrame {
 
     private void jbtn_cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_cadastrarActionPerformed
         BD.Caderno.insert(getFieldsInfo());
-        jpnl_table.getTableModel().refresh();
+        jpnl_table.getModel().refresh();
     }//GEN-LAST:event_jbtn_cadastrarActionPerformed
 
     private void jbtn_alterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_alterarActionPerformed
         BD.Caderno.update(getFieldsInfo());
-        jpnl_table.getTableModel().refresh();
+        jpnl_table.getModel().refresh();
     }//GEN-LAST:event_jbtn_alterarActionPerformed
 
     private void jbtn_excluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_excluirActionPerformed
         BD.Caderno.delete(getFieldsInfo());
-        jpnl_table.getTableModel().refresh();
+        jpnl_table.getModel().refresh();
     }//GEN-LAST:event_jbtn_excluirActionPerformed
 
     public static void main(String args[]) {

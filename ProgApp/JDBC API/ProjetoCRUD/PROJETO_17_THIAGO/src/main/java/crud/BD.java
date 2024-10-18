@@ -9,11 +9,11 @@ import java.util.ArrayList;
 
 public class BD {
     public static String DRIVER = "mysql";
-    public static String ADDRESS = "localhost";
+    public static String ADDRESS = "10.0.0.101";
     public static String PORT = "3306";
     public static String DB_NAME = "papelaria";
     public static String USER = "root";
-    public static String USER_PWD = "";
+    public static String USER_PWD = "tmb";
     
     public static Connection getConnection() {
         final String connStr = String.format("jdbc:%s://%s:%s/%s", DRIVER, ADDRESS, PORT, DB_NAME);
