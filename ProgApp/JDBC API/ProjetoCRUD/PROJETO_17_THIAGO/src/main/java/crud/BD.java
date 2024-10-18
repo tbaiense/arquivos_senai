@@ -6,14 +6,15 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 public class BD {
     public static String DRIVER = "mysql";
-    public static String ADDRESS = "10.0.0.101";
+    public static String ADDRESS = "localhost";
     public static String PORT = "3306";
     public static String DB_NAME = "papelaria";
     public static String USER = "root";
-    public static String USER_PWD = "tmb";
+    public static String USER_PWD = "";
     
     public static Connection getConnection() {
         final String connStr = String.format("jdbc:%s://%s:%s/%s", DRIVER, ADDRESS, PORT, DB_NAME);
@@ -67,10 +68,12 @@ public class BD {
                         insert.setBoolean(i++, c.ativo);
                     }
                 }
-                
-                int r = insert.executeUpdate();
-                
-                return r;
+                if (i != 1) {
+                    int r = insert.executeUpdate();
+                    return r;
+                } else {
+                    return 0;
+                }
             } catch (SQLException e) {
                 System.out.println("Insert falhou!");
             }
@@ -123,7 +126,9 @@ public class BD {
                 return parse(select.executeQuery());
             } catch (SQLException e) {
                 System.out.print("Erro de select!");
-            }            
+            } catch (IllegalArgumentsException exs) {
+                JOptionPane.showMessageDialog(null, "Caderno inválido recebido pelo banco!");
+            } 
             return null;
         }
         
@@ -147,11 +152,13 @@ public class BD {
                 return null;
             } catch (SQLException e) {
                 System.out.print("Erro de select!");
-            }
+            } catch (IllegalArgumentsException exs) {
+                JOptionPane.showMessageDialog(null, "Caderno inválido recebido pelo banco!");
+            } 
             return null;
         }
         
-        public static crud.Caderno[] parse(ResultSet rs) {
+        public static crud.Caderno[] parse(ResultSet rs) throws IllegalArgumentsException {
             ArrayList<crud.Caderno> cList = new ArrayList<crud.Caderno>();
             try {
                 while(rs.next()) {
@@ -174,12 +181,8 @@ public class BD {
                     }
                     
                     ativo = rs.getBoolean("ativo");
-                    try {
-                        c = new crud.Caderno(id, modelo, paginas, gramatura, ativo);
-                        cList.add(c);
-                    } catch (IllegalArgumentsException exs) {
-//                     TODO........   
-                    }
+                    c = new crud.Caderno(id, modelo, paginas, gramatura, ativo);
+                    cList.add(c);
                 }
             } catch (SQLException e) {
                 System.out.print("Erro de parse!");

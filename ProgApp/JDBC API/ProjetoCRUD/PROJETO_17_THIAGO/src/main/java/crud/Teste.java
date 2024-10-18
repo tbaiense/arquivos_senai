@@ -12,9 +12,8 @@ public class Teste {
         try {
             Caderno c = new Caderno("", -2, Gramatura.OFFSET_100G, true);
         } catch (IllegalArgumentsException exs) {
-            Throwable cause;
-            
-            while ((cause = exs.getCause()) != null) {
+            while (exs.hasNextCause()) {
+                Throwable cause = exs.nextCause();
                 System.out.println(cause.getMessage());
             }
         }

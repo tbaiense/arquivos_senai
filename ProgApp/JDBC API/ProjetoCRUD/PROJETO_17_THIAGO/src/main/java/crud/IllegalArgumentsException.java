@@ -1,5 +1,7 @@
 package crud;
 
+import java.util.Arrays;
+
 public class IllegalArgumentsException extends Exception {
     
     private Throwable[] causes;
@@ -46,6 +48,16 @@ public class IllegalArgumentsException extends Exception {
         return this;
     }
     
+    public boolean hasNextCause() {
+        if (causes == null) {
+            return false;
+        } else if (nextCause < causes.length) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
     @Override
     public Throwable getCause() {
         if (causes == null) {
@@ -53,7 +65,7 @@ public class IllegalArgumentsException extends Exception {
         }
         
         if (causes.length == 1) {
-            return causes[0];
+            return causes[nextCause++];
         } else if (this.nextCause < causes.length) {
             return causes[nextCause++];
         } else {
@@ -61,7 +73,35 @@ public class IllegalArgumentsException extends Exception {
         }
     }
     
+    public Throwable nextCause() {
+        return this.getCause();
+    }
+    
     public Throwable[] getCauses() {
         return this.causes;
+    }
+    
+    public int getCauseCount() {
+        if (this.causes == null) {
+            return 0;
+        } else { 
+            return this.causes.length;
+        }
+    }
+    
+    public Throwable addCause(Throwable cause) {
+        if (cause == null) {
+            return this;
+        }
+        
+        if (this.causes == null) {
+            this.initCause(cause);
+        }
+        
+        Throwable[] newCauses = Arrays.copyOf(getCauses(), getCauseCount()+1);
+        newCauses[newCauses.length-1] = cause;
+        
+        this.causes = newCauses;
+        return this;
     }
 }

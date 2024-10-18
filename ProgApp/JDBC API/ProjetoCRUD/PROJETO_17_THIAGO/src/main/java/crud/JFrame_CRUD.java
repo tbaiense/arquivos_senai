@@ -13,7 +13,7 @@ public class JFrame_CRUD extends javax.swing.JFrame {
         jlbl_valid_gramatura.setVisible(false);
         jcmb_gramatura.addItem(Gramatura.OFFSET_100G);
         jcmb_gramatura.addItem(Gramatura.OFFSET_70G);
-        
+        jspn_paginas.setValue(Integer.valueOf(100));
         jpnl_table.getTable().getSelectionModel().addListSelectionListener((e) -> {
             int rowSel = jpnl_table.getTable().getSelectedRow();
             
@@ -26,8 +26,22 @@ public class JFrame_CRUD extends javax.swing.JFrame {
     }
 
     private void setFieldsInfo(Caderno c) {
+        jlbl_valid_modelo.setVisible(false);
+        jlbl_valid_paginas.setVisible(false);
+        jlbl_valid_gramatura.setVisible(false);
+        
+        if (c == null) {
+            jtxtf_id.setText("");
+            jtxtf_modelo.setText("");
+            jchb_ativo.setSelected(false);
+            jspn_paginas.setValue(Integer.valueOf(100));
+            return;
+        }
+        
         if (c.id != -1) {
             jtxtf_id.setText(String.valueOf(c.id));
+        } else {
+            jtxtf_id.setText("");
         }
         
         jtxtf_modelo.setText(c.modelo);
@@ -48,26 +62,56 @@ public class JFrame_CRUD extends javax.swing.JFrame {
     }
     
     private Caderno getFieldsInfo() {
+        jlbl_valid_modelo.setVisible(false);
+        jlbl_valid_paginas.setVisible(false);
+        jlbl_valid_gramatura.setVisible(false);
+        
         String modelo;
-        int id = -1, paginas;
+        int id, paginas;
         boolean ativo;
         Gramatura gramatura;
-        
-        try {
-            id = Integer.parseInt(jtxtf_id.getText());
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "Não é permitido usar esse valor como id.");
-        }
         
         modelo = jtxtf_modelo.getText();
         paginas = (Integer)jspn_paginas.getValue();
         gramatura = (Gramatura)jcmb_gramatura.getSelectedItem();
         ativo = jchb_ativo.isSelected();
         
+        String idStr = jtxtf_id.getText();
+        if (idStr.isBlank()) {
+            id = -1;
+        } else {
+            try {
+                id = Integer.parseInt(idStr);
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "Não é permitido usar esse valor como id.");
+                id = -1;
+            }
+        }
+
+        
         try {
-            Caderno c = new Caderno(id, modelo, paginas, gramatura, ativo);
+            Caderno c;
+            if (id != -1) {
+                c = new Caderno(id, modelo, paginas, gramatura, ativo);
+            } else {
+                c = new Caderno(modelo, paginas, gramatura, ativo);
+            }
+            
             return c;
         } catch (IllegalArgumentsException exs) {
+            while(exs.hasNextCause()) {
+                Throwable cause = exs.nextCause();
+                if (cause instanceof Caderno.InvalidModeloException) {
+                    jlbl_valid_modelo.setVisible(true);
+                } else if (cause instanceof Caderno.InvalidPaginasException) {
+                    jlbl_valid_paginas.setVisible(true);
+                } else if (cause instanceof Caderno.InvalidGramaturaException) {
+                    jlbl_valid_gramatura.setVisible(true);
+                } else if (cause instanceof Caderno.InvalidIdException) {
+                    JOptionPane.showMessageDialog(null, cause.getMessage());
+                }
+            }
+            
             return null;
         }
     }
@@ -94,6 +138,7 @@ public class JFrame_CRUD extends javax.swing.JFrame {
         jlbl_valid_paginas = new javax.swing.JLabel();
         jlbl_valid_gramatura = new javax.swing.JLabel();
         jlbl_valid_modelo = new javax.swing.JLabel();
+        jbtn_limparSel = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -162,6 +207,14 @@ public class JFrame_CRUD extends javax.swing.JFrame {
         jlbl_valid_modelo.setFocusable(false);
         jpnl_contentPane.add(jlbl_valid_modelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, -1, -1));
 
+        jbtn_limparSel.setText("Limpar seleção");
+        jbtn_limparSel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtn_limparSelActionPerformed(evt);
+            }
+        });
+        jpnl_contentPane.add(jbtn_limparSel, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 190, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -177,19 +230,34 @@ public class JFrame_CRUD extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbtn_cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_cadastrarActionPerformed
-        BD.Caderno.insert(getFieldsInfo());
-        jpnl_table.getModel().refresh();
+        Caderno c = getFieldsInfo();  
+        if (c != null) {
+            BD.Caderno.insert(c);
+            jpnl_table.getModel().refresh();
+        }
     }//GEN-LAST:event_jbtn_cadastrarActionPerformed
 
     private void jbtn_alterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_alterarActionPerformed
-        BD.Caderno.update(getFieldsInfo());
-        jpnl_table.getModel().refresh();
+        Caderno c = getFieldsInfo();  
+        if (c != null) {
+            BD.Caderno.update(c);
+            jpnl_table.getModel().refresh();
+        }
     }//GEN-LAST:event_jbtn_alterarActionPerformed
 
     private void jbtn_excluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_excluirActionPerformed
-        BD.Caderno.delete(getFieldsInfo());
-        jpnl_table.getModel().refresh();
+        Caderno c = getFieldsInfo();  
+        if (c != null) {
+            BD.Caderno.delete(c);
+            jpnl_table.getModel().refresh();
+        }
+        jbtn_limparSel.doClick();
     }//GEN-LAST:event_jbtn_excluirActionPerformed
+
+    private void jbtn_limparSelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_limparSelActionPerformed
+        jpnl_table.getTable().getSelectionModel().clearSelection();
+        setFieldsInfo(null);
+    }//GEN-LAST:event_jbtn_limparSelActionPerformed
 
     public static void main(String args[]) {
         try {
@@ -220,6 +288,7 @@ public class JFrame_CRUD extends javax.swing.JFrame {
     private javax.swing.JButton jbtn_alterar;
     private javax.swing.JButton jbtn_cadastrar;
     private javax.swing.JButton jbtn_excluir;
+    private javax.swing.JButton jbtn_limparSel;
     private javax.swing.JCheckBox jchb_ativo;
     private javax.swing.JComboBox<Gramatura> jcmb_gramatura;
     private javax.swing.JLabel jlbl_gramatura;

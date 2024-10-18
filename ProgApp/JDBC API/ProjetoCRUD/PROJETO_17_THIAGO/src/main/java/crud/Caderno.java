@@ -8,31 +8,29 @@ public class Caderno {
     boolean ativo;
     
     public Caderno(int id, String modelo, int paginas, Gramatura gramatura, boolean ativo) throws IllegalArgumentsException {
-        this(modelo, paginas, gramatura, ativo);
-        
-        if (id < 1) {
-            throw new IllegalArgumentsException(new InvalidIdException("Id não pode ser inferior a 1."));
-        }
-        
-        this.id = id;
-    }
-    
-    public Caderno(String modelo, int paginas, Gramatura gramatura, boolean ativo) throws IllegalArgumentsException {
-        IllegalArgumentsException ex = null;
+        IllegalArgumentsException exs = null;
         ArrayList<Throwable> exList = null;
         
+        try {
+            setId(id);
+        } catch (InvalidIdException ex) {
+            exs = new IllegalArgumentsException();
+            exList = new ArrayList<Throwable>();
+            exList.add(ex);
+        }
+        
         if (modelo == null) {
-            if (ex == null) {
-                ex = new IllegalArgumentsException();
+            if (exs == null) {
+                exs = new IllegalArgumentsException();
                 exList = new ArrayList<Throwable>();
             }
             
-            exList.add(new NullPointerException("Modelo não pode ser nulo."));
+            exList.add(new InvalidModeloException("Modelo não pode ser nulo."));
         }
         modelo = modelo.trim();
         if (modelo.isEmpty()) {
-            if (ex == null) {
-                ex = new IllegalArgumentsException();
+            if (exs == null) {
+                exs = new IllegalArgumentsException();
                 exList = new ArrayList<Throwable>();
             }
             
@@ -40,26 +38,48 @@ public class Caderno {
         }
         
         if (paginas < 1) {
-            if (ex == null) {
-                ex = new IllegalArgumentsException();
+            if (exs == null) {
+                exs = new IllegalArgumentsException();
                 exList = new ArrayList<Throwable>();
             }
             
             exList.add(new InvalidPaginasException("Número de páginas não pode ser inferior a 1."));
         }
         
-        if (ex != null) {
+        if (gramatura == null) {
+            if (exs == null) {
+                exs = new IllegalArgumentsException();
+                exList = new ArrayList<Throwable>();
+            }
+            
+            exList.add(new InvalidGramaturaException("Gramatura não pode ser nula."));
+        }
+        
+        if (exs != null) {
             Throwable[] causes = new Throwable[exList.size()];
             exList.toArray(causes);
             
-            ex.initCauses(causes);
-            throw ex;
+            exs.initCauses(causes);
+            throw exs;
         }
         
         this.modelo = modelo;
         this.paginas = paginas;
         this.gramatura = gramatura.valor;
         this.ativo = ativo;
+    }
+    
+    public Caderno(String modelo, int paginas, Gramatura gramatura, boolean ativo) throws IllegalArgumentsException {
+        this(1, modelo, paginas, gramatura, ativo);
+        this.id = -1;
+    }
+    
+    private void setId(int id) throws InvalidIdException {
+        if (id < 1) {
+            throw new InvalidIdException("Id não pode ser inferior a 1.");
+        } else {
+            this.id = id;
+        }
     }
     
     static public class InvalidIdException extends Exception {
