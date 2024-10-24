@@ -1,0 +1,2 @@
+### VERIFICAR USER ATUAL
+	SELECT session_user();
